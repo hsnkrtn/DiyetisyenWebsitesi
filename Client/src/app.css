@@ -1,0 +1,1291 @@
+.NavigationBar {
+    background-color: transparent;
+    position: absolute;
+    width: 100%;
+    height: 170px;
+    z-index: 4;
+}
+
+.CurrentNavigationList {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    padding: 10px 0px;
+    gap: 150px;
+    list-style-type: none;
+    background-color: transparent;
+    width: fit-content;
+    height: fit-content;
+    margin: auto;
+    justify-content: center;
+    box-shadow: 0px -1px 0px 0px rgba(255, 255, 255, 0.10);
+
+
+}
+
+.NavigationBar li {
+    position: relative;
+    color: white;
+    font-size: 18px;
+    font-style: italic;
+    font-weight: 400;
+    transition: all 500ms cubic-bezier(0.77, 0, 0.175, 1);
+
+
+}
+
+
+.NavigationBar li:hover {
+    cursor: pointer;
+    color: black;
+
+
+
+}
+
+.NavigationBar a {
+    color: white;
+    text-decoration: none;
+}
+
+.Header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    background-color: transparent;
+    height: fit-content;
+
+}
+
+.Header p {
+
+    font-size: 18px;
+    color: white;
+    margin: 0px;
+    font-style: italic;
+}
+
+.Header i {
+    color: white;
+
+}
+
+.Header i:hover {
+    color: black;
+
+}
+
+.Header a {
+    font-size: 18px;
+    color: white;
+    text-decoration: none;
+}
+
+.Header a:hover {
+    color: black;
+
+}
+
+.WebsiteOwnerName {
+    display: flex;
+    flex-direction: row;
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    color: white;
+    font-family: 'Kaushan Script';
+
+
+
+}
+
+.WebsiteOwnerName a {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.WebsiteOwnerName img {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.WebsiteOwnerName:hover {
+    cursor: pointer;
+    color: rgb(93, 15, 68, 1);
+    transition: all 500ms cubic-bezier(0.77, 0, 0.175, 1);
+
+
+}
+
+.WebsiteOwnerName h1 {
+    margin: 0px;
+    max-height: 70px;
+}
+
+.Carousel {
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.Carousel img {
+    display: flex;
+    width: 100%;
+    height: 1000px;
+    object-fit: cover;
+
+}
+
+.Carousel h1 {
+    position: absolute;
+    top: 25%;
+
+    display: flex;
+    width: 500px;
+    height: fit-content;
+    justify-content: center;
+    align-content: center;
+    color: white;
+    font-style: italic;
+    font-family: 'Kaushan Script';
+    font-size: 70px;
+    font-weight: 200;
+    transition: all 500ms cubic-bezier(0.77, 0, 0.175, 1);
+
+}
+
+.Carousel h1:hover {
+    cursor: pointer;
+    color: rgb(93, 15, 68, 1);
+    transform: scale(1.2);
+
+
+
+}
+
+.Carousel-left-button {
+    position: absolute;
+    top: 40%;
+    left: 20px;
+    font-size: 50px;
+    background-color: transparent;
+    color: white;
+    border: 0px;
+    transition: all 500ms cubic-bezier(0.77, 0, 0.175, 1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.Carousel-right-button {
+    position: absolute;
+    top: 40%;
+    right: 20px;
+    font-size: 50px;
+    background-color: transparent;
+    color: white;
+    border: 0px;
+    transition: all 500ms cubic-bezier(0.77, 0, 0.175, 1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Carousel-right-button:hover {
+
+    color: rgb(93, 15, 68, 1);
+    transition: all 500ms cubic-bezier(0.77, 0, 0.175, 1);
+    cursor: pointer;
+}
+
+.Carousel-left-button:hover {
+    cursor: pointer;
+    color: rgb(93, 15, 68, 1);
+    transition: all 500ms cubic-bezier(0.77, 0, 0.175, 1);
+
+}
+
+.Articles {
+    position: relative;
+    left: 0%;
+    width: 100%;
+    background-color: #f7f5fa;
+    height: 700px;
+    display: flex;
+    justify-content: center;
+
+
+
+}
+
+.Article-inner {
+    position: relative;
+    width: 1450px;
+    height: 700px;
+
+
+
+}
+
+.Articles-header h1 {
+    position: absolute;
+    top: 0px;
+    left: 5%;
+    margin: 0%;
+    color: black;
+    font-style: italic;
+    font-family: 'Kaushan Script';
+    font-size: 30px;
+
+
+
+}
+
+.Articles-cards {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    overflow: hidden;
+    height: 100%;
+
+}
+
+.Article-card {
+    position: relative;
+    width: 350px;
+    height: 500px;
+    margin-left: 80px;
+    margin-top: 80px;
+    margin-bottom: 100px;
+    background: #FFFFFF;
+    box-shadow: 0px 10px 10px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+    transition: all 500ms cubic-bezier(0.77, 0, 0.175, 1);
+
+}
+
+
+.Article-card:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+    transition: all 500ms cubic-bezier(0.77, 0, 0.175, 1);
+
+}
+
+.Article-card-image {
+    position: absolute;
+    height: 270px;
+    left: 0%;
+    right: 0%;
+    top: 0px;
+
+
+
+}
+
+.Article-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 15px 15px 0px 0px;
+}
+
+.Article-card-detail {
+    position: absolute;
+    left: 0%;
+    right: 0%;
+    top: 50%;
+    height: 250px;
+    background: #fff5f5;
+    border-radius: 15px 15px 15px 15px;
+    overflow: hidden;
+}
+
+.Article-card-detail h1 {
+    font-size: 20px;
+    padding: 0px 10px 0px 10px;
+    color: black;
+    font-style: italic;
+    font-family: 'Kaushan Script';
+
+
+}
+
+.Article-card-detail p {
+    font-size: 16px;
+    padding: 0px 10px 0px 10px;
+
+}
+
+.ShowAllArticles {
+
+    position: absolute;
+    font-size: 20px;
+    top: 92%;
+    right: 0px;
+    color: black;
+    font-style: italic;
+    font-family: 'Kaushan Script';
+    transition: all 500ms cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+.ShowAllArticles a {
+    color: black;
+    text-decoration: none;
+}
+
+.ShowAllArticles:hover {
+    cursor: pointer;
+    color: rgb(93, 15, 68, 1);
+    transform: scale(1.1);
+    transition: all 500ms cubic-bezier(0.77, 0, 0.175, 1);
+
+
+}
+
+.Calculations {
+
+    position: relative;
+}
+
+.Calculations-cards {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.Calculations-cards ul {
+    width: 100%;
+    padding: 0%;
+    margin: 0%;
+    display: flex;
+
+}
+
+.Calculations-card {
+    position: relative;
+    height: 200px;
+    width: 33vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+}
+
+.Calculations-card img {
+
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: blur(0.5px);
+}
+
+.Calculations-card h1 {
+    position: absolute;
+    color: white;
+    font-style: italic;
+    font-family: 'Kaushan Script';
+    font-size: 22px;
+    letter-spacing: 2px;
+
+
+}
+
+.Calculations-card:hover {
+    cursor: pointer;
+
+
+}
+
+.Appointment {
+    position: relative;
+    width: 100%;
+    height: 800px;
+    background-color: #f7f5fa;
+    top: 0%;
+    margin: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+.Appointment-inner {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    gap: 100px;
+}
+
+.Appointment-text {
+    position: relative;
+    color: black;
+    font-style: italic;
+    font-family: 'Kaushan Script';
+    font-size: 50px;
+    display: flex;
+    justify-content: center;
+
+}
+
+
+
+
+
+.Appointment-form {
+    position: relative;
+    width: 600px;
+    height: 675px;
+    background: #eff5f7;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    box-shadow: 0px 10px 10px 4px rgba(0, 0, 0, 0.25);
+
+
+}
+
+
+.Appointment-form form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    padding: 0px 55px;
+}
+
+.ContactUs {
+    position: absolute;
+    background-color: #a7d433;
+    border: 1px solid #ccc;
+    padding: 5px 15px;
+    border-radius: 8px;
+    box-sizing: border-box;
+    height: 50px;
+    font-size: 16px;
+    font-family: 'Kaushan Script';
+    transition: all 500ms cubic-bezier(0.77, 0, 0.175, 1);
+    top: 200px;
+
+}
+
+.ContactUs a {
+    text-decoration: none;
+}
+
+.ContactUs:hover {
+    cursor: pointer;
+    border: 1px solid #a7d433;
+    color: #a7d433;
+    background-color: transparent;
+    font-weight: bolder;
+    transition: all 500ms cubic-bezier(0.77, 0, 0.175, 1);
+
+}
+
+input[type=text] {
+    width: 100%;
+    padding: 12px 20px;
+    font-size: 16px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-sizing: border-box;
+}
+
+input[type=number] {
+    width: 100%;
+    padding: 12px 20px;
+    font-size: 16px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-sizing: border-box;
+}
+
+input[type=email] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    font-size: 16px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-sizing: border-box;
+}
+
+
+#Fmessage {
+    width: 100%;
+    height: 200px;
+
+    font-size: 16px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+
+
+}
+
+.SubmitFormButton {
+    background-color: #a7d433;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-sizing: border-box;
+    height: 50px;
+    font-size: 16px;
+    letter-spacing: 2px;
+    font-family: 'Kaushan Script';
+    transition: all 500ms cubic-bezier(0.77, 0, 0.175, 1);
+    margin-top: 25px;
+}
+
+.SubmitFormButton:hover {
+    cursor: pointer;
+    border: 1px solid #a7d433;
+    color: #a7d433;
+    background-color: transparent;
+    font-weight: bolder;
+    transition: all 500ms cubic-bezier(0.77, 0, 0.175, 0.5);
+}
+
+.Footer {
+    display: flex;
+    position: relative;
+    width: 100%;
+    height: 500px;
+    background-color: #660099;
+    justify-content: flex-end;
+    align-items: center;
+    flex-direction: column;
+
+}
+
+.Footer ul {
+    list-style: none;
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+    gap: 50px;
+    list-style-type: none;
+    background-color: transparent;
+    width: fit-content;
+    height: fit-content;
+    margin: auto;
+    color: white;
+    top: 200px;
+
+
+
+}
+
+.Footer li {
+    letter-spacing: 2px;
+
+}
+
+.Footer li:hover {
+    cursor: pointer;
+
+}
+
+.WebsiteOwnerNameFooter {
+    position: absolute;
+    top: 100px;
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    font-size: 20px;
+    color: white;
+    font-family: 'Kaushan Script';
+
+
+}
+
+.WebsiteOwnerNameFooter a {
+    color: white;
+    text-decoration: none;
+}
+
+.footerlist a {
+    text-decoration: none;
+    color: white;
+}
+
+.Footerinfo {
+    color: white;
+
+}
+
+.MenuButton {
+    display: none;
+    background-color: yellow;
+}
+
+.default-routepage {
+    position: relative;
+
+    height: fit-content;
+
+}
+
+.default-routepage-header {
+    position: relative;
+    height: 170px;
+    margin: 0px;
+    padding: 0%;
+    background-color: #660099;
+
+}
+
+.About {
+
+    position: relative;
+
+    height: fit-content;
+}
+
+.Allarticles {
+
+    position: relative;
+    display: flex;
+    height: fit-content;
+    flex-direction: column;
+
+}
+
+.ArticleCardRouteDetail {
+
+    position: relative;
+    display: flex;
+    height: fit-content;
+    flex-direction: column;
+
+}
+
+.ArticleAllDetailImage {
+    display: flex;
+    margin-top: 100px;
+    justify-content: center;
+    width: 100%;
+    height: 300p;
+}
+
+.ArticleAllDetailImage img {
+    width: 100%;
+    height: 700px;
+    object-fit: cover;
+}
+
+.Routepage-inner {
+    position: relative;
+    width: 100%;
+    background-color: #f7f5fa;
+    display: flex;
+    justify-content: center;
+    height: fit-content;
+}
+
+
+.Routepage-inner-content {
+    position: relative;
+    height: fit-content;
+    width: 90%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.RoutepageHeader {
+    position: absolute;
+    height: fit-content;
+    margin-top: 25px;
+    padding: 0%;
+    font-size: 30px;
+
+    font-family: 'Kaushan Script';
+
+
+
+}
+
+
+.FoodsAndCalories {
+
+    position: relative;
+
+    height: fit-content;
+}
+
+.Contactpage {
+
+
+    position: relative;
+
+    height: fit-content;
+}
+
+.RoutePageContent {
+    position: relative;
+    height: fit-content;
+    margin-top: 100px;
+
+}
+
+.mapouter {
+    position: relative;
+    display: flex;
+    width: 100%;
+    height: fit-content;
+    justify-content: center
+}
+
+.gmap iframe {
+    position: relative;
+    width: 80vw;
+    height: 500px;
+    border: 0px;
+
+}
+
+.ArticleCardList {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+    position: relative;
+    margin: 0px;
+    padding: 0%;
+
+}
+
+.ArticleCardList li {
+    list-style-type: none;
+
+}
+
+.ArticleCardList li a {
+    text-decoration: none;
+    color: rgb(59, 59, 59);
+}
+
+.ContactInfo {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 100px;
+    margin-bottom: 50px;
+    margin-top: 50px;
+}
+
+.Informations-Item {
+    display: flex;
+    width: 300px;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 20px;
+    text-decoration: none;
+
+}
+
+.Informations-Item span {
+    display: flex;
+    justify-content: center;
+    font-size: 40px;
+    color: rgb(93, 15, 68, 1);
+}
+
+.Informations-Item a {
+    display: flex;
+    justify-content: center;
+    font-family: 'Kaushan Script';
+    color: rgb(93, 15, 68, 1);
+    text-decoration: none;
+
+}
+
+.AboutUscontent {
+    margin-top: 100px;
+}
+
+.AboutUsImage {
+
+    position: relative;
+    margin-top: 100px;
+    width: 100%;
+}
+
+.AboutUsImage img {
+
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+}
+
+.calculationpage {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.calculationpage h1 {
+    font-family: 'Kaushan Script';
+
+
+}
+
+.calculationpage-form {
+    position: relative;
+    width: 350px;
+    height: fit-content;
+    background: #eff5f7;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    box-shadow: 0px 10px 10px 4px rgba(0, 0, 0, 0.15);
+    margin-bottom: 50px;
+    padding: 30px 0px;
+
+}
+
+.calculationpage-form form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    padding: 0px 35px;
+
+
+}
+
+.Error404 {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+.Error404 img {
+
+    display: flex;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.Error404Button{
+    display: flex;
+    position: absolute;
+    background-color: #660099;
+    border: solid 2px white;
+    width: 200px;
+    height: 50px;
+    border-radius: 25px;
+    top: 20%;
+    transition: all 500ms cubic-bezier(0.77, 0, 0.175, 1);
+}
+.Error404Button a{ 
+    display: flex;
+    width: 100%;
+    height: 100%;
+    color: white;
+    text-decoration: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.Error404Button:hover{
+    color: white;
+    cursor: pointer;
+    border-color: white;
+    transform: scale(1.2);
+    transition: all 500ms cubic-bezier(0.77, 0, 0.175, 1);
+
+
+}
+.AdminPage{
+display: flex;
+position: relative;
+background-color: red;
+width: 100%;
+height: fit-content;
+
+}
+.AdminPageContent{
+position: relative;
+
+
+}
+/*   Design for phone Desing for phone  Desing for phone Desing for phone */
+
+@media only screen and (max-width: 600px) {
+    .NavigationBar {
+        background-color: #660099;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+
+        height: fit-content;
+    }
+
+    .WebsiteOwnerName img {
+        position: relative;
+        width: 80px;
+        height: 80px;
+    }
+
+    .MenuButton {
+        display: flex;
+        position: relative;
+        width: 50px;
+        height: 30px;
+        justify-content: center;
+        align-items: center;
+        left: 50%;
+        margin-left: -25px;
+        background-color: transparent;
+        border: none;
+        color: white;
+        font-size: large
+    }
+
+    .CurrentNavigationList {
+        display: none;
+    }
+
+    .ShowNavigationList {
+        display: flex;
+        flex-direction: column;
+        list-style-type: none;
+        gap: 5px;
+
+
+    }
+
+    .ShowNavigationList li {
+        list-style-type: none;
+        font-size: 20px;
+    }
+
+
+    .Header {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        background-color: transparent;
+        height: fit-content;
+
+    }
+
+    .Header p {
+
+        font-size: 12px;
+        color: white;
+        margin: 0px;
+        font-style: italic;
+    }
+
+
+
+    .Header a {
+        font-size: 12px;
+        color: white;
+        text-decoration: none;
+    }
+
+
+    .Carousel h1 {
+        position: absolute;
+        top: 40%;
+        right: 50%;
+        margin-right: -100px;
+        display: flex;
+        width: 200px;
+        height: fit-content;
+        font-size: 20px;
+
+    }
+
+    .Carousel img {
+        display: flex;
+        width: 100%;
+        object-fit: cover;
+        height: 500px;
+
+
+    }
+
+    .Carousel h1:hover {
+        cursor: pointer;
+        color: rgb(93, 15, 68, 1);
+
+
+
+
+    }
+
+
+
+    .Carousel-left-button {
+        position: absolute;
+        top: 50%;
+        left: 5px;
+        font-size: 20px;
+
+
+    }
+
+    .Carousel-right-button {
+        position: absolute;
+        top: 50%;
+        right: 5px;
+        font-size: 20px;
+
+    }
+
+    .Carousel-right-button:hover {
+
+        color: rgb(93, 15, 68, 1);
+        transition: all 500ms cubic-bezier(0.77, 0, 0.175, 1);
+        cursor: pointer;
+    }
+
+    .Carousel-left-button:hover {
+        cursor: pointer;
+        color: rgb(93, 15, 68, 1);
+        transition: all 500ms cubic-bezier(0.77, 0, 0.175, 1);
+
+    }
+
+    .Articles {
+        position: relative;
+
+        height: fit-content;
+        display: flex;
+        justify-content: center;
+
+
+
+    }
+
+    .Article-inner {
+        position: relative;
+        width: 100%;
+        /* background-color: #01ffdd; */
+        height: fit-content;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+
+
+    }
+
+
+    .Articles-cards {
+        position: relative;
+        display: flex;
+        flex-wrap: wrap;
+
+        justify-content: center;
+        height: 1400px;
+        padding-bottom: 50px;
+
+    }
+
+    .Article-card {
+        position: relative;
+        width: 300px;
+        height: 400px;
+        margin-left: 0px;
+        margin-right: 0px;
+        margin-top: 50px;
+        margin-bottom: 25px;
+        background: #FFFFFF;
+        box-shadow: 0px 10px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 15px;
+        transition: all 500ms cubic-bezier(0.77, 0, 0.175, 1);
+
+
+    }
+
+    .Article-card-image {
+        height: 220px;
+
+    }
+
+    .Article-card-detail {
+
+        height: 200px;
+
+    }
+
+    .Article-card-detail p {
+        font-size: 10px;
+        padding: 0px 5px 0px 5px
+    }
+
+    .ShowAllArticles {
+
+        top: 97%;
+
+    }
+
+    .Allarticles-inner-cards {
+        justify-content: center;
+
+    }
+
+    .Calculations-cards {
+
+        flex-direction: column;
+
+    }
+
+    .Calculations-cards ul {
+
+        flex-direction: column;
+    }
+
+    .Calculations-card {
+        position: relative;
+        height: fit-content;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: all 500ms cubic-bezier(0.77, 0, 0.175, 1);
+
+    }
+
+    .Article-card:hover {
+        cursor: pointer;
+        transform: scale(1.05);
+        transition: all 500ms cubic-bezier(0.77, 0, 0.175, 1);
+
+    }
+
+    .Calculations-card img {
+
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        filter: blur(0.1px);
+    }
+
+
+    .Appointment-inner {
+        flex-direction: column;
+        width: 90%;
+        gap: 20px;
+    }
+
+    .Appointment-text {
+        font-size: 20px;
+    }
+
+    .Appointment-form {
+        width: 100%;
+
+    }
+
+    .Footer {
+        display: flex;
+        position: relative;
+        width: 100%;
+        height: 300px;
+        background-color: #660099;
+        justify-content: flex-end;
+        align-items: center;
+        flex-direction: column;
+
+    }
+
+    .Footer ul {
+        list-style: none;
+        position: absolute;
+        display: flex;
+        flex-direction: row;
+        padding: 2px;
+        gap: 5px;
+        list-style-type: none;
+        background-color: transparent;
+        width: fit-content;
+        height: fit-content;
+        margin: auto;
+        color: white;
+        top: 150px;
+
+
+
+
+    }
+
+    .WebsiteOwnerNameFooter {
+        position: absolute;
+        top: 50px;
+        background-color: transparent;
+        display: flex;
+        justify-content: center;
+        font-size: 15px;
+        color: white;
+        font-family: 'Kaushan Script';
+
+
+    }
+
+    .WebsiteOwnerNameFooter a {
+        color: white;
+    }
+
+    .Footer li {
+        letter-spacing: 0px;
+        font-size: 12px;
+    }
+
+    .Footer li:hover {
+        cursor: pointer;
+        color: black;
+        text-decoration: underline;
+    }
+
+    .Footerinfo {
+        color: white;
+        font-size: 12px;
+    }
+
+    .default-routepage-header {
+        height: 105px;
+
+    }
+
+    .ContactInfo {
+        flex-direction: column;
+    }
+
+    @media only screen and (min-width: 601px) {
+        .ShowNavigationList {
+            display: flex;
+            flex-direction: row;
+        }
+    }
+}
