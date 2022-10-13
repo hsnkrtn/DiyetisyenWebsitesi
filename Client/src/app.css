@@ -118,7 +118,7 @@
 
 .WebsiteOwnerName:hover {
     cursor: pointer;
-    color: rgb(93, 15, 68, 1);
+    color: #660099;
     transition: all 500ms cubic-bezier(0.77, 0, 0.175, 1);
 
 
