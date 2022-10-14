@@ -1,5 +1,6 @@
 {
   "name": "myproject",
+  "homepage": "http://diyetisyensitesitest.rf.gd/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
