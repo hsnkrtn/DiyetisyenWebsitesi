@@ -4,12 +4,15 @@ import Axios from "axios";
 
 function About() {
   const [Hakkimizda, setHakkimizda] = useState(null);
-
+const URL ="https://www.diyetisyenhaticegursul.com.tr";
   useEffect(() => {
     getAboutUs();
   }, []);
+
+
+
   const getAboutUs = async () => {
-    await Axios.get("http://localhost:3001/Hakkimizda").then((response) => {
+    await Axios.get(`${URL}/GetHakkimizda`).then((response) => {
       setHakkimizda(response.data);
     });
   };

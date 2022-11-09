@@ -7,9 +7,10 @@ function Appointment() {
   const [emailadress, setEmailadress] = useState("");
   const [subject, setSubject] = useState("");
   const [message, setMessage] = useState("");
+  const URL ="https://www.diyetisyenhaticegursul.com.tr";
 
   const sendData = () => {
-    Axios.post("http://localhost:3001/sendmessage", {
+    Axios.post(`${URL}/PostSendmessage`, {
       name: name,
       emailadress: emailadress,
       subject: subject,
