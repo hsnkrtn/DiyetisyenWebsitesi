@@ -41,7 +41,6 @@ function App() {
           </Route>{" "}
           <Route path="/Iletisim">
             <NavigationBar></NavigationBar>
-
             <Contactpage></Contactpage>
             <Footer></Footer>
           </Route>{" "}

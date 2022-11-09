@@ -5,8 +5,11 @@ import Axios from "axios";
 import ArticleCard from "./ArticleCard";
 function Articles() {
   const [Makaleler, setMakaleler] = useState([]);
+  const URL ="https://www.diyetisyenhaticegursul.com.tr";
+
+
   useEffect(() => {
-    Axios.get("http://localhost:3001/Makaleler").then((reponse) =>
+    Axios.get(`${URL}/GetMakaleler`).then((reponse) =>
       setMakaleler(reponse.data.reverse())
     );
   }, []);

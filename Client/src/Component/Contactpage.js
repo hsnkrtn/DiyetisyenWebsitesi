@@ -3,12 +3,14 @@ import { useState } from "react";
 import Axios from "axios";
 function Contactpage() {
   const [Informations, setInformations] = useState(null);
+  const URL ="https://www.diyetisyenhaticegursul.com.tr";
+
   useEffect(() => {
     getContactInformations();
 
   }, []);
   const getContactInformations = async () => {
-    await Axios.get("http://localhost:3001/Iletisim").then((response) => {
+    await Axios.get(`${URL}/GetIletisim`).then((response) => {
       setInformations(response.data);
     });
   };

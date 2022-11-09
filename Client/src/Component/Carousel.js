@@ -8,6 +8,7 @@ function Carousel() {
   const [Image, setImage] = useState(null);
   const [ImageNumber, setImageNumber] = useState(0);
   const [buyukbaslik, setbuyukbaslik] = useState(null);
+  const URL ="https://www.diyetisyenhaticegursul.com.tr";
 
   useEffect(() => {
     getImages();
@@ -15,12 +16,12 @@ function Carousel() {
    
   }, []);
   const getCarouselHeader = async () => {
-    await Axios.get("http://localhost:3001/").then((response) => {
+    await Axios.get(`${URL}/GetCarouselheader`).then((response) => {
       setbuyukbaslik(response.data);
     });
   };
   const getImages = async () => {
-    await Axios.get("http://localhost:3001/carouselimages").then((response) => {
+    await Axios.get(`${URL}/GetCarouselimages`).then((response) => {
       setImage(response.data);
     });
   };
