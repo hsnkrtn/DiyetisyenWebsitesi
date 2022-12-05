@@ -19,6 +19,12 @@ function Foodsrecipe(props) {
           <div className="RecipeInfo2">
             <h2> {props.kisi_sayisi} Kişilik </h2>
           </div>{" "}
+          
+          <div className="RecipeInfo1">
+                  <h2> Pişirme Süresi </h2>
+                  <h1>{props.sure}</h1>
+          </div>{" "}
+          
         </div>
       </div>
     </div>
@@ -26,3 +32,4 @@ function Foodsrecipe(props) {
 }
 
 export default Foodsrecipe;
+ 

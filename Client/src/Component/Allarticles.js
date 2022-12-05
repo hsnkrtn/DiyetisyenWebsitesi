@@ -35,6 +35,7 @@ function Allarticles() {
                       articleheader={val.article_header}
                       articledetail={val.article_detail}
                       articleimage={val.article_image}
+                      articleabstract={val.article_abstract}
                     ></ArticleCard>{" "}
                   </Link>
                 </li>

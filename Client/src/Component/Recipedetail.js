@@ -3,12 +3,14 @@ import { useLocation } from "react-router-dom";
 
 function Recipedetail() {
   const RecipeDetails = useLocation();
+const Recipe = RecipeDetails.state.val.recipe_tarif;
 
   return (
     <div className="default-routepage">
       <div className="default-routepage-header"></div>
       <div className="Routepage-inner">
         <div className="Routepage-inner-content">
+          <div  className="RecipeDetailsContent" >  
           <div className="FoodrecipeAllDetail">
             <div className="FoodrecipeCardImage">
               <img
@@ -36,20 +38,15 @@ function Recipedetail() {
             </div>
           </div>{" "}
           <div className="RecipePrepare">
-            <div className="RecipeIngredients">
-              <h1> Malzemeler</h1>
-              <p>{`${RecipeDetails.state.val.recipe_malzemeler}`}</p>
-            </div>
-            <div className="Recipe">
-              <h1> Tarif</h1>
-              <p>{`${RecipeDetails.state.val.recipe_tarif}`}</p>
-            </div>
-            <div className="Recipe">
-              <h1> Besin Değerleri</h1>
-              <p>{`${RecipeDetails.state.val.recipe_besin_degerleri}`}</p>
-            </div>
+
+            <div className="RecipePrepareContent" 
+             dangerouslySetInnerHTML={{ __html: Recipe }}> 
+ 
+          </div>
           </div>
         </div>
+
+      </div>
       </div>
     </div>
   );

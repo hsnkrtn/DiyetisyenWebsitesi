@@ -41,6 +41,7 @@ function Diyetmarket() {
                     DiyetMarketCartDetail={val.diyet_detayi}
                     DiyetMarketCartPrice={val.diyet_fiyati}
                     DiyetMarketCartImage={val.diyet_fotograf}
+                    DiyetMarketCartAbstract={val.diyet_ozet}
                   ></DiyetMarketCard>
                 </li>
               );

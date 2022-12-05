@@ -15,7 +15,7 @@ function DiyetMarketCard(props) {
         </div>
         <div className="DiyetCardDetailText">
           {" "}
-          <p> {props.DiyetMarketCartDetail}</p>{" "}
+          <p> {props.DiyetMarketCartAbstract}</p>{" "}
         </div>
         <div className="DiyetCardDetailPrice">
           {" "}

@@ -3,20 +3,16 @@ import { useState } from "react";
 import Axios from "axios";
 
 function About() {
-  const [Hakkimizda, setHakkimizda] = useState(null);
-const URL ="http://localhost:3001";
+  const [Hakkimizda, setHakkimizda] = useState([]);
+
+  const URL = "http://localhost:3001";
   useEffect(() => {
-    getAboutUs();
-    window.scrollTo(0, 0);
-
-  }, []);
-
-
-  const getAboutUs = async () => {
-    await Axios.get(`${URL}/GetHakkimizda`).then((response) => {
+    Axios.get(`${URL}/GetHakkimizda`).then((response) => {
       setHakkimizda(response.data);
     });
-  };
+
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <div className="About">
@@ -25,14 +21,20 @@ const URL ="http://localhost:3001";
         <div className="Routepage-inner-content">
           <h1 className="RoutepageHeader">Hakkımızda</h1>
 
-          {Hakkimizda && (
-            <div className="AboutUsImage">
-              <img
-                src={require(`../Images/${Hakkimizda[0].aboutus_image}`)}
-              ></img>
-            </div>
-          )}
-          {Hakkimizda && <p>{`${Hakkimizda[0].aboutus_content}`}</p>  }
+          {Hakkimizda.map((val, key) => {
+            return (
+              <>
+                <div className="AboutUsImage">
+                  <img src={require(`../Images/${val.aboutus_image}`)}></img>
+                </div>
+                <div className="AboutUsContent">
+                  <div
+                    dangerouslySetInnerHTML={{ __html: val.aboutus_content }}
+                  ></div>{" "}
+                </div>
+              </>
+            );
+          })}
         </div>
       </div>
     </div>

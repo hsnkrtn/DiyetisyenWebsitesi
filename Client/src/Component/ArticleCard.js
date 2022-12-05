@@ -17,8 +17,8 @@ function ArticleCard(props) {
         <img src={require(`../Images/${articleimage}`)} />
       </div>
       <div className="Article-card-detail">
-        <h1>{props.articleheader}</h1>
-        <p>{props.articledetail}</p>
+        <h1>{props.articleheader}</h1> 
+        <p>{props.articleabstract}</p>
       </div>
     </div>
   );

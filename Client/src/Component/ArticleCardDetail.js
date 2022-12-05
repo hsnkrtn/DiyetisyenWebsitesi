@@ -5,15 +5,10 @@ import { useRef } from "react";
 function ArticleCardDetail() {
   const Content = useLocation();
   let image = Content.state.val.article_image;
+
   let detail = Content.state.val.article_detail;
-  
-let [ArticleDetail, setArticleDetail] = useState([]);
-// let articledetail = [];
-let ad = JSON.parse(detail);
   useEffect(() => {
     window.scrollTo(0, 0);
-    console.log(typeof detail)
-    // setArticleDetail(detail);
   });
 
   return (
@@ -29,9 +24,11 @@ let ad = JSON.parse(detail);
             <img src={require(`../Images/${image}`)}></img>
           </div>
           <div className="RoutePageContent">
-            <div className="RoutePageContentText" id="Rpc">
-              {/* {ad[0]} */}
-            </div>
+            <div
+              className="RoutePageContentText"
+              id="ArticleContentText"
+              dangerouslySetInnerHTML={{ __html: detail }}
+            ></div>
           </div>
         </div>
       </div>

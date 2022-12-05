@@ -31,10 +31,11 @@ function FoodsAndCalories() {
                       }}
                     >
                       <Foodsrecipe
-                      yemek_adi={val.recipe_yemek_adi}
-                      porsiyon={val.recipe_porsiyon}
-                      kisi_sayisi={val.recipe_kisisayisi }
-                      fotograf={val.recipe_yemek_fotograf}
+                        yemek_adi={val.recipe_yemek_adi}
+                        porsiyon={val.recipe_porsiyon}
+                        kisi_sayisi={val.recipe_kisisayisi}
+                        fotograf={val.recipe_yemek_fotograf}
+                        sure={val.recipe_sure}
                       ></Foodsrecipe>
                     </Link>
                   </li>
