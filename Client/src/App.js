@@ -14,6 +14,10 @@ import Kalorihesaplama from "./Component/Kalorihesaplama";
 import Vucutkitleindex from "./Component/Vucutkitleindex";
 import Error404 from "./Component/Error404";
 import Admin from "./Component/Admin";
+import Appointment from "./Component/Appointment";
+import DiyetmarketPage from "./Component/DiyetmarketPage";
+import Recipedetail from "./Component/Recipedetail";
+import DiyetMarketCardDetail from "./Component/DiyetMarketCardDetail";
 function App() {
   return (
     <Router>
@@ -39,9 +43,17 @@ function App() {
             <FoodsAndCalories></FoodsAndCalories>
             <Footer></Footer>
           </Route>{" "}
+          <Route path="/Diyetmarket">
+            <NavigationBar></NavigationBar>
+
+            <DiyetmarketPage></DiyetmarketPage>
+            <Footer></Footer>
+          </Route>{" "}
           <Route path="/Iletisim">
             <NavigationBar></NavigationBar>
             <Contactpage></Contactpage>
+            <Appointment></Appointment>
+
             <Footer></Footer>
           </Route>{" "}
           <Route path="/vucutkitleindexi">
@@ -62,10 +74,22 @@ function App() {
             <Kalorihesaplama></Kalorihesaplama>
             <Footer></Footer>
           </Route>{" "}
-          <Route path="/ArticleDetail/:id">
+          <Route path="/MakaleDetay/:id">
             <NavigationBar></NavigationBar>
 
             <ArticleCardDetail></ArticleCardDetail>
+            <Footer></Footer>
+          </Route>{" "}
+          <Route path="/Tarif/:id">
+            <NavigationBar></NavigationBar>
+
+            <Recipedetail></Recipedetail>
+            <Footer></Footer>
+          </Route>{" "}
+          <Route path="/DiyetDetayi/:id">
+            <NavigationBar></NavigationBar>
+
+            <DiyetMarketCardDetail></DiyetMarketCardDetail>
             <Footer></Footer>
           </Route>{" "}
           <Route path="/Admin">

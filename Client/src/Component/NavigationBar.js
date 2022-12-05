@@ -1,38 +1,56 @@
-import React, { useEffect, useState } from "react";
+import React, {  useState } from "react";
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
+import Axios from "axios";
 import "../app.css";
+
 function NavigationBar() {
+  const [Informations, setInformations] = useState(null);
+  const URL = "http://localhost:3001";
+
   const [ShowMenu, setShowMenu] = useState(false);
+
   useEffect(() => {
+    window.scrollTo(0, 0);
+    getContactInformations();
+  }, []);
 
-
-  });
-
-
-  
-  
+  const getContactInformations = async () => {
+    await Axios.get(`${URL}/GetIletisim`).then((response) => {
+      setInformations(response.data);
+    });
+    
+  };
 
   return (
     <div className="NavigationBar">
-      <div className="Header">
-        <p>
-          Telefon ile Randevu Alın :<a href="tel:123-456-7890">0123-456-7890</a>
-        </p>
-        <p>
-          Sosyal medya : &nbsp;
-          <span>
-            <a href="www.instagram.com" target="_blank">
-              <i class="fa fa-instagram"></i>
-            </a>
-          </span>
-        </p>
-      </div>
+
+      {Informations && 
+        <div className="Header">
+          <p>
+            Telefon ile Randevu Alın :{" "}
+            <a
+              href={`tel:${Informations[0].informations_phone}`}
+            >{`${Informations[0].informations_phone}`}</a>
+          </p>
+          <p>
+            Sosyal medya : &nbsp;
+            <span>
+              <a href={`https://www.instagram.com/${Informations[0].informations_instagram}/`} target="_blank">
+                <i class="fa fa-instagram"></i>
+              </a>
+            </span>
+          </p>
+        </div>
+      }
+
+      
       <div className="WebsiteOwnerName">
-     <Link to="/">     <img src={require(`../Images/haticegursul.jpg`)} />
-        <h1>
+        <Link to="/">
           {" "}
-         Hatice Gürsul
-        </h1>{" "} </Link>
+          <img src={require(`../Images/haticegursul.jpg`)} />
+          <h1> Hatice Gürsul</h1>{" "}
+        </Link>
       </div>
       <button
         className="MenuButton"
@@ -76,7 +94,15 @@ function NavigationBar() {
             <span>
               <i class="fa fa-heartbeat" aria-hidden="true"></i> &nbsp;
             </span>
-            Yediklerimiz ve Kaloriler
+            Tarifler
+          </Link>
+        </li>
+        <li>
+          <Link to="/Diyetmarket">
+            <span>
+            <i class="fa fa-shopping-cart" aria-hidden="true"></i> &nbsp;
+            </span>
+            Diyet Market
           </Link>
         </li>
         <li>

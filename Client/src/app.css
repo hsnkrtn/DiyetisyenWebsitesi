@@ -14,7 +14,7 @@
     gap: 150px;
     list-style-type: none;
     background-color: transparent;
-    width: fit-content;
+    width: 100%;
     height: fit-content;
     margin: auto;
     justify-content: center;
@@ -118,7 +118,7 @@
 
 .WebsiteOwnerName:hover {
     cursor: pointer;
-    color: #660099;
+    color: rgb(34, 139, 34);
     transition: all 500ms cubic-bezier(0.77, 0, 0.175, 1);
 
 
@@ -163,7 +163,7 @@
 
 .Carousel h1:hover {
     cursor: pointer;
-    color: #660099;
+    color: rgb(34, 139, 34);
     transform: scale(1.2);
 
 
@@ -201,14 +201,14 @@
 
 .Carousel-right-button:hover {
 
-    color: #660099;
+    color: rgb(34, 139, 34);
     transition: all 500ms cubic-bezier(0.77, 0, 0.175, 1);
     cursor: pointer;
 }
 
 .Carousel-left-button:hover {
     cursor: pointer;
-    color: #660099;
+    color: rgb(34, 139, 34);
     transition: all 500ms cubic-bezier(0.77, 0, 0.175, 1);
 
 }
@@ -217,7 +217,7 @@
     position: relative;
     left: 0%;
     width: 100%;
-    background-color: #f7f5fa;
+    background-color: rgb(249, 245, 247);
     height: 700px;
     display: flex;
     justify-content: center;
@@ -260,8 +260,8 @@
 
 .Article-card {
     position: relative;
-    width: 350px;
-    height: 500px;
+    width: 270px;
+    height: 400px;
     margin-left: 80px;
     margin-top: 80px;
     margin-bottom: 100px;
@@ -282,7 +282,7 @@
 
 .Article-card-image {
     position: absolute;
-    height: 270px;
+    height: 60%;
     left: 0%;
     right: 0%;
     top: 0px;
@@ -303,8 +303,8 @@
     left: 0%;
     right: 0%;
     top: 50%;
-    height: 250px;
-    background: #fff5f5;
+    height: 50%;
+    background-color: rgb(249, 245, 247);
     border-radius: 15px 15px 15px 15px;
     overflow: hidden;
 }
@@ -322,7 +322,7 @@
 .Article-card-detail p {
     font-size: 16px;
     padding: 0px 10px 0px 10px;
-
+    color: black;
 }
 
 .ShowAllArticles {
@@ -344,7 +344,7 @@
 
 .ShowAllArticles:hover {
     cursor: pointer;
-    color: #660099;
+    color: rgb(34, 139, 34);
     transform: scale(1.1);
     transition: all 500ms cubic-bezier(0.77, 0, 0.175, 1);
 
@@ -352,7 +352,7 @@
 }
 
 .Calculations {
-
+    width: 100%;
     position: relative;
 }
 
@@ -410,7 +410,7 @@
 .Appointment {
     position: relative;
     width: 100%;
-    height: 800px;
+    height: 900px;
     background-color: #f7f5fa;
     top: 0%;
     margin: 0px;
@@ -430,15 +430,20 @@
 
 .Appointment-text {
     position: relative;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.Appointment-textContent h1 {
     color: black;
     font-style: italic;
     font-family: 'Kaushan Script';
     font-size: 50px;
-    display: flex;
-    justify-content: center;
 
 }
-
 
 
 
@@ -465,32 +470,47 @@
     padding: 0px 55px;
 }
 
-.ContactUs {
-    position: absolute;
-    background-color: #a7d433;
+.ContactUsButton {
+    position: relative;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+}
+
+
+
+.ContactUsButton button {
+    position: relative;
+    background-color: rgb(34, 139, 34);
     border: 1px solid #ccc;
-    padding: 5px 15px;
     border-radius: 8px;
     box-sizing: border-box;
     height: 50px;
-    font-size: 16px;
     font-family: 'Kaushan Script';
     transition: all 500ms cubic-bezier(0.77, 0, 0.175, 1);
-    top: 200px;
+    color: white;
+
 
 }
+
 
 .ContactUs a {
-    text-decoration: none;
+    height: 100%;
+    width: 100%;
+    margin: 0%;
+    padding: 0%;
 }
+
+
+
 
 .ContactUs:hover {
     cursor: pointer;
-    border: 1px solid #a7d433;
-    color: #a7d433;
+    border: 1px solid rgb(34, 139, 34);
     background-color: transparent;
     font-weight: bolder;
     transition: all 500ms cubic-bezier(0.77, 0, 0.175, 1);
+    color: rgb(34, 139, 34);
 
 }
 
@@ -541,7 +561,7 @@ input[type=email] {
 }
 
 .SubmitFormButton {
-    background-color: #a7d433;
+    background-color: rgb(34, 139, 34);
     border: 1px solid #ccc;
     border-radius: 8px;
     box-sizing: border-box;
@@ -551,12 +571,13 @@ input[type=email] {
     font-family: 'Kaushan Script';
     transition: all 500ms cubic-bezier(0.77, 0, 0.175, 1);
     margin-top: 25px;
+    color: white;
 }
 
 .SubmitFormButton:hover {
     cursor: pointer;
-    border: 1px solid #a7d433;
-    color: #a7d433;
+    border: 1px solid rgb(34, 139, 34);
+    color: rgb(34, 139, 34);
     background-color: transparent;
     font-weight: bolder;
     transition: all 500ms cubic-bezier(0.77, 0, 0.175, 0.5);
@@ -567,7 +588,7 @@ input[type=email] {
     position: relative;
     width: 100%;
     height: 500px;
-    background-color: #660099;
+    background-color: rgb(34, 139, 34);
     justify-content: flex-end;
     align-items: center;
     flex-direction: column;
@@ -638,8 +659,8 @@ input[type=email] {
 
 .default-routepage {
     position: relative;
-
     height: fit-content;
+
 
 }
 
@@ -648,7 +669,7 @@ input[type=email] {
     height: 170px;
     margin: 0px;
     padding: 0%;
-    background-color: #660099;
+    background-color: rgb(34, 139, 34);
 
 }
 
@@ -679,15 +700,16 @@ input[type=email] {
 
 .ArticleAllDetailImage {
     display: flex;
-    margin-top: 100px;
+    margin-top: 25px;
     justify-content: center;
     width: 100%;
-    height: 300p;
+    height: 400px;
+
 }
 
 .ArticleAllDetailImage img {
     width: 100%;
-    height: 700px;
+    height: 100%;
     object-fit: cover;
 }
 
@@ -698,24 +720,23 @@ input[type=email] {
     display: flex;
     justify-content: center;
     height: fit-content;
+
 }
 
 
 .Routepage-inner-content {
     position: relative;
     height: fit-content;
-    width: 90%;
+    width: 70%;
     display: flex;
     flex-wrap: wrap;
 }
 
-.RoutepageHeader {
-    position: absolute;
-    height: fit-content;
-    margin-top: 25px;
-    padding: 0%;
-    font-size: 30px;
+.Routepage-inner-content h1 {
+    font-size: 20px;
+}
 
+.RoutepageHeader {
     font-family: 'Kaushan Script';
 
 
@@ -745,6 +766,13 @@ input[type=email] {
 
 }
 
+.RecipeDetailsContent {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+
 .mapouter {
     position: relative;
     display: flex;
@@ -753,11 +781,17 @@ input[type=email] {
     justify-content: center
 }
 
+.mapouter {
+    background-color: rgb(249, 245, 247);
+}
+
 .gmap iframe {
     position: relative;
     width: 80vw;
     height: 500px;
-    border: 0px;
+    border: 6px;
+    box-shadow: 1px 1px 50px 55px rgba(0, 0, 0, 0.10);
+    margin: 100px;
 
 }
 
@@ -768,9 +802,8 @@ input[type=email] {
     flex-wrap: wrap;
     justify-content: center;
     position: relative;
-    margin: 0px;
-    padding: 0%;
-
+    padding: 25px 10px 10px 0px;
+    margin: 0%;
 }
 
 .ArticleCardList li {
@@ -780,7 +813,7 @@ input[type=email] {
 
 .ArticleCardList li a {
     text-decoration: none;
-    color: #660099;
+    color: rgb(34, 139, 34);
 }
 
 .ContactInfo {
@@ -795,8 +828,9 @@ input[type=email] {
 }
 
 .Informations-Item {
+
     display: flex;
-    width: 300px;
+
     flex-direction: column;
     justify-content: center;
     font-size: 20px;
@@ -808,14 +842,14 @@ input[type=email] {
     display: flex;
     justify-content: center;
     font-size: 40px;
-    color: #660099;
+    color: rgb(34, 139, 34);
 }
 
 .Informations-Item a {
     display: flex;
     justify-content: center;
     font-family: 'Kaushan Script';
-    color: #660099;
+    color: rgb(34, 139, 34);
     text-decoration: none;
 
 }
@@ -827,7 +861,6 @@ input[type=email] {
 .AboutUsImage {
 
     position: relative;
-    margin-top: 100px;
     width: 100%;
 }
 
@@ -893,10 +926,10 @@ input[type=email] {
     object-fit: cover;
 }
 
-.Error404Button{
+.Error404Button {
     display: flex;
     position: absolute;
-    background-color: #660099;
+    background-color: rgb(34, 139, 34);
     border: solid 2px white;
     width: 200px;
     height: 50px;
@@ -904,7 +937,8 @@ input[type=email] {
     top: 20%;
     transition: all 500ms cubic-bezier(0.77, 0, 0.175, 1);
 }
-.Error404Button a{ 
+
+.Error404Button a {
     display: flex;
     width: 100%;
     height: 100%;
@@ -914,7 +948,7 @@ input[type=email] {
     align-items: center;
 }
 
-.Error404Button:hover{
+.Error404Button:hover {
     color: white;
     cursor: pointer;
     border-color: white;
@@ -923,29 +957,522 @@ input[type=email] {
 
 
 }
-.AdminPage{
-display: flex;
-position: relative;
-background-color: red;
-width: 100%;
-height: fit-content;
+
+.AdminPage {
+    display: flex;
+    position: relative;
+    background-color: red;
+    width: 100%;
+    height: fit-content;
+    justify-content: center;
+}
+
+.AdminPageContent {
+    width: 80%;
+    display: flex;
+    height: fit-content;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
 
 }
-.AdminPageContent{
-position: relative;
+
+.HeaderForm {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    width: 50%;
+    align-items: center;
+}
+
+.CarouselImageForm {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    width: 50%;
+    align-items: center;
+
+}
+
+.SubmitButton {
+    height: 30px;
+}
+
+input[type=Carouselheadertext] {
+    width: 50%;
+    height: 30px;
+    padding: 10px 10px;
+    font-size: 16px;
+    margin: 10px 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-sizing: border-box;
+}
+
+.FoodrecipesCardsHeader {
+    font-family: 'Kaushan Script';
+}
+
+.FoodsrecipeCards {
+    position: relative;
+    height: fit-content;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.FoodsrecipeCards ul {
+    width: 70%;
+    margin: 0%;
+    list-style-type: none;
+    padding: 0%;
+    position: relative;
+
+}
+
+.FoodsrecipeCards li {
+    display: flex;
+    width: 100%;
+}
+
+.FoodsrecipeCards a {
+    width: 100%;
+    margin: 0%;
+    list-style-type: none;
+    padding: 0%;
+    text-decoration: none;
+    color: black;
+}
+
+.FoodrecipeCard {
+    margin-bottom: 10px;
+    height: 300px;
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    border: 1px solid rgb(230, 231, 225);
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.25);
+
+}
+
+
+.FoodrecipeCardImage {
+    position: relative;
+    width: 40%;
+    height: 100%;
+    display: flex;
+
+}
+
+.FoodrecipeCardImage img {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px 0px 0px 10px;
+}
+
+.FoodrecipeCardDetail {
+    position: relative;
+    width: 60%;
+    height: 100%;
+    display: flex;
+    right: 0%;
+    flex-direction: column;
+    padding-left: 20px;
+    font-family: 'Montserrat', sans-serif;
+    justify-content: center;
+}
+
+.RecipeName {
+    width: fit-content;
+}
+
+
+.RecipeName h1 {
+
+    font-size: 25px;
+}
+
+.RecipeCardInformations {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.RecipeInfo1 {
+    /* background-color: rgb(230, 231, 225); */
+    background-color: #f7f5fa;
+    height: 50px;
+    width: 35%;
+    border-radius: 10px 10px 10px 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    gap: 5px;
+    justify-content: center;
 
 
 }
+
+.RecipeInfo1 h1 {
+    font-size: 17px;
+    margin: 0%;
+}
+
+.RecipeInfo1 h2 {
+    font-size: 12px;
+    margin: 0%;
+
+}
+
+.RecipeInfo2 {
+    display: flex;
+    justify-content: center;
+    background-color: #f7f5fa;
+    width: 35%;
+    padding-left: 10px;
+    border-radius: 10px 10px 10px 10px;
+    height: 50px;
+    padding: 10px;
+}
+
+.RecipeInfo2 h2 {
+    font-size: 17px;
+
+}
+
+.DiyetMarket {
+
+    margin: 0%;
+    font-family: 'Kaushan Script';
+
+}
+
+.FoodrecipeAllDetail {
+    margin-bottom: 10px;
+    height: 300px;
+    width: 100%;
+    position: relative;
+    display: flex;
+    background-color: white;
+
+
+}
+
+.FoodrecipeAllDetailsName h1 {
+    font-size: 25px;
+}
+
+.RecipeInformations {
+    display: flex;
+    position: relative;
+    padding-bottom: 10px;
+    width: 100%;
+    height: fit-content;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.RecipePrepare {
+    width: 100%;
+    position: relative;
+    background-color: white;
+}
+
+.RecipePrepare h1 {
+    font-size: 20px;
+}
+
+.RecipePrepareContent {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.DiyetMarket {
+    position: relative;
+    display: flex;
+    width: 100%;
+    height: 700px;
+    background-color: rgb(241, 245, 235);
+    justify-content: center;
+    align-items: center;
+
+}
+
+.DiyetMarketCards {
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height: 400px;
+    width: 1400px;
+    flex-direction: row;
+    overflow: scroll;
+    scroll-behavior: smooth;
+
+}
+
+.DiyetCard {
+    position: relative;
+    display: flex;
+    height: 400px;
+    width: 300px;
+    margin-left: 25px;
+    margin-right: 25px;
+    background-color: white;
+    flex-direction: column;
+
+}
+
+.Diyetmarketleftbutton {
+    position: relative;
+    font-size: 50px;
+    color: rgb(34, 139, 34);
+    transition: 500ms;
+}
+
+.Diyetmarketleftbutton:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+
+}
+
+.Diyetmarketrightbutton {
+    font-size: 50px;
+    position: relative;
+    color: rgb(34, 139, 34);
+    transition: 500ms;
+
+}
+
+.Diyetmarketrightbutton:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+
+}
+
+.DiyetmarketAllCards {
+    display: flex;
+    position: relative;
+}
+
+.DiyetmarketAllCards ul {
+    display: flex;
+    margin: 0%;
+    list-style-type: none;
+    padding: 0%;
+}
+
+.DiyetmarketAllCards a {
+    text-decoration: none;
+    color: black;
+
+}
+
+.DiyetMarketCards::-webkit-scrollbar {
+    display: none;
+}
+
+.DiyetCardImage {
+    position: relative;
+    width: 100%;
+    height: 50%;
+
+
+}
+
+
+.DiyetCardImage img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+}
+
+
+.DiyetCardDetail {
+    height: 50%;
+    width: 100%;
+    position: relative;
+    bottom: 0%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.DiyetCardDetailHeader {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis !important;
+}
+
+.DiyetCardDetailHeader h1 {
+    font-size: 20px;
+    margin: 0%;
+
+}
+
+.DiyetCardDetailText {
+    position: relative;
+    width: 90%;
+    height: 30%;
+}
+
+.DiyetCardDetailText p {
+    font-size: 12px;
+    overflow: hidden;
+    width: 100%;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+
+}
+
+.DiyetCardDetailPrice {
+    position: relative;
+}
+
+.DiyetCardDetailPrice h1 {
+    font-size: 20px;
+    margin: 0%;
+    color: rgb(34, 139, 34);
+
+}
+
+.DiyetCardButton {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    width: 50%;
+    height: 30px;
+    border-color: rgb(34, 139, 34);
+    align-items: center;
+}
+
+.DiyetCardButton a {
+    height: 100%;
+    width: 100%;
+
+    margin: 0%;
+    padding: 0%;
+}
+
+.DiyetCardButton button {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    background-color: rgb(34, 139, 34);
+    border: 2px solid rgb(34, 139, 34);
+    font-size: 15px;
+    transition: ease-out 500ms;
+    color: white;
+
+}
+
+.DiyetCardButton button:hover {
+    transform: scale(0.91);
+    cursor: pointer;
+    transition: ease 300ms;
+    color: rgb(34, 139, 34);
+    border: 2px solid rgb(34, 139, 34);
+    ;
+    background-color: white;
+
+}
+
+.DiyetMarketCardInfo {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: fit-content;
+    box-shadow: 0px 10px 4px rgba(0, 0, 0, 0.25);
+    margin: 50px;
+    justify-content: center;
+    padding: 50px;
+
+}
+
+.DiyetInfo1 {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 400px;
+
+}
+
+.DiyetInfo2 {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.DiyetInfo1Image {
+    width: 40%;
+    height: 100%;
+
+}
+
+.DiyetInfo1Image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+
+}
+
+.DiyetInfo1Abstract {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    width: 60%;
+    height: 100%;
+    padding-left: 50px;
+    padding-right: 20px;
+    gap: 20px;
+}
+
+.DiyetInfo1Abstract h1 {
+    font-family: 'Kaushan Script';
+}
+
+.DiyetInfo2 h1 { 
+    font-family: 'Kaushan Script';
+
+}
+
+
+/*   Design for phone Desing for phone  Desing for phone Desing for phone */
+/*   Design for phone Desing for phone  Desing for phone Desing for phone */
+/*   Design for phone Desing for phone  Desing for phone Desing for phone */
 /*   Design for phone Desing for phone  Desing for phone Desing for phone */
 
 @media only screen and (max-width: 600px) {
     .NavigationBar {
-        background-color: #660099;
+        background-color: rgb(34, 139, 34);
         display: flex;
         justify-content: center;
         flex-direction: column;
-
         height: fit-content;
+
     }
 
     .WebsiteOwnerName img {
@@ -1037,7 +1564,7 @@ position: relative;
 
     .Carousel h1:hover {
         cursor: pointer;
-        color: #660099;
+        color: rgb(34, 139, 34);
 
 
 
@@ -1065,14 +1592,14 @@ position: relative;
 
     .Carousel-right-button:hover {
 
-        color:#660099;
+        color: rgb(34, 139, 34);
         transition: all 500ms cubic-bezier(0.77, 0, 0.175, 1);
         cursor: pointer;
     }
 
     .Carousel-left-button:hover {
         cursor: pointer;
-        color:#660099;
+        color: rgb(34, 139, 34);
         transition: all 500ms cubic-bezier(0.77, 0, 0.175, 1);
 
     }
@@ -1107,18 +1634,16 @@ position: relative;
         flex-wrap: wrap;
 
         justify-content: center;
-        height: 1400px;
+        height: fit-content;
         padding-bottom: 50px;
 
     }
 
     .Article-card {
         position: relative;
-        width: 300px;
-        height: 400px;
         margin-left: 0px;
         margin-right: 0px;
-        margin-top: 50px;
+        margin-top: 25px;
         margin-bottom: 25px;
         background: #FFFFFF;
         box-shadow: 0px 10px 4px rgba(0, 0, 0, 0.25);
@@ -1199,7 +1724,7 @@ position: relative;
         gap: 20px;
     }
 
-    .Appointment-text {
+    .Appointment-textContent h1 {
         font-size: 20px;
     }
 
@@ -1213,7 +1738,7 @@ position: relative;
         position: relative;
         width: 100%;
         height: 300px;
-        background-color: #660099;
+        background-color: rgb(34, 139, 34);
         justify-content: flex-end;
         align-items: center;
         flex-direction: column;
@@ -1274,12 +1799,109 @@ position: relative;
     }
 
     .default-routepage-header {
-        height: 105px;
+        height: 1 px;
 
     }
 
     .ContactInfo {
         flex-direction: column;
+        justify-content: center;
+    }
+
+    .gmap iframe {
+        margin: 0px 0px 20px 0px;
+        box-shadow: 1px 1px 5px 5px rgba(0, 0, 0, 0.10);
+
+    }
+
+    .Informations-Item {
+
+        width: 80vw;
+    }
+
+    .Routepage-inner-content {
+        width: 90%;
+    }
+
+    .FoodsrecipeCards ul {
+        width: 100%;
+    }
+
+    .FoodrecipeCard {
+        flex-direction: column;
+    }
+
+    .FoodrecipeCardImage {
+        width: 100%;
+
+    }
+
+    .FoodrecipeCardDetail {
+        gap: 0px;
+        flex-direction: column;
+        width: 100%;
+        padding-left: 0px;
+    }
+
+    .RecipeCardInformations {
+        position: relative;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        gap: 10px;
+        padding-left: 5px;
+    }
+
+    .RecipeName {
+        padding-left: 5px;
+        height: 30px;
+    }
+
+    .RecipeName h1 {
+        font-size: 16px;
+
+    }
+
+
+    .RecipeInfo1 {
+        width: fit-content;
+
+    }
+
+    .RecipeInfo2 {
+        width: fit-content;
+    }
+
+
+    .FoodrecipeAllDetail {
+        flex-direction: column;
+    }
+
+    .RecipeInformations {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .RecipeInfo1 h1 {
+        font-size: 16px;
+    }
+
+    .RecipeInfo2 {
+        align-items: center;
+    }
+
+    .RecipeInfo2 h2 {
+        font-size: 12px;
+    }
+
+    .Diyetmarketrightbutton {
+        font-size: 25px;
+    }
+
+    .Diyetmarketleftbutton {
+        font-size: 25px;
     }
 
     @media only screen and (min-width: 601px) {

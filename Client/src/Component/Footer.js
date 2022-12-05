@@ -1,7 +1,21 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
+import Axios from "axios";
+import { useState } from "react";
 
 function Footer() {
+  const [Informations, setInformations] = useState(null);
+
+  const URL = "http://localhost:3001";
+  useEffect(() => {
+    getContactInformations();
+  }, []);
+  const getContactInformations = async () => {
+    await Axios.get(`${URL}/GetIletisim`).then((response) => {
+      setInformations(response.data);
+    });
+  };
+
   return (
     <div className="Footer">
       <div className="WebsiteOwnerNameFooter">
@@ -10,7 +24,7 @@ function Footer() {
           <Link to="/"> Diyetisyen Hatice Gürsul</Link>
         </h1>
       </div>
-      <ul className="footerlist" >
+      <ul className="footerlist">
         <li>
           <Link to="/"> Ana Sayfa </Link>
         </li>
@@ -22,15 +36,22 @@ function Footer() {
         </li>
         <li>
           {" "}
-          <Link to="/Yediklerimizvekaloriler">Yediklerimiz ve Kaloriler</Link>
+          <Link to="/Yediklerimizvekaloriler">Tarifler</Link>
+        </li>
+        <li>
+          <Link to="/Diyetmarket">Diyet Market</Link>
         </li>
         <li>
           <Link to="/Iletisim">İletişim</Link>{" "}
         </li>
       </ul>
-      <div className="Footerinfo">
-        <p>hatiicehanim@gmail.com © 2022 |Designed by H.Kurtini </p>
-      </div>
+      {Informations && (
+        <div className="Footerinfo">
+          <p>
+            {`${Informations[0].informations_email}`}|Designed by H.Kurtini{" "}
+          </p>
+        </div>
+      )}
     </div>
   );
 }

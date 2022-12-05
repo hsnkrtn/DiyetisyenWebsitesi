@@ -15,7 +15,7 @@ const db = mysql.createPool({
   database: "diyetisyen_web_sitesi",
   debug: false,
 });
-app.listen(3003, () => {
+app.listen(3001, () => {
   console.log("working");
 });
 
@@ -76,6 +76,7 @@ app.get("/GetMakaleler", (req, res) => {
     }
   });
 });
+
 app.post("/PostSendmessage", (req, res) => {
   const name = req.body.name;
   const emailadress = req.body.emailadress;
@@ -88,6 +89,50 @@ app.post("/PostSendmessage", (req, res) => {
         console.log(err);
       } else {
         res.send("succesful");
+      }
+    }
+  );
+});
+
+app.get("/GetRecipes", (req, res) => {
+  db.query("SELECT * FROM recipes", (err, result) => {
+    if (err) {
+      console.log(err);
+    } else {
+      console.log(result);
+      res.send(result);
+    }
+  });
+});
+app.get("/GetDiyetKartlari", (req, res) => {
+  db.query("SELECT * FROM diyetmarket", (err, result) => {
+    if (err) {
+      console.log(err);
+    } else {
+      res.send(result);
+    }
+  });
+});
+app.post("/UpdateCarouselHeader", (req, res) => {
+  const carouselheader = req.body.carouselheader;
+
+  db.query(
+    `UPDATE diyetisyen_web_sitesi.carouselheader SET carouselheader_text = '${carouselheader}' WHERE carouselheader_id = 1 `,
+    (err, res) => {
+      if (err) {
+        console.log(err);
+      }
+    }
+  );
+});
+app.post("/addCarouselImage", (req, res) => {
+  const carouselimage = req.body.carouselimage;
+
+  db.query(
+    `INSERT INTO diyetisyen_web_sitesi.carouselimages (carouselimage_name)  VALUES ("${carouselimage}")`,
+    (err, res) => {
+      if (err) {
+        console.log(err);
       }
     }
   );
