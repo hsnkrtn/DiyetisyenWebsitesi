@@ -1,13 +1,22 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
+import { useContext } from "react";
+import { Logininfo } from "../App";  
 function DiyetMarketCard(props) {
-  console.log(props.DiyetMarketCartId);
+  const { Islogin, setIslogin } = useContext(Logininfo);
   return (
     <div className="DiyetCard">
+        { Islogin &&  <div className="DeleteItemButton">
+        {" "}
+        <button>
+          <i class="fa fa-trash-o" aria-hidden="true"></i>
+          Diyeti Sil
+        </button>{" "}
+      </div> }
       <div className="DiyetCardImage">
         <img src={require(`../Images/${props.DiyetMarketCartImage}.jpg`)}></img>
       </div>
+      
       <div className="DiyetCardDetail">
         <div className="DiyetCardDetailHeader">
           {" "}
@@ -23,7 +32,7 @@ function DiyetMarketCard(props) {
         </div>
 
         <div className="DiyetCardButton">
-          <Link
+          <Link 
             to={{
               pathname: `/DiyetDetayi/${props.DiyetMarketCartId}`,
               state : {props}
@@ -32,6 +41,8 @@ function DiyetMarketCard(props) {
             {" "}
             <button>İncele</button>{" "}
           </Link>
+        
+   
         </div>
       </div>
     </div>

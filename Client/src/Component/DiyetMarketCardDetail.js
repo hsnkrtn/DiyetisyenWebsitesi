@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 
 import { useLocation } from "react-router-dom";
@@ -6,7 +6,9 @@ import { useLocation } from "react-router-dom";
 function DiyetMarketCardDetail() {
   const DiyetMarketCardInfo = useLocation();
   const detail = DiyetMarketCardInfo.state.props.DiyetMarketCartDetail;
-
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div className="default-routepage">
       <div className="default-routepage-header"></div>
@@ -38,9 +40,15 @@ function DiyetMarketCardDetail() {
                 </div>{" "}
               </div>
             </div>
-<hr></hr>
+
             <div className="DiyetInfo2">
-              <h1>{DiyetMarketCardInfo.state.props.DiyetMarketCartHeader} </h1>
+              <div className="DiyetInfo2Text">
+                {" "}
+                <h1>
+                  {DiyetMarketCardInfo.state.props.DiyetMarketCartHeader}{" "}
+                </h1>
+                <hr></hr>
+              </div>
               <div
                 className="DiyetInfo2inner"
                 dangerouslySetInnerHTML={{ __html: detail }}

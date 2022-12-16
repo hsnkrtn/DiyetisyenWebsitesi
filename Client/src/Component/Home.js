@@ -9,6 +9,10 @@ import NavigationBar from "./NavigationBar";
 import Footer from "./Footer";
 
 function Home() {
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
   return (
     <div>
       <NavigationBar></NavigationBar>

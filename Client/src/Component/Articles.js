@@ -20,23 +20,17 @@ function Articles() {
       </div>
       <div className="Article-inner">
         <div className="Articles-cards">
-          <ul className="ArticleCardList">
+          <ul className="ArticleCardList">  
             {Makaleler.map((val, key) => {
               return (
                 <li>
-                  <Link
-                    to={{
-                      pathname: `/MakaleDetay/${val.article_id}`,
-                      state: { val },
-                    }}
-                  >
+               
                     <ArticleCard
                       key={val.article_id}
                       articleheader={val.article_header}
                       articledetail={val.article_detail}
                       articleimage={val.article_image}
                     ></ArticleCard>{" "}
-                  </Link>
                 </li>
               );
             })}

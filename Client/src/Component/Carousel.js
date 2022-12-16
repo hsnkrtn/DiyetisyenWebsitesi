@@ -42,7 +42,7 @@ function Carousel() {
         <img
           src={require(`../Images/${
             Image[`${ImageNumber}`].carouselimage_name
-          }.jpg`)}
+          }`)}
         ></img>
       )}{" "}
       {buyukbaslik && <h1>{buyukbaslik[0].carouselheader_text}</h1>}

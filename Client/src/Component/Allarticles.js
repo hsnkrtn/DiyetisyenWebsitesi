@@ -24,12 +24,7 @@ function Allarticles() {
             {Makaleler.map((val, key) => {
               return (
                 <li>
-                  <Link
-                    to={{
-                      pathname: `/MakaleDetay/${val.article_header}`,
-                      state: { val },
-                    }}
-                  >
+            
                     <ArticleCard
                       key={val.article_id}
                       articleheader={val.article_header}
@@ -37,7 +32,6 @@ function Allarticles() {
                       articleimage={val.article_image}
                       articleabstract={val.article_abstract}
                     ></ArticleCard>{" "}
-                  </Link>
                 </li>
               );
             })}

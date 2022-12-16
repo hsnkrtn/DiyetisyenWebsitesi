@@ -48,7 +48,7 @@ function Footer() {
       {Informations && (
         <div className="Footerinfo">
           <p>
-            {`${Informations[0].informations_email}`}|Designed by H.Kurtini{" "}
+            {`${Informations[0].informations_email}`}&nbsp;|&nbsp;Designed by H.Kurtini{" "}
           </p>
         </div>
       )}

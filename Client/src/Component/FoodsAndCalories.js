@@ -24,20 +24,15 @@ function FoodsAndCalories() {
               {Recipes.map((val, key) => {
                 return (
                   <li>
-                    <Link
-                      to={{
-                        pathname: `/Tarif/${val.recipe_yemek_adi}`,
-                        state: { val },
-                      }}
-                    >
+                
                       <Foodsrecipe
                         yemek_adi={val.recipe_yemek_adi}
                         porsiyon={val.recipe_porsiyon}
                         kisi_sayisi={val.recipe_kisisayisi}
                         fotograf={val.recipe_yemek_fotograf}
                         sure={val.recipe_sure}
+                        tarif={val.recipe_tarif}
                       ></Foodsrecipe>
-                    </Link>
                   </li>
                 );
               })}

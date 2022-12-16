@@ -35,9 +35,11 @@ function Appointment() {
       <div className="Appointment-inner">
         <div className="Appointment-text">
           <div className="Appointment-textContent">
-<h1>      Bize Ulaşın, Danışın
-            <br></br>Randevu Alın{" "} </h1>
-       
+            <h1>
+              {" "}
+              Bize Ulaşın, Danışın
+              <br></br>Randevu Alın{" "}
+            </h1>
           </div>
 
           <div className="ContactUsButton">

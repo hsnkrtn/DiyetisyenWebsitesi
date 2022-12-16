@@ -2,6 +2,17 @@ const express = require("express");
 const app = express();
 const mysql = require("mysql");
 const cors = require("cors");
+multer = require("multer");
+
+var storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, "../Client/src/Images");
+  },
+  filename: function (req, file, cb) {
+    cb(null, file.originalname);
+  },
+});
+var upload = multer({ storage: storage });
 
 app.use(cors());
 app.use(express.json());
@@ -125,15 +136,54 @@ app.post("/UpdateCarouselHeader", (req, res) => {
     }
   );
 });
-app.post("/addCarouselImage", (req, res) => {
-  const carouselimage = req.body.carouselimage;
+
+app.post("/addnewdiyet", (req, res) => {
+  const diyetbaslik = req.body.diyetbaslik;
+  const diyetdetay = req.body.diyetdetay;
+  const diyetfotograf = req.body.diyetfotograf;
+  const diyetozet = req.body.diyetozet;
+  const diyetfiyat = req.body.diyetfiyat;
 
   db.query(
-    `INSERT INTO diyetisyen_web_sitesi.carouselimages (carouselimage_name)  VALUES ("${carouselimage}")`,
+    `INSERT INTO diyetisyen_web_sitesi.diyetmarket (diyet_baslik,  diyet_detayi, diyet_fiyati, diyet_fotograf, diyet_ozet )  VALUES ("${diyetbaslik}", "${diyetdetay}","${diyetfiyat}","${diyetfotograf}","${diyetozet}")`,
     (err, res) => {
       if (err) {
         console.log(err);
       }
     }
   );
+});
+
+app.post("/Login", (req, res) => {
+  const username = req.body.username;
+  const password = req.body.password;
+
+  db.query("SELECT * FROM login", (err, result) => {
+    if (err) {
+      console.log(err);
+    } else {
+      if (
+        result[0].login_username === username &&
+        result[0].login_password === password
+      ) {
+        res.send(true);
+      } else {
+        res.send(false);
+      }
+    }
+  });
+});
+//////////// File Upload/////////////////
+
+app.post("/upload", upload.single("file"), (req, res) => {
+  db.query(
+    `INSERT INTO diyetisyen_web_sitesi.carouselimages (carouselimage_name)  VALUES ("${req.file.filename}")`,
+    (err, res) => {
+      if (err) {
+        console.log(err);
+      }
+    }
+  );
+
+  res.send("Fotograf Başarıyla Yüklendi");
 });
