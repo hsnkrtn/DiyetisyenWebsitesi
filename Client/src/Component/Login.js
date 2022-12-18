@@ -42,7 +42,6 @@ function Login() {
         <label for="Carouselheader">Yeni Başlık </label>
         <input
           type="inputtext"
-          id="Carouselheaderid"
           name="Carouselheader"
           onChange={(e) => setUserName(e.target.value)}
           placeholder="Kullanıcı Adı"
@@ -51,7 +50,6 @@ function Login() {
         <label for="Carouselheader">Şifre </label>
         <input
           type="password"
-          id="Carouselheaderid"
           name="Carouselheader"
           onChange={(e) => setPassword(e.target.value)}
           placeholder="Şifre"

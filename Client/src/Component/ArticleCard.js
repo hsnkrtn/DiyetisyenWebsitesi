@@ -1,21 +1,26 @@
 import React from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import Axios from "axios";
 
 import { useContext } from "react";
-import { Logininfo } from "../App"; 
+import { Logininfo } from "../App";
 
 function ArticleCard(props) {
-  const { Islogin, setIslogin } = useContext(Logininfo); 
+  const URL = "http://localhost:3001";
+  const { Islogin, setIslogin } = useContext(Logininfo);
   const [articleimage, setarticleimage] = useState("vv.jpg");
-  useState(() => {
-    checktypeofimage();
-  });
-  function checktypeofimage() {
-    if (typeof props.articleimage !== "undefined") {
-      setarticleimage(props.articleimage);
-    }
-  }
+  const articleid = props.articleid;
+
+  const handleDelete = () => {
+    Axios.delete(`${URL}/DeleteMakale`, {
+
+      data:{  articleid: articleid } 
+    }).then((reponse) => {
+      console.log(reponse);
+    });
+  };
+
   return (
     <div className="Article-card">
       <div className="Article-card-image">
@@ -28,19 +33,19 @@ function ArticleCard(props) {
             state: { props },
           }}
         >
- 
           <h1>{props.articleheader}</h1>
           <p>{props.articleabstract}</p>
         </Link>
       </div>
-      { Islogin &&  <div className="DeleteItemButton">
-        {" "}
-        <button>
-          <i class="fa fa-trash-o" aria-hidden="true"></i>
-          Makeleyi Sil
-        </button>{" "}
-      </div> }
-   
+      {Islogin && (
+        <div className="DeleteItemButton">
+          {" "}
+          <button onClick={handleDelete}>
+            <i class="fa fa-trash-o" aria-hidden="true"></i>
+            Makeleyi Sil
+          </button>{" "}
+        </div>
+      )}
     </div>
   );
 }

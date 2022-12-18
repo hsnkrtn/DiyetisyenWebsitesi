@@ -12,6 +12,7 @@ import Contactpage from "./Component/Contactpage";
 import ArticleCardDetail from "./Component/ArticleCardDetail";
 import Bazalmetabolizma from "./Component/Bazalmetabolizma";
 import Kalorihesaplama from "./Component/Kalorihesaplama";
+import OnlineDiyetForm from "./Component/OnlineDiyetForm";
 import Vucutkitleindex from "./Component/Vucutkitleindex";
 import Error404 from "./Component/Error404";
 import Admin from "./Component/Admin";
@@ -28,7 +29,7 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <Logininfo.Provider value={{Islogin, setIslogin}}>
+        <Logininfo.Provider value={{ Islogin, setIslogin }}>
           <Switch>
             <Route exact path="/">
               <Home></Home>
@@ -67,6 +68,11 @@ function App() {
               <NavigationBar></NavigationBar>
 
               <Vucutkitleindex></Vucutkitleindex>
+              <Footer></Footer>
+            </Route>{" "}
+            <Route path="/OnlineDiyetForm">
+              <NavigationBar></NavigationBar>
+              <OnlineDiyetForm></OnlineDiyetForm>
               <Footer></Footer>
             </Route>{" "}
             <Route path="/bazalmetabolizma">

@@ -15,17 +15,15 @@ function Appointment() {
       emailadress: emailadress,
       subject: subject,
       message: message,
-    }).then(() => {});
+    }).then((res) => {
+      alert(res);
+    });
   };
   const CleanData = () => {
-    document.getElementById("fname").value = "";
-    document.getElementById("femail").value = "";
-    document.getElementById("fsubject").value = "";
-    document.getElementById("Fmessage").value = "";
+    document.getElementById("AppointmentForm").reset();
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    alert("Mesajınız Gönderildi");
     sendData();
     CleanData();
   };
@@ -51,7 +49,7 @@ function Appointment() {
         </div>
 
         <div className="Appointment-form">
-          <form onSubmit={handleSubmit}>
+          <form id="AppointmentForm" onSubmit={handleSubmit}>
             <label for="fname">Adınız Soyadınız</label>
             <input
               type="text"
@@ -85,6 +83,7 @@ function Appointment() {
               id="Fmessage"
               name="Fmessage"
               onChange={(e) => setMessage(e.target.value)}
+              placeholder={"Lütfen mesajınızı yazın..."}
               required
             ></textarea>
             <br></br>

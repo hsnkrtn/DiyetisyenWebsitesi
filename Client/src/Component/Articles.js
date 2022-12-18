@@ -26,7 +26,7 @@ function Articles() {
                 <li>
                
                     <ArticleCard
-                      key={val.article_id}
+                      articleid={val.article_id}
                       articleheader={val.article_header}
                       articledetail={val.article_detail}
                       articleimage={val.article_image}

@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import Axios from "axios";
-import Updatediyet from "./Updatediyet";
+import Uploaddiyet from "./Uploaddiyet";
 import UpdateHeader from "./UpdateHeader";
-import UpdateImage from "./UpdateImage";
+import Uploadimage from "./Uploadimage";
 import Login from "./Login";
 import { useContext } from "react";
 import { Logininfo } from "../App";
@@ -26,8 +26,8 @@ function Admin() {
             Çıkış Yap
           </button> 
           <UpdateHeader></UpdateHeader>
-          <UpdateImage></UpdateImage>
-          <Updatediyet></Updatediyet>
+          <Uploadimage></Uploadimage>
+          <Uploaddiyet></Uploaddiyet>
         </div>
       )}
     </div>

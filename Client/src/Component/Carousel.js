@@ -3,12 +3,15 @@ import "../app.css";
 import Fotograf2 from "../Images/vv.jpg";
 import { useState, useEffect, useRef } from "react";
 import Axios from "axios";
+import { useContext } from "react";
+import { Logininfo } from "../App";
 
 function Carousel() {
   const [Image, setImage] = useState(null);
   const [ImageNumber, setImageNumber] = useState(0);
   const [buyukbaslik, setbuyukbaslik] = useState(null);
   const URL = "http://localhost:3001";
+  const { Islogin, setIslogin } = useContext(Logininfo);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -38,13 +41,16 @@ function Carousel() {
 
   return (
     <div className="Carousel">
-      {Image && (
-        <img
-          src={require(`../Images/${
-            Image[`${ImageNumber}`].carouselimage_name
-          }`)}
-        ></img>
-      )}{" "}
+      {Image && ( 
+        <div className="CarouselImages">
+          <img 
+            src={require(`../Images/${
+              Image[`${ImageNumber}`].carouselimage_name
+            }`)}
+          ></img>
+          {Islogin && <button>Fotografı Sil</button>}
+        </div>
+      )}
       {buyukbaslik && <h1>{buyukbaslik[0].carouselheader_text}</h1>}
       <button onClick={GoToLeftImage} className="Carousel-left-button">
         <span>

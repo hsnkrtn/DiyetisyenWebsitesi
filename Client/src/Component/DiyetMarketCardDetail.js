@@ -31,7 +31,7 @@ function DiyetMarketCardDetail() {
                   </h1>{" "}
                 </div>
                 <div className="ContactUsButton">
-                  <Link to="Iletisim">
+                  <Link to="/Iletisim">
                     {" "}
                     <button className="ContactUs">
                       İletişim Bilgileri{" "}

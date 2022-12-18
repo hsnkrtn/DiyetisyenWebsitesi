@@ -19,7 +19,7 @@ function UpdateHeader() {
   };
 
   const CleanData = () => {
-    document.getElementById("Carouselheaderid").value = "";
+    document.getElementById("Carouselheaderid").reset();
   };
 
   return (
@@ -32,11 +32,10 @@ function UpdateHeader() {
         <hr></hr>
       </div>
       {/*  Carousel basligi icin */}
-      <form  onSubmit={handleSubmit}>
+      <form  className=" UpdateForm"  onSubmit={handleSubmit}>
         <label for="Carouselheader">Yeni Başlık </label>
         <input
           type="inputtext"
-          id="Carouselheaderid"
           name="Carouselheader"
           onChange={(e) => setCarouselheader(e.target.value)}
           placeholder=" Yeni Başlık"

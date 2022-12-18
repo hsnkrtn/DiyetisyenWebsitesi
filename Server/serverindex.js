@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const mysql = require("mysql");
 const cors = require("cors");
+
 multer = require("multer");
 
 var storage = multer.diskStorage({
@@ -13,7 +14,6 @@ var storage = multer.diskStorage({
   },
 });
 var upload = multer({ storage: storage });
-
 app.use(cors());
 app.use(express.json());
 
@@ -34,7 +34,6 @@ db.query("SELECT * FROM carouselheader", (err, result) => {
   if (err) {
     console.log(err);
   } else {
-    console.log(result);
   }
 });
 
@@ -44,7 +43,6 @@ app.get("/GetCarouselheader", (req, res) => {
       console.log(err);
     } else {
       res.send(result);
-      console.log(result);
     }
   });
 });
@@ -94,12 +92,10 @@ app.post("/PostSendmessage", (req, res) => {
   const message = req.body.message;
   const subject = req.body.subject;
   db.query(
-    `INSERT INTO diyetisyen_web_sitesi.appointmentcontact  (appointmentcontact_name,appointmentcontact_emailadress,appointmentcontact_subject,appointmentcontact_message) VALUES ("${name}","${emailadress}","${subject}","${message}")`,
+    `INSERT INTO diyetisyen_web_sitesi.appointmentcontact (appointmentcontact_name,appointmentcontact_emailadress,appointmentcontact_subject,appointmentcontact_message) VALUES ("${name}","${emailadress}","${subject}","${message}")`,
     (err, res) => {
       if (err) {
         console.log(err);
-      } else {
-        res.send("succesful");
       }
     }
   );
@@ -110,7 +106,6 @@ app.get("/GetRecipes", (req, res) => {
     if (err) {
       console.log(err);
     } else {
-      console.log(result);
       res.send(result);
     }
   });
@@ -136,19 +131,47 @@ app.post("/UpdateCarouselHeader", (req, res) => {
     }
   );
 });
+app.post("/uploaddiyetimage", upload.single("file"), (req, res) => {
+  res.send("Başarıyla Yüklendi");
+});
 
 app.post("/addnewdiyet", (req, res) => {
   const diyetbaslik = req.body.diyetbaslik;
   const diyetdetay = req.body.diyetdetay;
-  const diyetfotograf = req.body.diyetfotograf;
   const diyetozet = req.body.diyetozet;
   const diyetfiyat = req.body.diyetfiyat;
-
+  const diyetfotograf = req.body.diyetfotograf;
   db.query(
-    `INSERT INTO diyetisyen_web_sitesi.diyetmarket (diyet_baslik,  diyet_detayi, diyet_fiyati, diyet_fotograf, diyet_ozet )  VALUES ("${diyetbaslik}", "${diyetdetay}","${diyetfiyat}","${diyetfotograf}","${diyetozet}")`,
-    (err, res) => {
+    `INSERT INTO diyetisyen_web_sitesi.diyetmarket (diyet_baslik,  diyet_detayi, diyet_fiyati, diyet_ozet, diyet_fotograf)  VALUES ("${diyetbaslik}", "${diyetdetay}","${diyetfiyat}","${diyetozet}" ,"${diyetfotograf}" )`,
+    (err, response) => {
       if (err) {
         console.log(err);
+      } else res.send("Başarıyla Yüklendi");
+    }
+  );
+});
+
+app.post("/PostOnlineDiyet", (req, res) => {
+  const name = req.body.name;
+  const emailadress = req.body.emailadress;
+  const telefon = req.body.telefon;
+  const dogumtarihi = req.body.dogumtarihi;
+  const kilo = req.body.kilo;
+  const boy = req.body.boy;
+  const belcevresi = req.body.belcevresi;
+  const kalcacevresi = req.body.kalcacevresi;
+  const anaogunsayiyi = req.body.anaogunsayiyi;
+  const araogunsayiyi = req.body.araogunsayiyi;
+  const meslek = req.body.meslek;
+  const mesaj = req.body.mesaj;
+
+  db.query(
+    `INSERT INTO diyetisyen_web_sitesi.onlinediyet (onlinediyet_fullname, onlinediyet_email, onlinediyet_phone,  onlinediyet_birthdate, onlinediyet_height, onlinediyet_weight, onlinediyet_waist, onlinediyet_hip, onlinediyet_meals, onlinediyet_snacks, onlinediyet_job, onlinediyet_message ) VALUES ("${name}" ,"${emailadress}", "${telefon}","${dogumtarihi}","${boy}","${kilo}","${belcevresi}","${kalcacevresi}","${anaogunsayiyi}","${araogunsayiyi}","${meslek}","${mesaj}")`,
+    (err, response) => {
+      if (err) {
+        console.log(err);
+      } else {
+        res.send("Başarıyla Yüklendi");
       }
     }
   );
@@ -178,7 +201,7 @@ app.post("/Login", (req, res) => {
 app.post("/upload", upload.single("file"), (req, res) => {
   db.query(
     `INSERT INTO diyetisyen_web_sitesi.carouselimages (carouselimage_name)  VALUES ("${req.file.filename}")`,
-    (err, res) => {
+    (err) => {
       if (err) {
         console.log(err);
       }
@@ -186,4 +209,20 @@ app.post("/upload", upload.single("file"), (req, res) => {
   );
 
   res.send("Fotograf Başarıyla Yüklendi");
+});
+
+////////////////// Delete////////////////////////////
+
+app.delete("/DeleteMakale", (req, res) => {
+  const articleid = req.body.articleid;
+  db.query(
+    `DELETE FROM  diyetisyen_web_sitesi.articles WHERE article_id=${articleid};`,
+    (err, result) => {
+      if (err) {
+        console.log(err);
+      } else {
+        res.send(result);
+      }
+    }
+  );
 });

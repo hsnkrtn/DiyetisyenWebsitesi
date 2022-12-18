@@ -23,37 +23,43 @@ function Diyetmarket() {
   };
 
   return (
-    <div className="DiyetMarket">
-      <div className="Diyetmarketleftbutton" onClick={LeftClick}>
-        <span>
-          <i class="fa fa-chevron-left" aria-hidden="true"></i>
-        </span>
+    <div>
+      <div className="DiyetMarketHeader">
+        {" "}
+        <h1>Diyetler</h1>
       </div>
-      <div className="DiyetMarketCards" id="DytMrkt">
-        <div className="DiyetmarketAllCards">
-          <ul>
-            {Diyetkart.map((val, key) => {
-              return (
-                <li>
-                  <DiyetMarketCard
-                    DiyetMarketCartId={val.diyet_id}
-                    DiyetMarketCartHeader={val.diyet_baslik}
-                    DiyetMarketCartDetail={val.diyet_detayi}
-                    DiyetMarketCartPrice={val.diyet_fiyati}
-                    DiyetMarketCartImage={val.diyet_fotograf}
-                    DiyetMarketCartAbstract={val.diyet_ozet}
-                  ></DiyetMarketCard>
-                </li>
-              );
-            })}
-          </ul>
+      <div className="DiyetMarket">
+        <div className="Diyetmarketleftbutton" onClick={LeftClick}>
+          <span>
+            <i class="fa fa-chevron-left" aria-hidden="true"></i>
+          </span>
         </div>
-      </div>
-      <div className="Diyetmarketrightbutton" onClick={RightClick}>
-        <span>
-          <i class="fa fa-chevron-right" aria-hidden="true"></i>
-        </span>
-      </div>
+        <div className="DiyetMarketCards" id="DytMrkt">
+          <div className="DiyetmarketAllCards">
+            <ul>
+              {Diyetkart.map((val, key) => {
+                return (
+                  <li>
+                    <DiyetMarketCard
+                      DiyetMarketCartId={val.diyet_id}
+                      DiyetMarketCartHeader={val.diyet_baslik}
+                      DiyetMarketCartDetail={val.diyet_detayi}
+                      DiyetMarketCartPrice={val.diyet_fiyati}
+                      DiyetMarketCartImage={val.diyet_fotograf}
+                      DiyetMarketCartAbstract={val.diyet_ozet}
+                    ></DiyetMarketCard>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+        </div>
+        <div className="Diyetmarketrightbutton" onClick={RightClick}>
+          <span>
+            <i class="fa fa-chevron-right" aria-hidden="true"></i>
+          </span>
+        </div>
+      </div>{" "}
     </div>
   );
 }
