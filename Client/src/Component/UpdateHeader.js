@@ -32,7 +32,7 @@ function UpdateHeader() {
         <hr></hr>
       </div>
       {/*  Carousel basligi icin */}
-      <form  className=" UpdateForm"  onSubmit={handleSubmit}>
+      <form  className=" UpdateForm" id="Carouselheaderid" onSubmit={handleSubmit}>
         <label for="Carouselheader">Yeni Başlık </label>
         <input
           type="inputtext"

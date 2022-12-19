@@ -6,6 +6,8 @@ import Uploadimage from "./Uploadimage";
 import Login from "./Login";
 import { useContext } from "react";
 import { Logininfo } from "../App";
+import Uploadarticle from "./Uploadarticle";
+import Uploadrecipe from "./Uploadrecipe";
 
 function Admin() {
   const { Islogin, setIslogin } = useContext(Logininfo);
@@ -24,10 +26,12 @@ function Admin() {
             }}
           >
             Çıkış Yap
-          </button> 
+          </button>
           <UpdateHeader></UpdateHeader>
           <Uploadimage></Uploadimage>
           <Uploaddiyet></Uploaddiyet>
+          <Uploadarticle></Uploadarticle>
+          <Uploadrecipe></Uploadrecipe>
         </div>
       )}
     </div>

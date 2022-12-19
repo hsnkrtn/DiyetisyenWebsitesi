@@ -10,28 +10,23 @@ function Uploaddiyet() {
 
   const URL = "http://localhost:3001";
 
-  const handleSubmit = (e) => {
-    e.preventDefault(e);
-    uploaddiyetimage();
-    postData();
-  };
-  const uploaddiyetimage = () => {
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   postData();
+  // };
+  const diyetimageupload = () => {
     const diyetimageform = document.getElementById("DiyetImageUploadForm");
     if (diyetimageform) {
       diyetimageform.addEventListener("submit", (e) => {
         e.preventDefault();
-
         const formData = new FormData(diyetimageform);
-
         Axios.post(`${URL}/uploaddiyetimage`, formData, {
           headers: {
             "Content-Type": "multipart/form-data",
           },
-        })
-          .then((res) => {
-          })
-          .catch((err) => {
-          });
+        }).then((res) => {
+          postData();
+        });
       });
     }
   };
@@ -44,8 +39,9 @@ function Uploaddiyet() {
         diyetfiyat: diyetfiyat,
         diyetfotograf: diyetfotograf,
       }).then((res) => {
-        alert("Diyet eklendi");
-        console.log(res.data);
+        alert(res.data, "Diyet eklendi");
+        document.getElementById("Diyetdetailform").reset();
+        document.getElementById("DiyetImageUploadForm").reset();
       });
     } catch (error) {
       console.error(error);
@@ -61,29 +57,8 @@ function Uploaddiyet() {
         Diyet Ekleme
         <hr></hr>
       </div>
-      <form
-        id="DiyetImageUploadForm"
-        className="UpdateFileForm"
-        action={`${URL}/uploaddiyetimage`}
-        method="post"
-        enctype="multipart/form-data"
-        target="blank"
-      >
-        <br></br>
-        <br></br> <label>Diyet Fotografi Ekle</label>
-        <input
-          type="file"
-          name="file"
-          onChange={(e) => {
-            setDiyetfotograf(e.target.files[0].name);
-          }}
-        ></input>
-      </form>
-      <form
-        className=" UpdateForm"
-        id="Diyetdetailform"
-        onSubmit={handleSubmit}
-      >
+
+      <form className=" UpdateForm" id="Diyetdetailform">
         <label for="Carouselheader">Diyet Baslığı ekle</label>
         <input
           id="forminput1"
@@ -92,7 +67,7 @@ function Uploaddiyet() {
           placeholder="Diyet adi"
           required
         ></input>
-        <label for="Carouselheader">Diyet Detayı Ekle</label>
+        <label for="Carouselheader">{`Diyet Detayı Ekle (  https://onlinehtmleditor.dev/ , https://onlineutf8tools.com/convert-html-entities-to-utf8  )`}</label>
 
         <input
           id="forminput2"
@@ -120,7 +95,25 @@ function Uploaddiyet() {
           placeholder="Diyet Fiyati"
           required
         ></input>
-        <button type="submit">Diyeti Yükle</button>
+      </form>
+      <form
+        id="DiyetImageUploadForm"
+        className="UpdateFileForm"
+        action={`${URL}/uploaddiyetimage`}
+        method="post"
+        enctype="multipart/form-data"
+        target="_self"
+      >
+        <br></br>
+        <br></br> <label>Diyet Fotografi Ekle</label>
+        <input
+          type="file"
+          name="file"
+          onChange={(e) => {
+            setDiyetfotograf(e.target.files[0].name);
+          }}
+        ></input>
+        <button onClick={diyetimageupload}>Diyeti Ekle</button>
       </form>
     </div>
   );

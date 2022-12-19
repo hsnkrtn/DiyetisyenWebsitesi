@@ -36,7 +36,7 @@ function Contactpage() {
                 <span>
                   <i class="fa fa-whatsapp" aria-hidden="true"></i>
                 </span>
-                <a href={`https://wa.me/${Informations[0].informations_phone}`}>
+                <a  target="_blank" href={`https://wa.me/${Informations[0].informations_phone}`  }>
                   Whatsapp
                 </a>
               </div>

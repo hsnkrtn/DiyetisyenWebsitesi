@@ -19,7 +19,7 @@ function Foodsrecipe(props) {
       )}
 
       <div className="FoodrecipeCardImage">
-        <img src={require(`../Images/${props.fotograf}.jpg`)}></img>
+        <img src={require(`../Images/${props.fotograf}`)}></img>
       </div>
       <div className="FoodrecipeCardDetail">
         <Link

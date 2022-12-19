@@ -14,7 +14,7 @@ function DiyetMarketCard(props) {
         </button>{" "}
       </div> }
       <div className="DiyetCardImage">
-        <img src={require(`../Images/${props.DiyetMarketCartImage}.jpg`)}></img>
+        <img src={require(`../Images/${props.DiyetMarketCartImage}`)}></img>
       </div>
       
       <div className="DiyetCardDetail">

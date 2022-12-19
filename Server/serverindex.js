@@ -131,6 +131,8 @@ app.post("/UpdateCarouselHeader", (req, res) => {
     }
   );
 });
+/////////Add Diyet///////////
+
 app.post("/uploaddiyetimage", upload.single("file"), (req, res) => {
   res.send("Başarıyla Yüklendi");
 });
@@ -150,6 +152,50 @@ app.post("/addnewdiyet", (req, res) => {
     }
   );
 });
+/////////Add Article///////////
+app.post("/ArticleImageUpload", upload.single("file"), (req, res) => {
+  res.send("Başarıyla Yüklendi");
+});
+
+app.post("/addnewarticle", (req, res) => {
+  const articlebaslik = req.body.articlebaslik;
+  const articledetay = req.body.articledetay;
+  const articlefotograf = req.body.articlefotograf;
+  const articleozet = req.body.articleozet;
+  db.query(
+    `INSERT INTO diyetisyen_web_sitesi.articles (article_header,  article_detail, article_image, article_abstract)  VALUES ("${articlebaslik}", "${articledetay}","${articlefotograf}","${articleozet}"  )`,
+    (err, response) => {
+      if (err) {
+        console.log(err);
+      } else res.send("Başarıyla Yüklendi");
+    }
+  );
+});
+///////////////Upload Recipe
+
+app.post("/RecipeImageUpload", upload.single("file"), (req, res) => {
+  res.send("Başarıyla Yüklendi");
+});
+
+app.post("/addnewrecipe", (req, res) => {
+  const yemekadi = req.body.yemekadi;
+  const porsiyon = req.body.porsiyon;
+  const tariffotograf = req.body.tariffotograf;
+  const kisisayisi = req.body.kisisayisi;
+  const tarif = req.body.tarif;
+  const sure = req.body.sure;
+  db.query(
+    `INSERT INTO diyetisyen_web_sitesi.recipes (recipe_yemek_adi,  recipe_porsiyon, recipe_kisisayisi, recipe_sure, recipe_tarif, recipe_yemek_fotograf)  VALUES
+     ("${yemekadi}", "${porsiyon}","${kisisayisi}","${sure}" ,"${tarif}" ,"${tariffotograf}"  )`,
+    (err, response) => {
+      if (err) {
+        console.log(err);
+      } else res.send("Başarıyla Yüklendi");
+    }
+  );
+});
+
+////////////Upload online Diyet Form
 
 app.post("/PostOnlineDiyet", (req, res) => {
   const name = req.body.name;
@@ -176,7 +222,7 @@ app.post("/PostOnlineDiyet", (req, res) => {
     }
   );
 });
-
+////////////////Login/////////////////
 app.post("/Login", (req, res) => {
   const username = req.body.username;
   const password = req.body.password;
@@ -211,7 +257,7 @@ app.post("/upload", upload.single("file"), (req, res) => {
   res.send("Fotograf Başarıyla Yüklendi");
 });
 
-////////////////// Delete////////////////////////////
+////////////////// Delete Article////////////////////////////
 
 app.delete("/DeleteMakale", (req, res) => {
   const articleid = req.body.articleid;

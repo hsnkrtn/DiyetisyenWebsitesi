@@ -27,7 +27,7 @@ function Recipedetail() {
           <div className="FoodrecipeAllDetail">
             <div className="FoodrecipeCardImage">
               <img
-                src={require(`../Images/${fotograf}.jpg`)}
+                src={require(`../Images/${fotograf}`)}
               ></img>
             </div>
             <div className="FoodrecipeCardDetail">
