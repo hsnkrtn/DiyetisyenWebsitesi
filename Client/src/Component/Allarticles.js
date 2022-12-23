@@ -23,7 +23,7 @@ function Allarticles() {
           <ul className="ArticleCardList">
             {Makaleler.map((val, key) => {
               return (
-                <li>
+                <li key={val.article_id} >
             
                     <ArticleCard
                       articleid={val.article_id}

@@ -26,6 +26,7 @@ function Carousel() {
   const getImages = async () => {
     await Axios.get(`${URL}/GetCarouselimages`).then((response) => {
       setImage(response.data.reverse());
+
     });
   };
   const GoToRightImage = () => {
@@ -39,16 +40,24 @@ function Carousel() {
     }
   };
 
+  const handleDelete = () => {
+    Axios.delete(`${URL}/Deletecarouselimage`, {
+       data: { imageid: Image[ImageNumber].carouselimage_id },
+    }).then((reponse) => {
+      alert(reponse.data);
+    });
+  };
+
   return (
     <div className="Carousel">
-      {Image && ( 
+      {Image && (
         <div className="CarouselImages">
-          <img 
+          <img
             src={require(`../Images/${
               Image[`${ImageNumber}`].carouselimage_name
             }`)}
           ></img>
-          {Islogin && <button>Fotografı Sil</button>}
+          {Islogin && <button onClick={handleDelete}>Fotografı Sil</button>}
         </div>
       )}
       {buyukbaslik && <h1>{buyukbaslik[0].carouselheader_text}</h1>}

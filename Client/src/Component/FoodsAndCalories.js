@@ -25,7 +25,8 @@ function FoodsAndCalories() {
                 return (
                   <li>
                 
-                      <Foodsrecipe
+                      <Foodsrecipe  
+                        recipeId={val.recipe_id}
                         yemek_adi={val.recipe_yemek_adi}
                         porsiyon={val.recipe_porsiyon}
                         kisi_sayisi={val.recipe_kisisayisi}

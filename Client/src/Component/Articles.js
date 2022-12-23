@@ -8,7 +8,6 @@ function Articles() {
   const URL = "http://localhost:3001";
 
   useEffect(() => {
-
     Axios.get(`${URL}/GetMakaleler`).then((reponse) =>
       setMakaleler(reponse.data.reverse().slice(0, 3))
     );
@@ -20,17 +19,16 @@ function Articles() {
       </div>
       <div className="Article-inner">
         <div className="Articles-cards">
-          <ul className="ArticleCardList">  
+          <ul className="ArticleCardList">
             {Makaleler.map((val, key) => {
               return (
-                <li>
-               
-                    <ArticleCard
-                      articleid={val.article_id}
-                      articleheader={val.article_header}
-                      articledetail={val.article_detail}
-                      articleimage={val.article_image}
-                    ></ArticleCard>{" "}
+                <li key={val.article_id}>
+                  <ArticleCard
+                    articleid={val.article_id}
+                    articleheader={val.article_header}
+                    articledetail={val.article_detail}
+                    articleimage={val.article_image}
+                  ></ArticleCard>{" "}
                 </li>
               );
             })}

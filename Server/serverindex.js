@@ -75,6 +75,18 @@ app.get("/GetHakkimizda", (req, res) => {
     }
   });
 });
+app.get("/GetAppointments", (req, res) => {
+  db.query(
+    "SELECT * FROM diyetisyen_web_sitesi.appointmentcontact",
+    (err, result) => {
+      if (err) {
+        console.log(err);
+      } else {
+        res.send(result);
+      }
+    }
+  );
+});
 
 app.get("/GetMakaleler", (req, res) => {
   db.query("SELECT * FROM articles", (err, result) => {
@@ -119,6 +131,7 @@ app.get("/GetDiyetKartlari", (req, res) => {
     }
   });
 });
+///////////////////Update Carousel Header//////////
 app.post("/UpdateCarouselHeader", (req, res) => {
   const carouselheader = req.body.carouselheader;
 
@@ -131,6 +144,24 @@ app.post("/UpdateCarouselHeader", (req, res) => {
     }
   );
 });
+///////////////////Update Contact Informations//////////
+app.post("/Updatecontact", (req, res) => {
+  const adress = req.body.adress;
+  const phone = req.body.phone;
+  const whatsapp = req.body.whatsapp;
+  const email = req.body.email;
+  const instagram = req.body.instagram;
+
+  db.query(
+    `UPDATE diyetisyen_web_sitesi.contactinformations SET informations_adress ='${adress}', informations_phone ='${phone}',informations_whatsapp='${whatsapp}',informations_email ='${email}',informations_instagram='${instagram}' WHERE informations_id = 1`,
+    (err, response) => {
+      if (err) {
+        console.log(err);
+      } else res.send("Başarıyla Güncellendi");
+    }
+  );
+});
+
 /////////Add Diyet///////////
 
 app.post("/uploaddiyetimage", upload.single("file"), (req, res) => {
@@ -185,8 +216,7 @@ app.post("/addnewrecipe", (req, res) => {
   const tarif = req.body.tarif;
   const sure = req.body.sure;
   db.query(
-    `INSERT INTO diyetisyen_web_sitesi.recipes (recipe_yemek_adi,  recipe_porsiyon, recipe_kisisayisi, recipe_sure, recipe_tarif, recipe_yemek_fotograf)  VALUES
-     ("${yemekadi}", "${porsiyon}","${kisisayisi}","${sure}" ,"${tarif}" ,"${tariffotograf}"  )`,
+    `INSERT INTO diyetisyen_web_sitesi.recipes (recipe_yemek_adi,  recipe_porsiyon, recipe_kisisayisi, recipe_sure, recipe_tarif, recipe_yemek_fotograf)  VALUES ("${yemekadi}", "${porsiyon}","${kisisayisi}","${sure}" ,"${tarif}" ,"${tariffotograf}"  )`,
     (err, response) => {
       if (err) {
         console.log(err);
@@ -194,7 +224,16 @@ app.post("/addnewrecipe", (req, res) => {
     }
   );
 });
-
+/////////////Get online diyet froms
+app.get("/GetOnlinediyetforms", (req, res) => {
+  db.query("SELECT * FROM diyetisyen_web_sitesi.onlinediyet", (err, result) => {
+    if (err) {
+      console.log(err);
+    } else {
+      res.send(result);
+    }
+  });
+});
 ////////////Upload online Diyet Form
 
 app.post("/PostOnlineDiyet", (req, res) => {
@@ -267,7 +306,52 @@ app.delete("/DeleteMakale", (req, res) => {
       if (err) {
         console.log(err);
       } else {
-        res.send(result);
+        res.send("Makale Silindi");
+      }
+    }
+  );
+});
+////////////////// Delete Diyet////////////////////////////
+
+app.delete("/DeleteDiyet", (req, res) => {
+  const DiyetMarketCartId = req.body.DiyetMarketCartId;
+  db.query(
+    `DELETE FROM  diyetisyen_web_sitesi.diyetmarket WHERE diyet_id=${DiyetMarketCartId};`,
+    (err, result) => {
+      if (err) {
+        console.log(err);
+      } else {
+        res.send("Diyet Silindi");
+      }
+    }
+  );
+});
+////////////////// Delete Recipe////////////////////////////
+
+app.delete("/Deleterecipe", (req, res) => {
+  const recipeId = req.body.recipeId;
+  db.query(
+    `DELETE FROM  diyetisyen_web_sitesi.recipes WHERE recipe_id=${recipeId};`,
+    (err, response) => {
+      if (err) {
+        console.log(err);
+      } else {
+        res.send("Tarif Silindi");
+      }
+    }
+  );
+});
+////////////////// Delete Recipe////////////////////////////
+
+app.delete("/Deletecarouselimage", (req, res) => {
+  const imageid = req.body.imageid;
+  db.query(
+    `DELETE FROM  diyetisyen_web_sitesi.carouselimages WHERE carouselimage_id=${imageid};`,
+    (err, response) => {
+      if (err) {
+        console.log(err);
+      } else {
+        res.send("Fotograf Silindi");
       }
     }
   );

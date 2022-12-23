@@ -52,7 +52,7 @@ function Uploadrecipe() {
         <br></br>
         <br></br>
         <br></br>
-        Makale Ekleme
+        Tarif Ekleme
         <hr></hr>
       </div>
       <form className=" UpdateForm" id="Recipedetailform">
@@ -119,7 +119,7 @@ function Uploadrecipe() {
             setTariffotograf(e.target.files[0].name);
           }}
         ></input>
-        <button onClick={recipeimageupload}>Diyeti Ekle</button>
+        <button onClick={recipeimageupload}>Tarifi Ekle</button>
       </form>
     </div>
   );

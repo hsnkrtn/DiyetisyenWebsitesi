@@ -179,7 +179,8 @@ hr {
     object-fit: cover;
 
 }
-.CarouselImages button{
+
+.CarouselImages button {
     position: absolute;
     top: 90%;
 }
@@ -1019,6 +1020,28 @@ input[type=email] {
     justify-content: center;
 }
 
+.AdminPageButtons {
+    margin-top: 100px;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    gap: 100px;
+}
+
+.AdminPageButtons button {
+    height: 50px;
+    transition: all 0.3s;
+}
+
+.AdminPageButtons button:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+}
+.LogoutButton {
+    background-color: red;
+    border: none;
+font-weight:600;
+}
 .AdminPageContent {
     width: 80%;
     display: flex;
@@ -1122,6 +1145,7 @@ input[type=password] {
     box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.25);
 
 }
+
 
 
 .FoodrecipeCardImage {
@@ -1629,6 +1653,102 @@ input[type=password] {
     font-family: 'Kaushan Script';
     font-size: 20px;
     margin: 0%;
+}
+
+.AppointmentHistory {
+    position: relative;
+    height: fit-content;
+    width: 100%;
+
+}
+
+
+
+.AppointmentHistory ul {
+    display: flex;
+    flex-direction: column;
+    list-style-type: none;
+}
+
+
+.AppointmentHistory a {
+
+    text-decoration: none;
+
+}
+
+.Appointmentcards {
+    position: relative;
+    height: 50px;
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+
+    background-color: #f7f5fa
+}
+
+.Appointmentcards h1 {
+
+    font-size: 16px;
+
+}
+
+.Appointmentcarditem1 {
+
+    height: 50px;
+    width: 50px;
+}
+
+.Appointmentcarditem2 {
+
+    height: 50px;
+    width: 200px;
+}
+
+.Appointmentcarditem3 {
+
+    height: 50px;
+    width: 400px;
+}
+
+.Appointmentcarditem4 {
+
+    height: 50px;
+    width: 500px;
+}
+
+.FormCards {
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-bottom: 10%;
+}
+
+.AppointmentDetailPage {
+    position: relative;
+    display: flex;
+    width: 100%;
+    height: fit-content;
+    align-items: center;
+    justify-content: center;
+}
+
+.AppointmentDetail {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+    overflow-wrap: break-word;
+
+
+
+}
+
+.AppointmentDetailItem {
+
+    width: 100%;
+
 }
 
 /*   Design for phone Desing for phone  Desing for phone Desing for phone */

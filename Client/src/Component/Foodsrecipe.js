@@ -2,18 +2,28 @@ import React from "react";
 import { useContext } from "react";
 import { Logininfo } from "../App";
 import { Link } from "react-router-dom";
+import Axios from "axios";
 
 function Foodsrecipe(props) {
   const { Islogin, setIslogin } = useContext(Logininfo);
+  const URL = "http://localhost:3001";
+
+  const handleDelete = () => {
+    Axios.delete(`${URL}/Deleterecipe`, {
+      data: { recipeId: props.recipeId },
+    }).then((reponse) => {
+      alert(reponse.data);
+    });
+  };
 
   return (
     <div className="FoodrecipeCard">
       {Islogin && (
         <div className="DeleteItemButton">
           {" "}
-          <button>
+          <button onClick={handleDelete}>
             <i class="fa fa-trash-o" aria-hidden="true"></i>
-            Makeleyi Sil
+            Tarifi Sil
           </button>{" "}
         </div>
       )}

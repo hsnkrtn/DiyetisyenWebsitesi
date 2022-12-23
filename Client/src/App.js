@@ -20,6 +20,10 @@ import Appointment from "./Component/Appointment";
 import DiyetmarketPage from "./Component/DiyetmarketPage";
 import Recipedetail from "./Component/Recipedetail";
 import DiyetMarketCardDetail from "./Component/DiyetMarketCardDetail";
+import Appoinmenthistory from "./Component/Appoinmenthistory";
+import Appoinmentdetail from "./Component/Appoinmentdetail";
+import OnlinediyetFormHistory from "./Component/OnlinediyetFormHistory";
+import OnlineDiyetFormCardDetail from "./Component/OnlineDiyetFormCardDetail";
 
 export const Logininfo = createContext();
 
@@ -87,6 +91,22 @@ function App() {
               <Kalorihesaplama></Kalorihesaplama>
               <Footer></Footer>
             </Route>{" "}
+            <Route path="/OnlineDiyetFormlari">
+              <OnlinediyetFormHistory></OnlinediyetFormHistory>
+              <Footer></Footer>
+            </Route>{" "}
+            <Route path="/FormDetayi/:id">
+              <OnlineDiyetFormCardDetail></OnlineDiyetFormCardDetail>
+              <Footer></Footer>
+            </Route>{" "}
+            <Route path="/Randevu">
+              <Appoinmenthistory></Appoinmenthistory>
+              <Footer></Footer>
+            </Route>{" "}
+            <Route path="/RandevuDetayi/:id">
+              <Appoinmentdetail></Appoinmentdetail>
+              <Footer></Footer>
+            </Route>{" "}
             <Route path="/MakaleDetay/:id">
               <NavigationBar></NavigationBar>
 
@@ -101,7 +121,6 @@ function App() {
             </Route>{" "}
             <Route path="/DiyetDetayi/:id">
               <NavigationBar></NavigationBar>
-
               <DiyetMarketCardDetail></DiyetMarketCardDetail>
               <Footer></Footer>
             </Route>{" "}

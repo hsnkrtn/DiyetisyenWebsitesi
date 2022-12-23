@@ -10,10 +10,7 @@ function Uploaddiyet() {
 
   const URL = "http://localhost:3001";
 
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   postData();
-  // };
+
   const diyetimageupload = () => {
     const diyetimageform = document.getElementById("DiyetImageUploadForm");
     if (diyetimageform) {
@@ -105,7 +102,8 @@ function Uploaddiyet() {
         target="_self"
       >
         <br></br>
-        <br></br> <label>Diyet Fotografi Ekle</label>
+        <br></br> 
+        <label>Diyet Fotografi Ekle</label>
         <input
           type="file"
           name="file"

@@ -25,7 +25,7 @@ function Uploadarticle() {
       });
     }
   };
-  async function postData() {
+  async function postData() { 
     try {
       await Axios.post(`${URL}/addnewarticle`, {
         articlebaslik: articlebaslik,
@@ -60,13 +60,13 @@ function Uploadarticle() {
           placeholder="Makale Baslığı ekle"
           required
         ></input>
-        <label for="Carouselheader">Makale Detayı ekle</label>
+        <label for="Carouselheader">Makale Detayı ekle{ `( https://onlinehtmleditor.dev/ , https://onlineutf8tools.com/convert-html-entities-to-utf8 )`}</label>
 
         <input
           id="forminput2"
           type="inputtext"
           onChange={(e) => setarticledetay(e.target.value)}
-          placeholder="Makale Detayı ekle"
+          placeholder="Makale Detayı ekle "
           required
         ></input>
 
@@ -97,7 +97,7 @@ function Uploadarticle() {
             setarticlefotograf(e.target.files[0].name);
           }}
         ></input>
-        <button onClick={articleimageupload}>Diyeti Ekle</button>
+        <button onClick={articleimageupload}>Makaleyi Ekle</button>
       </form>
     </div>
   );

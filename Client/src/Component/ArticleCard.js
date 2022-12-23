@@ -9,7 +9,6 @@ import { Logininfo } from "../App";
 function ArticleCard(props) {
   const URL = "http://localhost:3001";
   const { Islogin, setIslogin } = useContext(Logininfo);
-  const [articleimage, setarticleimage] = useState("vv.jpg");
   const articleid = props.articleid;
 
   const handleDelete = () => {
@@ -17,14 +16,14 @@ function ArticleCard(props) {
 
       data:{  articleid: articleid } 
     }).then((reponse) => {
-      console.log(reponse);
+      alert(reponse.data);
     });
   };
 
   return (
     <div className="Article-card">
       <div className="Article-card-image">
-        <img src={require(`../Images/${articleimage}`)} />
+        <img src={require(`../Images/${props.articleimage}`)} />
       </div>
       <div className="Article-card-detail">
         <Link
