@@ -57,7 +57,11 @@ function Contactpage() {
                 <span>
                   <i class="fa fa-map-marker" aria-hidden="true"></i>
                 </span>
-                <a href={`${Informations[0].informations_map_adress}`}>
+                {/* <a target="_blank"  href="https://www.google.com/maps?q=+Bostanbaşı+mah.Fatih+cad.no:14/F+Malatya+Malatya+TR,+44900+Yeşilyurt,+Türkiye"> */}
+                <a
+                  target="_blank"
+                  href={`${Informations[0].informations_map_adress}`}
+                >
                   {" "}
                   {`${Informations[0].informations_adress}`}{" "}
                 </a>
@@ -65,7 +69,7 @@ function Contactpage() {
             </div>
           )}
 
-          <iframe id="MapFrame" ></iframe>
+          <iframe id="MapFrame"></iframe>
         </div>
       </div>
     </div>

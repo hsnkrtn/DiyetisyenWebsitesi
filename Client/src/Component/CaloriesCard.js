@@ -10,13 +10,30 @@ function CaloriesCard(props) {
   const foodid = props.besindegerleri.calories_id;
 
   const handleDelete = () => {
-    console.log(foodid)
+    console.log(foodid);
     Axios.delete(`${URL}/Deletefood`, {
       data: { foodid: foodid },
     }).then((reponse) => {
       alert(reponse.data);
     });
   };
+  const onekcal =
+    (parseFloat(props.besindegerleri.calories_kcal) / 100) *
+    parseFloat(props.besindegerleri.calories_one);
+  const onecarb =
+    (parseFloat(props.besindegerleri.calories_carb) / 100) *
+    parseFloat(props.besindegerleri.calories_one);
+  const onelif =
+    (parseFloat(props.besindegerleri.calories_fiber) / 100) *
+    parseFloat(props.besindegerleri.calories_one);
+
+  const onecholesterol =
+    (parseFloat(props.besindegerleri.calories_cholesterol) / 100) *
+    parseFloat(props.besindegerleri.calories_one);
+
+  const oneprotein =
+    (parseFloat(props.besindegerleri.calories_protein) / 100) *
+    parseFloat(props.besindegerleri.calories_one);
 
   return (
     <div className="BesinDegerleri">
@@ -40,8 +57,7 @@ function CaloriesCard(props) {
                 {`${" (kcal)"}`}
               </td>
               <td>
-                {parseFloat(props.besindegerleri.calories_kcal) /
-                  parseFloat(props.besindegerleri.calories_kcal)}
+                {onekcal.toFixed(2)}
                 {`${" (kcal)"}`}
               </td>
             </tr>
@@ -52,8 +68,7 @@ function CaloriesCard(props) {
                 {`${" (g)"}`}
               </td>
               <td>
-                {parseFloat(props.besindegerleri.calories_carb) /
-                  parseFloat(props.besindegerleri.calories_carb)}
+                {onecarb.toFixed(2)}
                 {`${" (g)"}`}
               </td>
             </tr>
@@ -65,8 +80,7 @@ function CaloriesCard(props) {
                 {`${" (g)"}`}
               </td>
               <td>
-                {parseFloat(props.besindegerleri.calories_fiber) /
-                  parseFloat(props.besindegerleri.calories_fiber)}
+                {onelif.toFixed(2)}
                 {`${" (g)"}`}
               </td>
             </tr>
@@ -77,8 +91,7 @@ function CaloriesCard(props) {
                 {`${" (mg)"}`}
               </td>
               <td>
-                {parseFloat(props.besindegerleri.calories_cholesterol) /
-                  parseFloat(props.besindegerleri.calories_cholesterol)}
+                {onecholesterol.toFixed(2)}
                 {`${" (mg)"}`}
               </td>
             </tr>
@@ -89,8 +102,7 @@ function CaloriesCard(props) {
                 {`${" (g)"}`}
               </td>
               <td>
-                {parseFloat(props.besindegerleri.calories_protein) /
-                  parseFloat(props.besindegerleri.calories_one)}
+                {oneprotein.toFixed(2)}
                 {`${" (g)"}`}
               </td>
             </tr>

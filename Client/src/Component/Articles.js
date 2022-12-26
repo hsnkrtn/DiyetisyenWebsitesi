@@ -28,7 +28,8 @@ function Articles() {
                     articleheader={val.article_header}
                     articledetail={val.article_detail}
                     articleimage={val.article_image}
-                  ></ArticleCard>{" "}
+                    articleabstract={val.article_abstract}
+                    ></ArticleCard>{" "}
                 </li>
               );
             })}

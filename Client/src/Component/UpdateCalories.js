@@ -62,6 +62,14 @@ function UpdateCalories() {
         <hr></hr>
       </div>
       <form className=" UpdateForm" id="caloridetailform"  >
+        <label for="Carouselheader">Besin Adı</label>
+        <input
+          id="forminput1"
+          type="inputtext"
+          onChange={(e) => setAd(e.target.value)}
+          placeholder="Besin Adı"
+          required
+        ></input>
         <label for="Carouselheader">100 Gramindaki Kalorisi</label>
         <input
           id="forminput1"
@@ -107,13 +115,13 @@ function UpdateCalories() {
           placeholder="Kolesterol "
           required
         ></input>
-        <label for="Carouselheader">Bir Adetindeki Kalori </label>
+        <label for="Carouselheader">Bir Tanesinin Agırlığı</label>
 
         <input
           id="forminput4"
           type="inputtext"
           onChange={(e) => setBiradet(e.target.value)}
-          placeholder="Bir Adetindeki Kalori  "
+          placeholder="Bir Tanesinin Agırlığı "
           required
         ></input>
       </form>{" "}

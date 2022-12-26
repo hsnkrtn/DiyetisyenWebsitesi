@@ -95,7 +95,7 @@ const cleanformdata = ()=>{
                 id="fname"
                 name="fname"
                 onChange={(e) => setDogumtarihi(e.target.value)}
-                placeholder="Doğum Tarihiniz"
+                placeholder="Gün / Ay / Yıl"
               ></input>{" "}
               <br></br>
               <br></br>

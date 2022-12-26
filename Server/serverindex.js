@@ -105,10 +105,12 @@ app.post("/PostSendmessage", (req, res) => {
   const subject = req.body.subject;
   db.query(
     `INSERT INTO diyetisyen_web_sitesi.appointmentcontact (appointmentcontact_name,appointmentcontact_emailadress,appointmentcontact_subject,appointmentcontact_message) VALUES ("${name}","${emailadress}","${subject}","${message}")`,
-    (err, res) => {
+    (err, response) => {
       if (err) {
         console.log(err);
       }
+    else 
+    res.send("Mesajınız İletildi. Teşekkürler.")
     }
   );
 });
@@ -157,13 +159,14 @@ app.post("/UpdateCarouselHeader", (req, res) => {
 ///////////////////Update Contact Informations//////////
 app.post("/Updatecontact", (req, res) => {
   const adress = req.body.adress;
+  const linkadress = req.body.linkadress;
   const phone = req.body.phone;
   const whatsapp = req.body.whatsapp;
   const email = req.body.email;
   const instagram = req.body.instagram;
 
   db.query(
-    `UPDATE diyetisyen_web_sitesi.contactinformations SET informations_adress ='${adress}', informations_phone ='${phone}',informations_whatsapp='${whatsapp}',informations_email ='${email}',informations_instagram='${instagram}' WHERE informations_id = 1`,
+    `UPDATE diyetisyen_web_sitesi.contactinformations SET informations_adress ='${adress}', informations_phone ='${phone}',informations_whatsapp='${whatsapp}',informations_email ='${email}',informations_instagram='${instagram}',informations_map_adress='${linkadress}' WHERE informations_id = 1`,
     (err, response) => {
       if (err) {
         console.log(err);
