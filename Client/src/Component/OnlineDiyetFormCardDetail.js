@@ -3,7 +3,6 @@ import { useLocation } from "react-router-dom";
 
 function OnlineDiyetFormCardDetail() {
     const formdetail = useLocation();
-    console.log(formdetail.state.val.onlinediyet_fullname);
 
   return (
     <div  className="FormCards">

@@ -16,7 +16,7 @@ function Appointment() {
       subject: subject,
       message: message,
     }).then((res) => {
-      alert(res);
+      alert(res.data);
     });
   };
   const CleanData = () => {

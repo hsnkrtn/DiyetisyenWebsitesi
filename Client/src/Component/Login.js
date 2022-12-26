@@ -39,7 +39,7 @@ function Login() {
   return (
     <div>
       <form className="UpdateForm" onSubmit={ handleSubmit}>
-        <label for="Carouselheader">Yeni Başlık </label>
+        <label for="Carouselheader">Kullanıcı Adi </label>
         <input
           type="inputtext"
           name="Carouselheader"

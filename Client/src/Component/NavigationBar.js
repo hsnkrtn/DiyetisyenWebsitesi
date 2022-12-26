@@ -67,7 +67,6 @@ function NavigationBar() {
           }}
         >
           <span>
-            {/* <i class="fa fa-angle-double-down" aria-hidden="true"></i> */}
             <i class="fa fa-bars" aria-hidden="true"></i>
           </span>
         </button>

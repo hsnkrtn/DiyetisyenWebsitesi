@@ -4,6 +4,7 @@ import { useState } from "react";
 
 function Updatecontact() {
   const [adress, setAdress] = useState("");
+  const [linkadress, setLinkdress] = useState("");
   const [phone, setPhone] = useState("");
   const [whatsapp, setWhatsapp] = useState("");
   const [email, setEmail] = useState("");
@@ -21,6 +22,7 @@ function Updatecontact() {
         adress: adress,
         phone: phone,
         whatsapp: whatsapp,
+        linkadress:linkadress,
         email: email,
         instagram: instagram,
       }).then((res) => {
@@ -52,6 +54,15 @@ function Updatecontact() {
           type="inputtext"
           onChange={(e) => setAdress(e.target.value)}
           placeholder="Adresi Güncelle"
+          required
+        ></input>
+      
+        <label for="Carouselheader">Link Adresini Güncelle</label>
+        <input
+          id="forminput1"
+          type="inputtext"
+          onChange={(e) => setLinkdress(e.target.value)}
+          placeholder="Link Adresini Güncelle"
           required
         ></input>
         <label for="Carouselheader">Telefonu Güncelle</label>
