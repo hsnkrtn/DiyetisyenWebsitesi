@@ -3,17 +3,20 @@ import "../app.css";
 import Fotograf2 from "../Images/vv.jpg";
 import { useState, useEffect, useRef } from "react";
 import Axios from "axios";
+import { useContext } from "react";
+import { Logininfo } from "../App";
 
 function Carousel() {
   const [Image, setImage] = useState(null);
   const [ImageNumber, setImageNumber] = useState(0);
   const [buyukbaslik, setbuyukbaslik] = useState(null);
-  const URL ="https://www.diyetisyenhaticegursul.com.tr";
+  const URL = "http://localhost:3001";
+  const { Islogin, setIslogin } = useContext(Logininfo);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     getImages();
     getCarouselHeader();
-   
   }, []);
   const getCarouselHeader = async () => {
     await Axios.get(`${URL}/GetCarouselheader`).then((response) => {
@@ -22,28 +25,48 @@ function Carousel() {
   };
   const getImages = async () => {
     await Axios.get(`${URL}/GetCarouselimages`).then((response) => {
-      setImage(response.data);
+      setImage(response.data.reverse());
+
     });
   };
-  const GoToRightImage =()=>{
-setImageNumber(ImageNumber+1);
-  }
-  const GoToLeftImage =()=>{
-setImageNumber(ImageNumber-1);
-  }
+  const GoToRightImage = () => {
+    if (Image[`${ImageNumber + 1}`].carouselimage_name !== null) {
+      setImageNumber(ImageNumber + 1);
+    }
+  };
+  const GoToLeftImage = () => {
+    if (Image[`${ImageNumber - 1}`].carouselimage_name !== null) {
+      setImageNumber(ImageNumber - 1);
+    }
+  };
+
+  const handleDelete = () => {
+    Axios.delete(`${URL}/Deletecarouselimage`, {
+       data: { imageid: Image[ImageNumber].carouselimage_id },
+    }).then((reponse) => {
+      alert(reponse.data);
+    });
+  };
 
   return (
     <div className="Carousel">
       {Image && (
-        <img src={require(`../Images/${Image[`${ImageNumber}`].carouselimage_name}`)}></img>
-      )}{" "}
-      {buyukbaslik &&<h1>{buyukbaslik[0].carouselheader_text}</h1>}
-      <button onClick={GoToLeftImage}  className="Carousel-left-button">
+        <div className="CarouselImages">
+          <img
+            src={require(`../Images/${
+              Image[`${ImageNumber}`].carouselimage_name
+            }`)}
+          ></img>
+          {Islogin && <button onClick={handleDelete}>Fotografı Sil</button>}
+        </div>
+      )}
+      {buyukbaslik && <h1>{buyukbaslik[0].carouselheader_text}</h1>}
+      <button onClick={GoToLeftImage} className="Carousel-left-button">
         <span>
           <i class="fa fa-chevron-left" aria-hidden="true"></i>
         </span>
       </button>
-      <button  onClick={GoToRightImage} className="Carousel-right-button">
+      <button onClick={GoToRightImage} className="Carousel-right-button">
         <span>
           <i class="fa fa-chevron-right" aria-hidden="true"></i>
         </span>

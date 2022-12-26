@@ -7,7 +7,7 @@ function Appointment() {
   const [emailadress, setEmailadress] = useState("");
   const [subject, setSubject] = useState("");
   const [message, setMessage] = useState("");
-  const URL ="https://www.diyetisyenhaticegursul.com.tr";
+  const URL = "http://localhost:3001";
 
   const sendData = () => {
     Axios.post(`${URL}/PostSendmessage`, {
@@ -15,40 +15,41 @@ function Appointment() {
       emailadress: emailadress,
       subject: subject,
       message: message,
-    }).then(() => {
+    }).then((res) => {
+      alert(res);
     });
-
-
-}    
-const CleanData=()=>{
-  document.getElementById('fname').value="";
-  document.getElementById('femail').value="";
-  document.getElementById('fsubject').value="";
-  document.getElementById('Fmessage').value="";
+  };
+  const CleanData = () => {
+    document.getElementById("AppointmentForm").reset();
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    alert("Mesajınız Gönderildi");
     sendData();
     CleanData();
-   
-
   };
 
   return (
     <div className="Appointment">
       <div className="Appointment-inner">
         <div className="Appointment-text">
-          Bize Ulaşın, Danışın
-          <br></br>Randevu Alın
-          <button className="ContactUs">
-            {" "}
-            <Link to="Iletisim">İletişim Bilgileri</Link>
-          </button>
+          <div className="Appointment-textContent">
+            <h1>
+              {" "}
+              Bize Ulaşın, Danışın
+              <br></br>Randevu Alın{" "}
+            </h1>
+          </div>
+
+          <div className="ContactUsButton">
+            <Link to="Iletisim">
+              {" "}
+              <button className="ContactUs">İletişim Bilgileri </button>{" "}
+            </Link>{" "}
+          </div>
         </div>
 
         <div className="Appointment-form">
-          <form onSubmit={handleSubmit} >
+          <form id="AppointmentForm" onSubmit={handleSubmit}>
             <label for="fname">Adınız Soyadınız</label>
             <input
               type="text"
@@ -82,6 +83,7 @@ const CleanData=()=>{
               id="Fmessage"
               name="Fmessage"
               onChange={(e) => setMessage(e.target.value)}
+              placeholder={"Lütfen mesajınızı yazın..."}
               required
             ></textarea>
             <br></br>

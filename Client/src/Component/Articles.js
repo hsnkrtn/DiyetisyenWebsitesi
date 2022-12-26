@@ -5,12 +5,11 @@ import Axios from "axios";
 import ArticleCard from "./ArticleCard";
 function Articles() {
   const [Makaleler, setMakaleler] = useState([]);
-  const URL ="https://www.diyetisyenhaticegursul.com.tr";
-
+  const URL = "http://localhost:3001";
 
   useEffect(() => {
     Axios.get(`${URL}/GetMakaleler`).then((reponse) =>
-      setMakaleler(reponse.data.reverse())
+      setMakaleler(reponse.data.reverse().slice(0, 3))
     );
   }, []);
   return (
@@ -23,20 +22,13 @@ function Articles() {
           <ul className="ArticleCardList">
             {Makaleler.map((val, key) => {
               return (
-                <li>
-                  <Link
-                    to={{
-                      pathname: `/ArticleDetail/${val.article_id}`,
-                      state: { val },
-                    }}
-                  >
-                    <ArticleCard
-                      key={val.article_id}
-                      articleheader={val.article_header}
-                      articledetail={val.article_detail}
-                      articleimage={val.article_image}
-                    ></ArticleCard>{" "}
-                  </Link>
+                <li key={val.article_id}>
+                  <ArticleCard
+                    articleid={val.article_id}
+                    articleheader={val.article_header}
+                    articledetail={val.article_detail}
+                    articleimage={val.article_image}
+                  ></ArticleCard>{" "}
                 </li>
               );
             })}

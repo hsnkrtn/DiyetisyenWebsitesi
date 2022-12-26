@@ -3,11 +3,13 @@ import { useState } from "react";
 import Axios from "axios";
 function Contactpage() {
   const [Informations, setInformations] = useState(null);
-  const URL ="https://www.diyetisyenhaticegursul.com.tr";
+  const URL = "http://localhost:3001";
 
   useEffect(() => {
+    window.scrollTo(0, 0);
+    document.getElementById("MapFrame").src =
+      "https://maps.google.com/maps?q=%20Karakavak%20mah.%20Abdurrahman,%20Gazi%20Sk.%20No:16/A,%2044001%20Ye%C5%9Filyurt/Malatya,%20T%C3%BCrkiye&t=&z=13&ie=UTF8&iwloc=&output=embed";
     getContactInformations();
-
   }, []);
   const getContactInformations = async () => {
     await Axios.get(`${URL}/GetIletisim`).then((response) => {
@@ -23,7 +25,6 @@ function Contactpage() {
           {Informations && (
             <div className="ContactInfo">
               <div className="Informations-Item">
-                {" "}
                 <span>
                   <i class="fa fa-phone" aria-hidden="true"></i>
                 </span>
@@ -36,18 +37,19 @@ function Contactpage() {
                 <span>
                   <i class="fa fa-whatsapp" aria-hidden="true"></i>
                 </span>
-                <a href={`https://wa.me/${Informations[0].informations_phone}`}>
+                <a
+                  target="_blank"
+                  href={`https://wa.me/${Informations[0].informations_phone}`}
+                >
                   Whatsapp
                 </a>
               </div>
               <div className="Informations-Item">
                 <span>
-                <i class="fa fa-envelope-o" aria-hidden="true"></i>
+                  <i class="fa fa-envelope-o" aria-hidden="true"></i>
                 </span>
-                <a
-                  href={`mailto: abc@example.com${Informations[0].informations_email} `}
-                >
-                  E-Posta
+                <a href={`mailto: ${Informations[0].informations_email}`}>
+                  {`${Informations[0].informations_email} `}
                 </a>
               </div>
 
@@ -55,11 +57,15 @@ function Contactpage() {
                 <span>
                   <i class="fa fa-map-marker" aria-hidden="true"></i>
                 </span>
-                <a> {`${Informations[0].informations_adress}`} </a>
+                <a href={`${Informations[0].informations_map_adress}`}>
+                  {" "}
+                  {`${Informations[0].informations_adress}`}{" "}
+                </a>
               </div>
             </div>
           )}
-          <iframe src="https://maps.google.com/maps?q=%20Karakavak%20mah.%20Abdurrahman,%20Gazi%20Sk.%20No:16/A,%2044001%20Ye%C5%9Filyurt/Malatya,%20T%C3%BCrkiye&t=&z=13&ie=UTF8&iwloc=&output=embed"></iframe>
+
+          <iframe id="MapFrame" ></iframe>
         </div>
       </div>
     </div>

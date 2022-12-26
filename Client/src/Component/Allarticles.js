@@ -7,14 +7,13 @@ import ArticleCard from "./ArticleCard";
 
 function Allarticles() {
   const [Makaleler, setMakaleler] = useState([]);
-  const URL ="https://www.diyetisyenhaticegursul.com.tr";
-
+  const URL = "http://localhost:3001";
   useEffect(() => {
+    window.scrollTo(0, 0);
     Axios.get(`${URL}/GetMakaleler`).then((reponse) =>
       setMakaleler(reponse.data.reverse())
     );
   }, []);
-
   return (
     <div className="Allarticles">
       <div className="default-routepage-header "> </div>
@@ -24,16 +23,15 @@ function Allarticles() {
           <ul className="ArticleCardList">
             {Makaleler.map((val, key) => {
               return (
-                <li>
-                  <Link to={{ pathname:`/ArticleDetail/${val.article_id}`,state: {val }
- }} >
+                <li key={val.article_id} >
+            
                     <ArticleCard
-                      key={val.article_id}
+                      articleid={val.article_id}
                       articleheader={val.article_header}
                       articledetail={val.article_detail}
                       articleimage={val.article_image}
+                      articleabstract={val.article_abstract}
                     ></ArticleCard>{" "}
-                  </Link>
                 </li>
               );
             })}
