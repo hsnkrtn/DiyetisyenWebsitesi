@@ -565,22 +565,27 @@ hr {
 
 input[type=text] {
     width: 100%;
+    height: 50px;
     padding: 12px 20px;
     font-size: 16px;
     margin: 8px 0;
     display: inline-block;
-    border: 1px solid #ccc;
+    /* border: 1px solid #ccc; */
+    border: 1px solid rgb(34, 139, 34);
+
     border-radius: 8px;
     box-sizing: border-box;
 }
 
 input[type=number] {
     width: 100%;
+    height: 50px;
+    border: 1px solid rgb(34, 139, 34);
+
     padding: 12px 20px;
     font-size: 16px;
     margin: 8px 0;
     display: inline-block;
-    border: 1px solid #ccc;
     border-radius: 8px;
     box-sizing: border-box;
 }
@@ -591,9 +596,11 @@ input[type=email] {
     margin: 8px 0;
     font-size: 16px;
     display: inline-block;
-    border: 1px solid #ccc;
+    height: 50px;
     border-radius: 8px;
     box-sizing: border-box;
+    border: 1px solid rgb(34, 139, 34);
+
 }
 
 
@@ -603,7 +610,7 @@ input[type=email] {
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: 16px;
     margin: 8px 0;
-    border: 1px solid #ccc;
+    border: 1px solid rgb(34, 139, 34);
     border-radius: 8px;
 
 
@@ -815,6 +822,11 @@ input[type=email] {
     position: relative;
     height: fit-content;
     margin-top: 100px;
+
+}
+
+.RecipeName h1 {
+    font-family: 'Kaushan Script';
 
 }
 
@@ -1037,11 +1049,13 @@ input[type=email] {
     cursor: pointer;
     transform: scale(1.1);
 }
+
 .LogoutButton {
     background-color: red;
     border: none;
-font-weight:600;
+    font-weight: 600;
 }
+
 .AdminPageContent {
     width: 80%;
     display: flex;
@@ -1062,7 +1076,7 @@ font-weight:600;
 }
 
 .SubmitButton {
-    height: 30px;
+    height: 50px;
     width: 50%;
     padding: 10px 10px;
     margin: 10px 10px;
@@ -1072,7 +1086,7 @@ font-weight:600;
 
 input[type=inputtext] {
     width: 50%;
-    height: 30px;
+    height: 50px;
     padding: 10px 10px;
     font-size: 16px;
     margin: 10px 10px;
@@ -1083,7 +1097,7 @@ input[type=inputtext] {
 
 input[type=password] {
     width: 50%;
-    height: 30px;
+    height: 50px;
     padding: 10px 10px;
     font-size: 16px;
     margin: 10px 10px;
@@ -1751,6 +1765,119 @@ input[type=password] {
 
 }
 
+.CaloriesPage {
+    position: relative;
+    display: flex;
+    width: 100%;
+    height: fit-content;
+    justify-content: center;
+}
+
+.CaloriesPageContent {
+    display: flex;
+
+    flex-direction: column;
+    width: 80%;
+
+
+}
+
+.CaloriesInput {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    width: 100%;
+}
+
+.CaloriesPageLabel h2 {
+    font-family: 'Kaushan Script';
+    font-size: 18px;
+
+
+}
+
+.CaloriesPageLabel p {
+    font-size: 14px;
+}
+
+.CaloriesInput button {
+    height: 50px;
+    border-radius: 10px;
+    width: 50px;
+    border: none;
+    font-size: 16px;
+    color: rgb(34, 139, 34);
+    border: 1px solid rgb(34, 139, 34);
+}
+
+.CaloriesInput button:active {
+    background-color: rgb(34, 139, 34);
+    color: white;
+}
+
+th {
+    text-align: left;
+}
+
+.BesinDegerleri {
+    display: flex;
+    position: relative;
+    flex-direction: row;
+    height: fit-content;
+    align-items: center;
+    border: 1px solid rgb(34, 139, 34);
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 100px;
+    box-shadow: 0px 20px 10px rgba(0, 0, 0, 0.15);
+
+}
+
+.BesinDegerleriTablo {
+    width: 50%;
+    height: 100%;
+    font-size: 16px;
+
+
+}
+
+.BesinDegerleriTablo table {
+    width: 100%;
+    height: 80%;
+}
+
+.BesinDegerleriResim {
+    width: 50%;
+    height: 100%;
+    position: relative;
+display: flex;
+}
+
+.BesinDegerleriResim img {
+    border-radius: 10px;
+    width: 100%;
+    padding: 0%;
+    margin: 0%;
+    object-fit: cover;
+
+}
+
+.CaloriesPage h1 {
+    font-family: 'Kaushan Script';
+
+
+}
+
+.BesinDegerleriDefaultImage {
+    width: 100%;
+
+}
+
+.BesinDegerleriDefaultImage img {
+    width: 100%;
+
+}
+
 /*   Design for phone Desing for phone  Desing for phone Desing for phone */
 /*   Design for phone Desing for phone  Desing for phone Desing for phone */
 /*   Design for phone Desing for phone  Desing for phone Desing for phone */
@@ -2239,6 +2366,21 @@ input[type=password] {
         padding-left: 12.5px;
         padding-right: 12.5px;
 
+    }
+
+    .BesinDegerleri {
+        flex-direction: column;
+
+    }
+
+    .BesinDegerleriTablo {
+        width: 90%;
+        font-size: 14px;
+    }
+
+    .BesinDegerleriResim {
+        margin-top: 20px;
+        width: 90%;
     }
 
     @media only screen and (min-width: 601px) {}

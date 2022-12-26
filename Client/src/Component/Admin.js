@@ -11,6 +11,7 @@ import Uploadrecipe from "./Uploadrecipe";
 import Updatecontact from "./Updatecontact";
 import Appoinmenthistory from "./Appoinmenthistory";
 import { Link } from "react-router-dom";
+import UpdateCalories from "./UpdateCalories";
 
 function Admin() {
   const { Islogin, setIslogin } = useContext(Logininfo);
@@ -53,6 +54,7 @@ function Admin() {
           <Uploadarticle></Uploadarticle>
           <Uploadrecipe></Uploadrecipe>
           <Updatecontact></Updatecontact>
+          <UpdateCalories></UpdateCalories>
           <br></br>
           <br></br>
           <div></div>

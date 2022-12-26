@@ -131,6 +131,16 @@ app.get("/GetDiyetKartlari", (req, res) => {
     }
   });
 });
+app.post("/Getfoodcalori", (req, res) => {
+  const besin = req.body.besin;
+  db.query( `SELECT * FROM diyetisyen_web_sitesi.calories WHERE calories_name REGEXP  "${besin}"` , (err, response) => {
+   if (err) {
+      console.log(err);
+    } else {
+      res.send(response);
+    }
+  });
+});
 ///////////////////Update Carousel Header//////////
 app.post("/UpdateCarouselHeader", (req, res) => {
   const carouselheader = req.body.carouselheader;
@@ -176,6 +186,30 @@ app.post("/addnewdiyet", (req, res) => {
   const diyetfotograf = req.body.diyetfotograf;
   db.query(
     `INSERT INTO diyetisyen_web_sitesi.diyetmarket (diyet_baslik,  diyet_detayi, diyet_fiyati, diyet_ozet, diyet_fotograf)  VALUES ("${diyetbaslik}", "${diyetdetay}","${diyetfiyat}","${diyetozet}" ,"${diyetfotograf}" )`,
+    (err, response) => {
+      if (err) {
+        console.log(err);
+      } else res.send("Başarıyla Yüklendi");
+    }
+  );
+});
+/////////Add Food Calori///////////
+
+app.post("/CaloriImageUpload", upload.single("file"), (req, res) => {
+  res.send("Başarıyla Yüklendi");
+});
+
+app.post("/addnewfoodcalori", (req, res) => {
+  const ad = req.body.ad;
+  const kalori = req.body.kalori;
+  const karbonhidrat = req.body.karbonhidrat;
+  const lif = req.body.lif;
+  const kolesterol = req.body.kolesterol;
+  const protein = req.body.protein;
+  const biradet = req.body.biradet;
+  const fotograf = req.body.fotograf;
+  db.query(
+    `INSERT INTO diyetisyen_web_sitesi.calories (calories_name, calories_carb,  calories_protein, calories_fiber, calories_cholesterol, calories_kcal, calories_one, calories_image)  VALUES ("${ad}","${karbonhidrat}", "${protein}","${lif}","${kolesterol}" ,"${kalori}","${biradet}","${fotograf}" )`,
     (err, response) => {
       if (err) {
         console.log(err);
@@ -352,6 +386,19 @@ app.delete("/Deletecarouselimage", (req, res) => {
         console.log(err);
       } else {
         res.send("Fotograf Silindi");
+      }
+    }
+  );
+});
+app.delete("/Deletefood", (req, res) => {
+  const foodid = req.body.foodid;
+  db.query(
+    `DELETE FROM  diyetisyen_web_sitesi.calories WHERE calories_id=${foodid};`,
+    (err, response) => {
+      if (err) {
+        console.log(err);
+      } else {
+        res.send("Besin Silindi");
       }
     }
   );
