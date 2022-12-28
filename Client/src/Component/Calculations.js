@@ -1,13 +1,7 @@
 import React from "react";
-import bmh from "../Images/bmh.jpg";
-import calories from "../Images/calories.jpg";
-import form from "../Images/form.jpg";
-import bmi from "../Images/bmi.jpg"
 
-import { useState } from "react";
-import Axios from "axios";
+
 import { Link } from "react-router-dom";
-
 function Calculations() {
   return (
     <div className="Calculations">
@@ -16,7 +10,7 @@ function Calculations() {
             <li>   
             <Link to="/OnlineDiyetForm">
               <div className="Calculations-card">
-                <img src={form}></img>
+                <img src={process.env.PUBLIC_URL + "Images/form.jpg"}></img>
                 <h1>Online Diyet Formu</h1>
               </div>
             </Link>
@@ -25,7 +19,7 @@ function Calculations() {
  
             <Link to="/vucutkitleindexi">
               <div className="Calculations-card">
-                <img src={bmi}></img>
+              <img src={process.env.PUBLIC_URL + "Images/bmi.jpg"}></img>
                 <h1>Vücut Kitle İndexi Hesaplama</h1>
               </div>
             </Link>          
@@ -35,7 +29,7 @@ function Calculations() {
             <Link to="/bazalmetabolizma">
               {" "}
               <div className="Calculations-card">
-                <img src={bmh}></img>
+              <img src={process.env.PUBLIC_URL + "Images/bmh.jpg"}></img>
                 <h1>Bazal Metabolizma Hesaplama</h1>
               </div>
             </Link>            
@@ -45,7 +39,7 @@ function Calculations() {
             <Link to="/Kalorihesaplama">
               {" "}
               <div className="Calculations-card">
-                <img src={calories}></img>
+              <img src={process.env.PUBLIC_URL + "Images/calories.jpg"}></img>
                 <h1>Kalori Hesaplama</h1>
               </div>
             </Link> </li>   

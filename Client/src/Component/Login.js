@@ -5,12 +5,11 @@ import { Logininfo } from "../App";
 import { useHistory } from 'react-router-dom'
 
 function Login() {
-  const URL = "http://localhost:3001";
+  const URL = "https://www.diyetisyenhaticegursul.com.tr";
   const history = useHistory()
 
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
-  //   const [authenticated, setauthenticated] = useState(false);
   const { Islogin, setIslogin } = useContext(Logininfo);
 
   const handleSubmit = (e) => {

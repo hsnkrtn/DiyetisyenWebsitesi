@@ -6,7 +6,7 @@ import "../app.css";
 
 function NavigationBar() {
   const [Informations, setInformations] = useState(null);
-  const URL = "http://localhost:3001";
+  const URL = "https://www.diyetisyenhaticegursul.com.tr";
 
   const [ShowMenu, setShowMenu] = useState(false);
 
@@ -46,14 +46,13 @@ function NavigationBar() {
           </div>
           
         )}
-
         <div className="WebsiteOwnerName">
           
           <div className="WebsiteOwnerNameContent">
             <Link to="/" onClick={()=>{    window.scrollTo(0, 0);
 }}>
               {" "}
-              <img src={require(`../Images/haticegursul.jpg`)} />{" "}
+              <img src={process.env.PUBLIC_URL + "Images/haticegursul.jpg"} />{" "}
               <h1> Hatice Gürsul</h1>{" "}
               
             </Link>

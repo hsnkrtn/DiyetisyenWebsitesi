@@ -7,7 +7,7 @@ import CaloriesCard from "./CaloriesCard";
 function Kalorihesaplama() {
   const [besin, setBesin] = useState("");
   const [besindegerleri, setbesindegerleri] = useState([]);
-  const URL = "http://localhost:3001";
+  const URL = "https://www.diyetisyenhaticegursul.com.tr";
 
   const handlesearch = (e) => {
     e.preventDefault();
@@ -52,7 +52,6 @@ function Kalorihesaplama() {
                   placeholder="Besin ara..."
                   onChange={(e) => setBesin(e.target.value)}
                   required
-
                 ></input>
                 <button onClick={handlesearch}>
                   <i class="fa fa-search" aria-hidden="true"></i>
@@ -64,9 +63,11 @@ function Kalorihesaplama() {
               {besindegerleri.map((val, key) => {
                 return <CaloriesCard besindegerleri={val}></CaloriesCard>;
               })}
-       
+
               <div className="BesinDegerleriDefaultImage">
-                <img src={require("../Images/diyetanilari.jpg")}></img>{" "}
+                <img
+                  src={process.env.PUBLIC_URL + "Images/diyetanilari.jpg"}
+                ></img>{" "}
                 <h1>
                   Bütün aklınıza takılan sorular için iletişime geçiniz...
                 </h1>{" "}

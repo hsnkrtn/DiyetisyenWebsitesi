@@ -12,7 +12,7 @@ function UpdateCalories() {
   const [protein, setProtein] = useState("");
   const [biradet, setBiradet] = useState("");
   const [fotograf, setFotograf] = useState("");
-  const URL = "http://localhost:3001";
+  const URL = "https://www.diyetisyenhaticegursul.com.tr";
 
 
   const caloriImageupload = () => {

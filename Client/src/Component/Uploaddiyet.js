@@ -8,7 +8,7 @@ function Uploaddiyet() {
   const [diyetozet, setDiyetozet] = useState("");
   const [diyetfiyat, setDiyetfiyat] = useState("");
 
-  const URL = "http://localhost:3001";
+  const URL = "https://www.diyetisyenhaticegursul.com.tr";
 
 
   const diyetimageupload = () => {

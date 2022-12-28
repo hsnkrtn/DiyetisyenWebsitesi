@@ -8,7 +8,7 @@ import Appointmenthistorycards from "./Appointmenthistorycards";
 function Appoinmenthistory() {
   const [appointments, setappointments] = useState([]);
 
-  const URL = "http://localhost:3001";
+  const URL = "https://www.diyetisyenhaticegursul.com.tr";
   useEffect(() => {
     Axios.get(`${URL}/GetAppointments`).then((response) => {
       setappointments(response.data.reverse());

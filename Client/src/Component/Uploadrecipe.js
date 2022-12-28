@@ -9,7 +9,7 @@ function Uploadrecipe() {
   const [kisisayisi, setKisisayisi] = useState("");
   const [tarif, setTarif] = useState("");
   const [sure, setSure] = useState("");
-  const URL = "http://localhost:3001";
+  const URL = "https://www.diyetisyenhaticegursul.com.tr";
 
   const recipeimageupload = () => {
     const recipeimageform = document.getElementById("RecipeImageUploadForm");

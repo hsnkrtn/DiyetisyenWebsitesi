@@ -5,7 +5,7 @@ import { Logininfo } from "../App";
 
 function CaloriesCard(props) {
   const { Islogin, setIslogin } = useContext(Logininfo);
-  const URL = "http://localhost:3001";
+  const URL = "https://www.diyetisyenhaticegursul.com.tr";
 
   const foodid = props.besindegerleri.calories_id;
 
@@ -111,7 +111,7 @@ function CaloriesCard(props) {
       </div>
       <div className="BesinDegerleriResim">
         <img
-          src={require(`../Images/${props.besindegerleri.calories_image}`)}
+        src={process.env.PUBLIC_URL +`/Images/${props.besindegerleri.calories_image}`}
         ></img>
       </div>
     </div>

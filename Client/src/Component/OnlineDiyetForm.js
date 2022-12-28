@@ -14,7 +14,7 @@ function OnlineDiyetForm() {
   const [araogunsayiyi, setAraogunsayisi] = useState("");
   const [meslek, setMeslek] = useState("");
   const [mesaj, setMesaj] = useState("");
-  const URL = "http://localhost:3001";
+  const URL = "https://www.diyetisyenhaticegursul.com.tr";
 
 
 

@@ -7,7 +7,7 @@ multer = require("multer");
 
 var storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, "../Client/src/Images");
+    cb(null, "../Client/public/Images");
   },
   filename: function (req, file, cb) {
     cb(null, file.originalname);
@@ -179,6 +179,7 @@ app.post("/Updatecontact", (req, res) => {
 
 app.post("/uploaddiyetimage", upload.single("file"), (req, res) => {
   res.send("Başarıyla Yüklendi");
+
 });
 
 app.post("/addnewdiyet", (req, res) => {
@@ -378,7 +379,7 @@ app.delete("/Deleterecipe", (req, res) => {
     }
   );
 });
-////////////////// Delete Recipe////////////////////////////
+////////////////// Delete Carousel Image////////////////////////////
 
 app.delete("/Deletecarouselimage", (req, res) => {
   const imageid = req.body.imageid;

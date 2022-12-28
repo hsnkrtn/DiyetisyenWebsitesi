@@ -3,7 +3,7 @@ import { useState } from "react";
 import Axios from "axios";
 
 function UpdateImage() {
-  const URL = "http://localhost:3001";
+  const URL = "https://www.diyetisyenhaticegursul.com.tr";
 
 
 

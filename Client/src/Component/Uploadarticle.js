@@ -7,7 +7,7 @@ function Uploadarticle() {
   const [articledetay, setarticledetay] = useState("");
   const [articlefotograf, setarticlefotograf] = useState("");
   const [articleozet, setarticleozet] = useState("");
-  const URL = "http://localhost:3001";
+  const URL = "https://www.diyetisyenhaticegursul.com.tr";
 
   const articleimageupload = () => {
     const articleimageform = document.getElementById("ArticleImageUploadForm");
@@ -19,7 +19,7 @@ function Uploadarticle() {
           headers: {
             "Content-Type": "multipart/form-data",
           },
-        }).then((res) => {
+        }).then(( ) => {
           postData();
         });
       });

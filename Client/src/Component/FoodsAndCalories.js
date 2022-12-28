@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import Foodsrecipe from "./Foodsrecipe";
 function FoodsAndCalories() {
   const [Recipes, setRecipes] = useState([]);
-  const URL = "http://localhost:3001";
+  const URL = "https://www.diyetisyenhaticegursul.com.tr";
 
   useEffect(() => {
     window.scrollTo(0, 0);

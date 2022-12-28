@@ -7,7 +7,7 @@ import OnlineDiyetFormCards from "./OnlineDiyetFormCards";
 function OnlinediyetFormHistory() {
   const [onlinediyetform, seronlinediyetform] = useState([]);
 
-  const URL = "http://localhost:3001";
+  const URL = "https://www.diyetisyenhaticegursul.com.tr";
   useEffect(() => {
     Axios.get(`${URL}/GetOnlinediyetforms`).then((response) => {
       seronlinediyetform(response.data.reverse());
