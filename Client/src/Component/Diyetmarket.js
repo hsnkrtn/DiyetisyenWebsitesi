@@ -6,7 +6,7 @@ import { useState, useEffect } from "react";
 
 function Diyetmarket() {
   const [Diyetkart, setDiyetkart] = useState([]);
-  const URL = "http://localhost:3001";
+  const URL = "https://www.diyetisyenhaticegursul.com.tr";
 
   useEffect(() => {
     window.scrollTo(0, 0);

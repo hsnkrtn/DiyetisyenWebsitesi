@@ -7,7 +7,7 @@ import ArticleCard from "./ArticleCard";
 
 function Allarticles() {
   const [Makaleler, setMakaleler] = useState([]);
-  const URL = "http://localhost:3001";
+  const URL = "https://www.diyetisyenhaticegursul.com.tr";
   useEffect(() => {
     window.scrollTo(0, 0);
     Axios.get(`${URL}/GetMakaleler`).then((reponse) =>

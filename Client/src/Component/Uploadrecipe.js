@@ -9,14 +9,18 @@ function Uploadrecipe() {
   const [kisisayisi, setKisisayisi] = useState("");
   const [tarif, setTarif] = useState("");
   const [sure, setSure] = useState("");
-  const URL = "http://localhost:3001";
+  const URL = "https://www.diyetisyenhaticegursul.com.tr";
 
   const recipeimageupload = () => {
     const recipeimageform = document.getElementById("RecipeImageUploadForm");
     if (recipeimageform) {
       recipeimageform.addEventListener("submit", (e) => {
         e.preventDefault();
-        const formData = new FormData(recipeimageform);
+
+        const formData = new FormData();
+        const fileInput = document.getElementById("recipefileinput");
+        const file = fileInput.files[0];
+        formData.append("file", file);
         Axios.post(`${URL}/RecipeImageUpload`, formData, {
           headers: {
             "Content-Type": "multipart/form-data",
@@ -38,7 +42,7 @@ function Uploadrecipe() {
         sure: sure,
       }).then((res) => {
         alert(res.data, "Tarif eklendi");
-        document.getElementById("RecipeImageUpload").reset();
+        document.getElementById("RecipeImageUploadform").reset();
         document.getElementById("Recipedetailform").reset();
       });
     } catch (error) {
@@ -113,6 +117,7 @@ function Uploadrecipe() {
         <br></br>
         <br></br> <label>Diyet Fotografi Ekle</label>
         <input
+        id="recipefileinput"
           type="file"
           name="file"
           onChange={(e) => {

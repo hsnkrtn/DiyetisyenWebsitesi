@@ -1,6 +1,5 @@
 import React from "react";
 import "../app.css";
-import Fotograf2 from "../Images/vv.jpg";
 import { useState, useEffect, useRef } from "react";
 import Axios from "axios";
 import { useContext } from "react";
@@ -10,7 +9,7 @@ function Carousel() {
   const [Image, setImage] = useState(null);
   const [ImageNumber, setImageNumber] = useState(0);
   const [buyukbaslik, setbuyukbaslik] = useState(null);
-  const URL = "http://localhost:3001";
+  const URL = "https://www.diyetisyenhaticegursul.com.tr";
   const { Islogin, setIslogin } = useContext(Logininfo);
 
   useEffect(() => {
@@ -53,9 +52,9 @@ function Carousel() {
       {Image && (
         <div className="CarouselImages">
           <img
-            src={require(`../Images/${
+  src={process.env.PUBLIC_URL +`/Images/${
               Image[`${ImageNumber}`].carouselimage_name
-            }`)}
+            }`}
           ></img>
           {Islogin && <button onClick={handleDelete}>Fotografı Sil</button>}
         </div>

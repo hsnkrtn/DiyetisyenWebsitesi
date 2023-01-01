@@ -3,7 +3,7 @@ import { useState } from "react";
 import Axios from "axios";
 function Contactpage() {
   const [Informations, setInformations] = useState(null);
-  const URL = "http://localhost:3001";
+  const URL = "https://www.diyetisyenhaticegursul.com.tr";
 
   useEffect(() => {
     window.scrollTo(0, 0);

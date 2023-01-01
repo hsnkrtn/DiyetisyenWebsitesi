@@ -19,7 +19,7 @@ function ArticleCardDetail() {
           <h1 className="RoutepageHeader">{header}</h1>
           <div className="ArticleAllDetailImage">
             {" "}
-            <img src={require(`../Images/${image}`)}></img>
+            <img src={process.env.PUBLIC_URL +`/Images/${image}`}></img>
           </div>
           <div className="RoutePageContent">
             { Content &&   <div

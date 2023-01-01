@@ -6,7 +6,7 @@ import Axios from "axios";
 
 function Foodsrecipe(props) {
   const { Islogin, setIslogin } = useContext(Logininfo);
-  const URL = "http://localhost:3001";
+  const URL = "https://www.diyetisyenhaticegursul.com.tr";
 
   const handleDelete = () => {
     Axios.delete(`${URL}/Deleterecipe`, {
@@ -20,7 +20,7 @@ function Foodsrecipe(props) {
     <div className="FoodrecipeCard">
       {Islogin && (
         <div className="DeleteItemButton">
-          {" "}
+          {" "} 
           <button onClick={handleDelete}>
             <i class="fa fa-trash-o" aria-hidden="true"></i>
             Tarifi Sil
@@ -29,7 +29,7 @@ function Foodsrecipe(props) {
       )}
 
       <div className="FoodrecipeCardImage">
-        <img src={require(`../Images/${props.fotograf}`)}></img>
+        <img src={process.env.PUBLIC_URL +`/Images/${props.fotograf}`}></img>
       </div>
       <div className="FoodrecipeCardDetail">
         <Link

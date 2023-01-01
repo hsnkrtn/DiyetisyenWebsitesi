@@ -18,7 +18,7 @@ function DiyetMarketCardDetail() {
             <div className="DiyetInfo1">
               <div className="DiyetInfo1Image">
                 <img
-                  src={require(`../Images/${DiyetMarketCardInfo.state.props.DiyetMarketCartImage}`)}
+            src={process.env.PUBLIC_URL +`/Images/${DiyetMarketCardInfo.state.props.DiyetMarketCartImage}`}
                 ></img>
               </div>
               <div className="DiyetInfo1Abstract">

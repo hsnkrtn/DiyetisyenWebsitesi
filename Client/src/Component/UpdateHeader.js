@@ -3,11 +3,10 @@ import Axios from "axios";
 
 function UpdateHeader() {
   const [carouselheader, setCarouselheader] = useState("");
-  const URL = "http://localhost:3001";
+  const URL = "https://www.diyetisyenhaticegursul.com.tr";
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    alert("Güncellendi");
     updateHeader();
     CleanData();
   };
@@ -15,7 +14,11 @@ function UpdateHeader() {
   const updateHeader = () => {
     Axios.post(`${URL}/UpdateCarouselHeader`, {
       carouselheader: carouselheader,
-    }).then(() => {});
+    }).then((res) => {
+      alert(res.data);
+
+
+    });
   };
 
   const CleanData = () => {

@@ -4,16 +4,17 @@ const mysql = require("mysql");
 const cors = require("cors");
 
 multer = require("multer");
-
 var storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, "../Client/src/Images");
+    cb(null, "../Client/public/Images");
   },
   filename: function (req, file, cb) {
     cb(null, file.originalname);
   },
 });
+
 var upload = multer({ storage: storage });
+
 app.use(cors());
 app.use(express.json());
 
@@ -108,9 +109,7 @@ app.post("/PostSendmessage", (req, res) => {
     (err, response) => {
       if (err) {
         console.log(err);
-      }
-    else 
-    res.send("Mesajınız İletildi. Teşekkürler.")
+      } else res.send("Mesajınız İletildi. Teşekkürler.");
     }
   );
 });
@@ -135,13 +134,16 @@ app.get("/GetDiyetKartlari", (req, res) => {
 });
 app.post("/Getfoodcalori", (req, res) => {
   const besin = req.body.besin;
-  db.query( `SELECT * FROM diyetisyen_web_sitesi.calories WHERE calories_name REGEXP  "${besin}"` , (err, response) => {
-   if (err) {
-      console.log(err);
-    } else {
-      res.send(response);
+  db.query(
+    `SELECT * FROM diyetisyen_web_sitesi.calories WHERE calories_name REGEXP  "${besin}"`,
+    (err, response) => {
+      if (err) {
+        console.log(err);
+      } else {
+        res.send(response);
+      }
     }
-  });
+  );
 });
 ///////////////////Update Carousel Header//////////
 app.post("/UpdateCarouselHeader", (req, res) => {
@@ -177,8 +179,16 @@ app.post("/Updatecontact", (req, res) => {
 
 /////////Add Diyet///////////
 
-app.post("/uploaddiyetimage", upload.single("file"), (req, res) => {
-  res.send("Başarıyla Yüklendi");
+app.post("/uploaddiyetimage", async (req, res) => {
+  console.log(req.file);
+  try {
+    await upload.single("file")(req, res);
+    console.log(req.file);
+    res.send("basarili");
+    res.send();
+  } catch (err) {
+    res.status(400).send(err.message);
+  }
 });
 
 app.post("/addnewdiyet", (req, res) => {
@@ -196,10 +206,45 @@ app.post("/addnewdiyet", (req, res) => {
     }
   );
 });
+////////////Carousel image Upload/////////////////
+
+app.post("/upload", async (req, res) => {
+  console.log(req.file);
+  try {
+    await upload.single("file")(req, res);
+    console.log(req.file);
+    res.send("basarili");
+    res.send();
+  } catch (err) {
+    res.status(400).send(err.message);
+  }
+});
+app.post("/uploadcarouselimage", (req, res) => {
+  const newimage = req.body.newimage;
+  db.query(
+    `INSERT INTO diyetisyen_web_sitesi.carouselimages (carouselimage_name)  VALUES ("${newimage}")`,
+    (err) => {
+      if (err) {
+        console.log(err);
+      } else {
+        res.send("Başarıyla Yüklendi");
+      }
+    }
+  );
+});
+
 /////////Add Food Calori///////////
 
-app.post("/CaloriImageUpload", upload.single("file"), (req, res) => {
-  res.send("Başarıyla Yüklendi");
+app.post("/CaloriImageUpload", async (req, res) => {
+  console.log(req.file);
+  try {
+    await upload.single("file")(req, res);
+    console.log(req.file);
+    res.send("basarili");
+    res.send();
+  } catch (err) {
+    res.status(400).send(err.message);
+  }
 });
 
 app.post("/addnewfoodcalori", (req, res) => {
@@ -221,8 +266,17 @@ app.post("/addnewfoodcalori", (req, res) => {
   );
 });
 /////////Add Article///////////
-app.post("/ArticleImageUpload", upload.single("file"), (req, res) => {
-  res.send("Başarıyla Yüklendi");
+
+app.post("/ArticleImageUpload", async (req, res) => {
+  console.log(req.file);
+  try {
+    await upload.single("file")(req, res);
+    console.log(req.file);
+    res.send("basarili");
+    res.send();
+  } catch (err) {
+    res.status(400).send(err.message);
+  }
 });
 
 app.post("/addnewarticle", (req, res) => {
@@ -241,8 +295,16 @@ app.post("/addnewarticle", (req, res) => {
 });
 ///////////////Upload Recipe
 
-app.post("/RecipeImageUpload", upload.single("file"), (req, res) => {
-  res.send("Başarıyla Yüklendi");
+app.post("/RecipeImageUpload", async (req, res) => {
+  console.log(req.file);
+  try {
+    await upload.single("file")(req, res);
+    console.log(req.file);
+    res.send("basarili");
+    res.send();
+  } catch (err) {
+    res.status(400).send(err.message);
+  }
 });
 
 app.post("/addnewrecipe", (req, res) => {
@@ -318,20 +380,6 @@ app.post("/Login", (req, res) => {
     }
   });
 });
-//////////// File Upload/////////////////
-
-app.post("/upload", upload.single("file"), (req, res) => {
-  db.query(
-    `INSERT INTO diyetisyen_web_sitesi.carouselimages (carouselimage_name)  VALUES ("${req.file.filename}")`,
-    (err) => {
-      if (err) {
-        console.log(err);
-      }
-    }
-  );
-
-  res.send("Fotograf Başarıyla Yüklendi");
-});
 
 ////////////////// Delete Article////////////////////////////
 
@@ -378,7 +426,7 @@ app.delete("/Deleterecipe", (req, res) => {
     }
   );
 });
-////////////////// Delete Recipe////////////////////////////
+////////////////// Delete Carousel Image////////////////////////////
 
 app.delete("/Deletecarouselimage", (req, res) => {
   const imageid = req.body.imageid;

@@ -3,27 +3,42 @@ import { useState } from "react";
 import Axios from "axios";
 
 function UpdateImage() {
-  const URL = "http://localhost:3001";
+  const URL = "https://www.diyetisyenhaticegursul.com.tr";
+  const [newimage, setNewimage] = useState("");
+  const uploadImages = async (event) => {
+    event.preventDefault();
 
+    const fileinputform = document.getElementById("carouselfileinputform");
+    if (fileinputform) {
+      const formData = new FormData();
+      const fileInput = document.getElementById("carouselfileinput");
+      const file = fileInput.files[0];
+      formData.append("file", file);
 
-
-  const uploadImages=()=>{
-    const imageuploadform = document.getElementById("ImageUploadForm");
-    if (imageuploadform) {
-      imageuploadform.addEventListener("submit", (e) => {
-        e.preventDefault();
-        const formData = new FormData(imageuploadform);
-        Axios.post(`${URL}/upload`, formData, {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-        }).then((res)=>{
-
-            alert(res.data)
-        })
+      await Axios.post(`${URL}/upload`, formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      }).then((res) => {
+        postData();
+        document.getElementById("fileinputform").reset();
       });
+    } else {
+      alert("Fotograf Yükleme Başarısız");
     }
+  };
 
+  async function postData() {
+    try {
+      await Axios.post(`${URL}/uploadcarouselimage`, {
+        newimage: newimage,
+      }).then((res) => {
+        alert(res.data);
+        document.getElementById("carouselfileinputform").reset();
+      });
+    } catch (error) {
+      console.error(error);
+    }
   }
 
   return (
@@ -36,17 +51,21 @@ function UpdateImage() {
         Büyük resim ekleme
         <hr></hr>
       </div>
-      {/*  Carousel Fotograflari icin form  */}
       <form
-        id="ImageUploadForm"
+        id="carouselfileinputform"
         className="UpdateFileForm"
-        action={`${URL}/upload`}
-        method="post"
         enctype="multipart/form-data"
+        onSubmit={uploadImages}
       >
-        <label>Büyük Resim Ekle</label>
-        <input type="file" name="file"></input>
-        <button type="submit" onClick={uploadImages}  >Upload</button>
+        <input
+          type="file"
+          name="file"
+          id="carouselfileinput"
+          onChange={(e) => {
+            setNewimage(e.target.files[0].name);
+          }}
+        />
+        <button type="submit">Fotografı Yükle</button>
       </form>
     </div>
   );

@@ -7,7 +7,8 @@ import { useContext } from "react";
 import { Logininfo } from "../App";
 
 function ArticleCard(props) {
-  const URL = "http://localhost:3001";
+  const URL = "https://www.diyetisyenhaticegursul.com.tr";
+
   const { Islogin, setIslogin } = useContext(Logininfo);
   const articleid = props.articleid;
 
@@ -19,11 +20,11 @@ function ArticleCard(props) {
       alert(reponse.data);
     });
   };
-
+ 
   return (
     <div className="Article-card">
       <div className="Article-card-image">
-        <img src={require(`../Images/${props.articleimage}`)} />
+        <img src={process.env.PUBLIC_URL +`/Images/${props.articleimage}`} />
       </div>
       <div className="Article-card-detail">
         <Link

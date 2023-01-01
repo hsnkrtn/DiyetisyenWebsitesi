@@ -12,15 +12,19 @@ function UpdateCalories() {
   const [protein, setProtein] = useState("");
   const [biradet, setBiradet] = useState("");
   const [fotograf, setFotograf] = useState("");
-  const URL = "http://localhost:3001";
-
+  const URL = "https://www.diyetisyenhaticegursul.com.tr";
 
   const caloriImageupload = () => {
     const caloriImageform = document.getElementById("CaloriImageUploadForm");
     if (caloriImageform) {
       caloriImageform.addEventListener("submit", (e) => {
         e.preventDefault();
-        const formData = new FormData(caloriImageform);
+
+        const formData = new FormData();
+        const fileInput = document.getElementById("calorifileinput");
+        const file = fileInput.files[0];
+        formData.append("file", file);
+
         Axios.post(`${URL}/CaloriImageUpload`, formData, {
           headers: {
             "Content-Type": "multipart/form-data",
@@ -34,7 +38,7 @@ function UpdateCalories() {
   async function postData() {
     try {
       await Axios.post(`${URL}/addnewfoodcalori`, {
-        ad:ad,
+        ad: ad,
         kalori: kalori,
         karbonhidrat: karbonhidrat,
         lif: lif,
@@ -61,7 +65,7 @@ function UpdateCalories() {
         Besin Kalorisi Ekleme
         <hr></hr>
       </div>
-      <form className=" UpdateForm" id="caloridetailform"  >
+      <form className=" UpdateForm" id="caloridetailform">
         <label for="Carouselheader">Besin Adı</label>
         <input
           id="forminput1"
@@ -128,14 +132,12 @@ function UpdateCalories() {
       <form
         id="CaloriImageUploadForm"
         className="UpdateFileForm"
-        action={`${URL}/RecipeImageUpload`}
-        method="post"
         enctype="multipart/form-data"
-        target="_self"
       >
         <br></br>
         <br></br> <label>Fotograf Ekle</label>
         <input
+          id="calorifileinput"
           type="file"
           name="file"
           onChange={(e) => {
