@@ -10,13 +10,15 @@ function Uploaddiyet() {
 
   const URL = "https://www.diyetisyenhaticegursul.com.tr";
 
-
   const diyetimageupload = () => {
     const diyetimageform = document.getElementById("DiyetImageUploadForm");
     if (diyetimageform) {
       diyetimageform.addEventListener("submit", (e) => {
         e.preventDefault();
-        const formData = new FormData(diyetimageform);
+        const formData = new FormData();
+        const fileInput = document.getElementById("diyetfileinput");
+        const file = fileInput.files[0];
+        formData.append("file", file);
         Axios.post(`${URL}/uploaddiyetimage`, formData, {
           headers: {
             "Content-Type": "multipart/form-data",
@@ -102,9 +104,10 @@ function Uploaddiyet() {
         target="_self"
       >
         <br></br>
-        <br></br> 
+        <br></br>
         <label>Diyet Fotografi Ekle</label>
         <input
+          id="diyetfileinput"
           type="file"
           name="file"
           onChange={(e) => {

@@ -20,7 +20,7 @@ function Foodsrecipe(props) {
     <div className="FoodrecipeCard">
       {Islogin && (
         <div className="DeleteItemButton">
-          {" "}
+          {" "} 
           <button onClick={handleDelete}>
             <i class="fa fa-trash-o" aria-hidden="true"></i>
             Tarifi Sil

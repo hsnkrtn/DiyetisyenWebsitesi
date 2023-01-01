@@ -6,12 +6,12 @@ import Uploadimage from "./Uploadimage";
 import Login from "./Login";
 import { useContext } from "react";
 import { Logininfo } from "../App";
-import Uploadarticle from "./Uploadarticle";
 import Uploadrecipe from "./Uploadrecipe";
 import Updatecontact from "./Updatecontact";
 import Appoinmenthistory from "./Appoinmenthistory";
 import { Link } from "react-router-dom";
 import UpdateCalories from "./UpdateCalories";
+import UploadNewArticle from "./UploadNewArticle";
 
 function Admin() {
   const { Islogin, setIslogin } = useContext(Logininfo);
@@ -40,7 +40,8 @@ function Admin() {
               {" "}
               <button>Online Diyet Formları </button>{" "}
             </Link>
-            <button className="LogoutButton"
+            <button
+              className="LogoutButton"
               onClick={() => {
                 setIslogin(false);
               }}
@@ -49,9 +50,9 @@ function Admin() {
             </button>
           </div>
           <UpdateHeader></UpdateHeader>
+          <UploadNewArticle></UploadNewArticle>
           <Uploadimage></Uploadimage>
           <Uploaddiyet></Uploaddiyet>
-          <Uploadarticle></Uploadarticle>
           <Uploadrecipe></Uploadrecipe>
           <Updatecontact></Updatecontact>
           <UpdateCalories></UpdateCalories>

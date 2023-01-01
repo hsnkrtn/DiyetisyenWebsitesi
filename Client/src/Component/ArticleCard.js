@@ -8,6 +8,7 @@ import { Logininfo } from "../App";
 
 function ArticleCard(props) {
   const URL = "https://www.diyetisyenhaticegursul.com.tr";
+
   const { Islogin, setIslogin } = useContext(Logininfo);
   const articleid = props.articleid;
 

@@ -7,25 +7,33 @@ function Uploadarticle() {
   const [articledetay, setarticledetay] = useState("");
   const [articlefotograf, setarticlefotograf] = useState("");
   const [articleozet, setarticleozet] = useState("");
+
   const URL = "https://www.diyetisyenhaticegursul.com.tr";
+
 
   const articleimageupload = () => {
     const articleimageform = document.getElementById("ArticleImageUploadForm");
     if (articleimageform) {
       articleimageform.addEventListener("submit", (e) => {
         e.preventDefault();
-        const formData = new FormData(articleimageform);
+
+        const formData = new FormData();
+        const fileInput = document.getElementById("artıclefileinput");
+        const file = fileInput.files[0]; 
+        formData.append("file", file);
         Axios.post(`${URL}/ArticleImageUpload`, formData, {
           headers: {
             "Content-Type": "multipart/form-data",
           },
-        }).then(( ) => {
+        }).then(() => {
           postData();
         });
       });
     }
   };
-  async function postData() { 
+
+
+  async function postData() {
     try {
       await Axios.post(`${URL}/addnewarticle`, {
         articlebaslik: articlebaslik,
@@ -33,7 +41,7 @@ function Uploadarticle() {
         articlefotograf: articlefotograf,
         articleozet: articleozet,
       }).then((res) => {
-        alert(res.data, "Makale eklendi");
+        alert("Makale eklendi");
         document.getElementById("ArticleImageUploadForm").reset();
         document.getElementById("Articledetailform").reset();
       });
@@ -60,7 +68,10 @@ function Uploadarticle() {
           placeholder="Makale Baslığı ekle"
           required
         ></input>
-        <label for="Carouselheader">Makale Detayı ekle{ `( https://onlinehtmleditor.dev/ , https://onlineutf8tools.com/convert-html-entities-to-utf8 )`}</label>
+        <label for="Carouselheader">
+          Makale Detayı ekle
+          {`( https://onlinehtmleditor.dev/ , https://onlineutf8tools.com/convert-html-entities-to-utf8 )`}
+        </label>
 
         <input
           id="forminput2"
@@ -91,6 +102,7 @@ function Uploadarticle() {
         <br></br>
         <br></br> <label>Diyet Fotografi Ekle</label>
         <input
+          id="artıclefileinput"
           type="file"
           name="file"
           onChange={(e) => {

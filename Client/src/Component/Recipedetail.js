@@ -26,13 +26,7 @@ function Recipedetail() {
           <div className="RecipeDetailsContent">
             <div className="FoodrecipeAllDetail">
               <div className="FoodrecipeCardImage">
-                <img
-                  src={
-                    process.env.PUBLIC_URL +
-                    `/Images/
-           ${fotograf}`
-                  }
-                ></img>
+                <img src={process.env.PUBLIC_URL + `/Images/${fotograf}`}></img>
               </div>
               <div className="FoodrecipeCardDetail">
                 <div className="RecipeName">
