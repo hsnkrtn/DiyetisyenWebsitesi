@@ -1,7 +1,8 @@
 import React from "react";
 import { useState } from "react";
 import Axios from "axios";
-
+import { useContext } from "react";
+import { Logininfo } from "../App";
 function Uploadrecipe() {
   const [yemekadi, setYemekadi] = useState("");
   const [porsiyon, setPorsiyon] = useState("");
@@ -9,7 +10,7 @@ function Uploadrecipe() {
   const [kisisayisi, setKisisayisi] = useState("");
   const [tarif, setTarif] = useState("");
   const [sure, setSure] = useState("");
-  const URL = "https://www.diyetisyenhaticegursul.com.tr";
+  const { URL } = useContext(Logininfo);
 
   const recipeimageupload = () => {
     const recipeimageform = document.getElementById("RecipeImageUploadForm");
@@ -117,7 +118,7 @@ function Uploadrecipe() {
         <br></br>
         <br></br> <label>Diyet Fotografi Ekle</label>
         <input
-        id="recipefileinput"
+          id="recipefileinput"
           type="file"
           name="file"
           onChange={(e) => {

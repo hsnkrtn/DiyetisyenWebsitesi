@@ -3,11 +3,12 @@ import { useState, useEffect } from "react";
 import Axios from "axios";
 import { compose } from "redux";
 import CaloriesCard from "./CaloriesCard";
-
+import { useContext } from "react";
+import { Logininfo } from "../App";
 function Kalorihesaplama() {
   const [besin, setBesin] = useState("");
   const [besindegerleri, setbesindegerleri] = useState([]);
-  const URL = "https://www.diyetisyenhaticegursul.com.tr";
+  const { URL } = useContext(Logininfo);
 
   const handlesearch = (e) => {
     e.preventDefault();

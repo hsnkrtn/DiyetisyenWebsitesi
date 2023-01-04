@@ -1,9 +1,11 @@
 import React from "react";
 import { useState } from "react";
 import Axios from "axios";
-
+import { useContext } from "react";
+import { Logininfo } from "../App";
 function UpdateImage() {
-  const URL = "https://www.diyetisyenhaticegursul.com.tr";
+  const { URL } = useContext(Logininfo);
+
   const [newimage, setNewimage] = useState("");
   const uploadImages = async (event) => {
     event.preventDefault();

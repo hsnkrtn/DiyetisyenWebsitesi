@@ -3,11 +3,12 @@ import { useState } from "react";
 import Axios from "axios";
 import { Link } from "react-router-dom";
 import OnlineDiyetFormCards from "./OnlineDiyetFormCards";
-
+import { useContext } from "react";
+import { Logininfo } from "../App";
 function OnlinediyetFormHistory() {
   const [onlinediyetform, seronlinediyetform] = useState([]);
+const {URL}= useContext(Logininfo);
 
-  const URL = "https://www.diyetisyenhaticegursul.com.tr";
   useEffect(() => {
     Axios.get(`${URL}/GetOnlinediyetforms`).then((response) => {
       seronlinediyetform(response.data.reverse());

@@ -3,9 +3,12 @@ import { useState } from "react";
 import Axios from "axios";
 import { Link } from "react-router-dom";
 import Foodsrecipe from "./Foodsrecipe";
+import { useContext } from "react";
+import { Logininfo } from "../App";
+
 function FoodsAndCalories() {
   const [Recipes, setRecipes] = useState([]);
-  const URL = "https://www.diyetisyenhaticegursul.com.tr";
+  const { URL } = useContext(Logininfo);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -24,16 +27,15 @@ function FoodsAndCalories() {
               {Recipes.map((val, key) => {
                 return (
                   <li>
-                
-                      <Foodsrecipe  
-                        recipeId={val.recipe_id}
-                        yemek_adi={val.recipe_yemek_adi}
-                        porsiyon={val.recipe_porsiyon}
-                        kisi_sayisi={val.recipe_kisisayisi}
-                        fotograf={val.recipe_yemek_fotograf}
-                        sure={val.recipe_sure}
-                        tarif={val.recipe_tarif}
-                      ></Foodsrecipe>
+                    <Foodsrecipe
+                      recipeId={val.recipe_id}
+                      yemek_adi={val.recipe_yemek_adi}
+                      porsiyon={val.recipe_porsiyon}
+                      kisi_sayisi={val.recipe_kisisayisi}
+                      fotograf={val.recipe_yemek_fotograf}
+                      sure={val.recipe_sure}
+                      tarif={val.recipe_tarif}
+                    ></Foodsrecipe>
                   </li>
                 );
               })}

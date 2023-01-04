@@ -2,15 +2,16 @@ import React, { useState, createContext } from "react";
 import Axios from "axios";
 import { useContext } from "react";
 import { Logininfo } from "../App";
-import { useHistory } from 'react-router-dom'
+import { useHistory } from 'react-router-dom' 
 
 function Login() {
-  const URL = "https://www.diyetisyenhaticegursul.com.tr";
+
   const history = useHistory()
 
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
   const { Islogin, setIslogin } = useContext(Logininfo);
+  const {URL}= useContext(Logininfo);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -36,7 +37,7 @@ function Login() {
     });
   };
   return (
-    <div>
+    <div className="LoginPage" >
       <form className="UpdateForm" onSubmit={ handleSubmit}>
         <label for="Carouselheader">Kullanıcı Adi </label>
         <input

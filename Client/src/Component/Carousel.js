@@ -4,13 +4,12 @@ import { useState, useEffect, useRef } from "react";
 import Axios from "axios";
 import { useContext } from "react";
 import { Logininfo } from "../App";
-
 function Carousel() {
   const [Image, setImage] = useState(null);
   const [ImageNumber, setImageNumber] = useState(0);
   const [buyukbaslik, setbuyukbaslik] = useState(null);
-  const URL = "https://www.diyetisyenhaticegursul.com.tr";
   const { Islogin, setIslogin } = useContext(Logininfo);
+  const { URL } = useContext(Logininfo);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -25,7 +24,6 @@ function Carousel() {
   const getImages = async () => {
     await Axios.get(`${URL}/GetCarouselimages`).then((response) => {
       setImage(response.data.reverse());
-
     });
   };
   const GoToRightImage = () => {
@@ -41,7 +39,7 @@ function Carousel() {
 
   const handleDelete = () => {
     Axios.delete(`${URL}/Deletecarouselimage`, {
-       data: { imageid: Image[ImageNumber].carouselimage_id },
+      data: { imageid: Image[ImageNumber].carouselimage_id },
     }).then((reponse) => {
       alert(reponse.data);
     });
@@ -52,9 +50,10 @@ function Carousel() {
       {Image && (
         <div className="CarouselImages">
           <img
-  src={process.env.PUBLIC_URL +`/Images/${
-              Image[`${ImageNumber}`].carouselimage_name
-            }`}
+            src={
+              process.env.PUBLIC_URL +
+              `/Images/${Image[`${ImageNumber}`].carouselimage_name}`
+            }
           ></img>
           {Islogin && <button onClick={handleDelete}>Fotografı Sil</button>}
         </div>

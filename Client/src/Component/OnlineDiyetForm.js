@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Axios from "axios";
-
+import { useContext } from "react";
+import { Logininfo } from "../App";
 function OnlineDiyetForm() {
   const [name, setName] = useState("");
   const [emailadress, setEmailadress] = useState("");
@@ -14,9 +15,8 @@ function OnlineDiyetForm() {
   const [araogunsayiyi, setAraogunsayisi] = useState("");
   const [meslek, setMeslek] = useState("");
   const [mesaj, setMesaj] = useState("");
-  const URL = "https://www.diyetisyenhaticegursul.com.tr";
 
-
+  const { URL } = useContext(Logininfo);
 
   const FormData = () => {
     Axios.post(`${URL}/PostOnlineDiyet`, {
@@ -34,19 +34,16 @@ function OnlineDiyetForm() {
       mesaj: mesaj,
     }).then((res) => {
       alert(res.data);
-
     });
   };
-    const handleSubmit = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     FormData();
     cleanformdata();
   };
-const cleanformdata = ()=>{
-
-      document.getElementById("onlinedyt").reset();
-
-}
+  const cleanformdata = () => {
+    document.getElementById("onlinedyt").reset();
+  };
   return (
     <div className="OnlineDiyet">
       <div className="default-routepage-header"></div>
@@ -55,7 +52,7 @@ const cleanformdata = ()=>{
           <h1 className="RoutepageHeader">Online Diyet</h1>
           <div className="OnlineDiyetForm">
             {" "}
-            <form id="onlinedyt" onSubmit={handleSubmit}   >
+            <form id="onlinedyt" onSubmit={handleSubmit}>
               <label for="fname">Adınız Soyadınız*</label>
               <input
                 type="text"

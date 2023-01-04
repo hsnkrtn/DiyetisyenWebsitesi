@@ -4,10 +4,13 @@ import Axios from "axios";
 import { Link } from "react-router-dom";
 
 import ArticleCard from "./ArticleCard";
+import { useContext } from "react";
+import { Logininfo } from "../App";
 
 function Allarticles() {
   const [Makaleler, setMakaleler] = useState([]);
-  const URL = "https://www.diyetisyenhaticegursul.com.tr";
+  const { URL } = useContext(Logininfo);
+
   useEffect(() => {
     window.scrollTo(0, 0);
     Axios.get(`${URL}/GetMakaleler`).then((reponse) =>
@@ -23,15 +26,14 @@ function Allarticles() {
           <ul className="ArticleCardList">
             {Makaleler.map((val, key) => {
               return (
-                <li key={val.article_id} >
-            
-                    <ArticleCard
-                      articleid={val.article_id}
-                      articleheader={val.article_header}
-                      articledetail={val.article_detail}
-                      articleimage={val.article_image}
-                      articleabstract={val.article_abstract}
-                    ></ArticleCard>{" "}
+                <li key={val.article_id}>
+                  <ArticleCard
+                    articleid={val.article_id}
+                    articleheader={val.article_header}
+                    articledetail={val.article_detail}
+                    articleimage={val.article_image}
+                    articleabstract={val.article_abstract}
+                  ></ArticleCard>{" "}
                 </li>
               );
             })}

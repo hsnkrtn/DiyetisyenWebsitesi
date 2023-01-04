@@ -2,11 +2,12 @@ import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import Axios from "axios";
 import { useState } from "react";
-
+import { useContext } from "react";
+import { Logininfo } from "../App";
 function Footer() {
   const [Informations, setInformations] = useState(null);
+  const { URL } = useContext(Logininfo);
 
-  const URL = "https://www.diyetisyenhaticegursul.com.tr";
   useEffect(() => {
     getContactInformations();
   }, []);
@@ -48,7 +49,8 @@ function Footer() {
       {Informations && (
         <div className="Footerinfo">
           <p>
-            {`${Informations[0].informations_email}`}&nbsp;|&nbsp;Designed by H.Kurtini{" "}
+            {`${Informations[0].informations_email}`}&nbsp;|&nbsp;Designed by
+            H.Kurtini{" "}
           </p>
         </div>
       )}

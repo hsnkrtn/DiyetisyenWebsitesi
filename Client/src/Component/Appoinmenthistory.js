@@ -4,11 +4,13 @@ import Axios from "axios";
 import { Link } from "react-router-dom";
 
 import Appointmenthistorycards from "./Appointmenthistorycards";
+import { useContext } from "react";
+import { Logininfo } from "../App";
 
 function Appoinmenthistory() {
   const [appointments, setappointments] = useState([]);
+  const { URL } = useContext(Logininfo);
 
-  const URL = "https://www.diyetisyenhaticegursul.com.tr";
   useEffect(() => {
     Axios.get(`${URL}/GetAppointments`).then((response) => {
       setappointments(response.data.reverse());
