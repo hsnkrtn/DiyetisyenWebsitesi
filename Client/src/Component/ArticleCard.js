@@ -5,26 +5,24 @@ import Axios from "axios";
 
 import { useContext } from "react";
 import { Logininfo } from "../App";
-
 function ArticleCard(props) {
-  const URL = "https://www.diyetisyenhaticegursul.com.tr";
+  const { URL } = useContext(Logininfo);
 
   const { Islogin, setIslogin } = useContext(Logininfo);
   const articleid = props.articleid;
 
   const handleDelete = () => {
     Axios.delete(`${URL}/DeleteMakale`, {
-
-      data:{  articleid: articleid } 
+      data: { articleid: articleid },
     }).then((reponse) => {
       alert(reponse.data);
     });
   };
- 
+
   return (
     <div className="Article-card">
       <div className="Article-card-image">
-        <img src={process.env.PUBLIC_URL +`/Images/${props.articleimage}`} />
+        <img src={process.env.PUBLIC_URL + `/Images/${props.articleimage}`} />
       </div>
       <div className="Article-card-detail">
         <Link

@@ -1,14 +1,14 @@
 import { useState } from "react";
 import Axios from "axios";
-
+import { useContext } from "react";
+import { Logininfo } from "../App";
 function Uploaddiyet() {
   const [diyetbaslik, setDiyetbaslik] = useState("");
   const [diyetdetay, setDiyetdetay] = useState("");
   const [diyetfotograf, setDiyetfotograf] = useState("");
   const [diyetozet, setDiyetozet] = useState("");
   const [diyetfiyat, setDiyetfiyat] = useState("");
-
-  const URL = "https://www.diyetisyenhaticegursul.com.tr";
+  const { URL } = useContext(Logininfo);
 
   const diyetimageupload = () => {
     const diyetimageform = document.getElementById("DiyetImageUploadForm");

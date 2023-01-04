@@ -3,10 +3,11 @@ import DiyetMarketCard from "./DiyetMarketCard";
 import { Link } from "react-router-dom";
 import Axios from "axios";
 import { useState, useEffect } from "react";
-
+import { useContext } from "react";
+import { Logininfo } from "../App";
 function Dİyetmarket() {
   const [Diyetkart, setDiyetkart] = useState([]);
-  const URL = "https://www.diyetisyenhaticegursul.com.tr";
+  const { URL } = useContext(Logininfo);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -21,12 +22,14 @@ function Dİyetmarket() {
       <div className="Routepage-inner">
         <div className="Routepage-inner-content">
           <div className="DiyetMarketPage">
-            <div><h1 className="RoutepageHeader"> Diyetler</h1></div>
+            <div>
+              <h1 className="RoutepageHeader"> Diyetler</h1>
+            </div>
             <div className="DiyetMarketPageCards">
               <ul>
                 {Diyetkart.map((val, key) => {
                   return (
-                    <li>  
+                    <li>
                       <DiyetMarketCard
                         DiyetMarketCartId={val.diyet_id}
                         DiyetMarketCartHeader={val.diyet_baslik}

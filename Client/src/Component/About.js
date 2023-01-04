@@ -1,12 +1,16 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
 import Axios from "axios";
+import { useContext } from "react";
+import { Logininfo } from "../App";
+
 
 function About() {
   const [Hakkimizda, setHakkimizda] = useState([]);
+  const {URL}= useContext(Logininfo);
 
-  const URL = "https://www.diyetisyenhaticegursul.com.tr";
   useEffect(() => {
+    
     Axios.get(`${URL}/GetHakkimizda`).then((response) => {
       setHakkimizda(response.data);
     });
@@ -25,7 +29,11 @@ function About() {
             return (
               <>
                 <div className="AboutUsImage">
-                  <img src={process.env.PUBLIC_URL +`/Images/${val.aboutus_image}`}></img>
+                  <img
+                    src={
+                      process.env.PUBLIC_URL + `/Images/${val.aboutus_image}`
+                    }
+                  ></img>
                 </div>
                 <div className="AboutUsContent">
                   <div

@@ -1,9 +1,11 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
 import Axios from "axios";
+import { useContext } from "react";
+import { Logininfo } from "../App";
 function Contactpage() {
   const [Informations, setInformations] = useState(null);
-  const URL = "https://www.diyetisyenhaticegursul.com.tr";
+  const { URL } = useContext(Logininfo);
 
   useEffect(() => {
     window.scrollTo(0, 0);

@@ -1,15 +1,15 @@
 import React from "react";
 import { useState } from "react";
 import Axios from "axios";
-
+import { useContext } from "react";
+import { Logininfo } from "../App";
 function Uploadarticle() {
   const [articlebaslik, setarticlebaslik] = useState("");
   const [articledetay, setarticledetay] = useState("");
   const [articlefotograf, setarticlefotograf] = useState("");
   const [articleozet, setarticleozet] = useState("");
 
-  const URL = "https://www.diyetisyenhaticegursul.com.tr";
-
+  const { URL } = useContext(Logininfo);
 
   const articleimageupload = () => {
     const articleimageform = document.getElementById("ArticleImageUploadForm");
@@ -19,7 +19,7 @@ function Uploadarticle() {
 
         const formData = new FormData();
         const fileInput = document.getElementById("artıclefileinput");
-        const file = fileInput.files[0]; 
+        const file = fileInput.files[0];
         formData.append("file", file);
         Axios.post(`${URL}/ArticleImageUpload`, formData, {
           headers: {
@@ -31,7 +31,6 @@ function Uploadarticle() {
       });
     }
   };
-
 
   async function postData() {
     try {

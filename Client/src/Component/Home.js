@@ -15,13 +15,11 @@ function Home() {
   }, [])
   return (
     <div>
-      <NavigationBar></NavigationBar>
       <Carousel></Carousel>
       <Diyetmarket></Diyetmarket>
       <Articles></Articles>
       <Calculations></Calculations>
       <Appointment></Appointment>
-      <Footer></Footer>
     </div>
   );
 }

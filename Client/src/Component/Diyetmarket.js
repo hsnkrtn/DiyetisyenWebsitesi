@@ -3,10 +3,11 @@ import { Link } from "react-router-dom";
 import DiyetMarketCard from "./DiyetMarketCard";
 import Axios from "axios";
 import { useState, useEffect } from "react";
-
+import { useContext } from "react";
+import { Logininfo } from "../App";
 function Diyetmarket() {
   const [Diyetkart, setDiyetkart] = useState([]);
-  const URL = "https://www.diyetisyenhaticegursul.com.tr";
+  const { URL } = useContext(Logininfo);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -16,14 +17,18 @@ function Diyetmarket() {
   }, []);
 
   const RightClick = () => {
-    document.getElementById("DytMrkt").scrollLeft += 350;
+    setTimeout(function () {
+      document.getElementById("DytMrkt").scrollLeft += 350;
+    }, 500);
   };
   const LeftClick = () => {
-    document.getElementById("DytMrkt").scrollLeft -= 350;
+    setTimeout(function () {
+      document.getElementById("DytMrkt").scrollLeft -= 350;
+    }, 500);
   };
 
   return (
-    <div>
+    <>
       <div className="DiyetMarketHeader">
         {" "}
         <h1>Diyetler</h1>
@@ -60,7 +65,7 @@ function Diyetmarket() {
           </span>
         </div>
       </div>{" "}
-    </div>
+    </>
   );
 }
 

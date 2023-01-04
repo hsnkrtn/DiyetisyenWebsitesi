@@ -3,10 +3,11 @@ import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import Axios from "axios";
 import "../app.css";
-
+import { useContext } from "react";
+import { Logininfo } from "../App";
 function NavigationBar() {
   const [Informations, setInformations] = useState(null);
-  const URL = "https://www.diyetisyenhaticegursul.com.tr";
+  const { URL } = useContext(Logininfo);
 
   const [ShowMenu, setShowMenu] = useState(false);
 
@@ -22,54 +23,58 @@ function NavigationBar() {
   };
 
   return (
-      <div className="NavigationBar ">
-        {Informations && (
-          <div className="Header">
-            <p>
-              Telefon ile Randevu Alın :{" "}
+    <div className="NavigationBar ">
+      {Informations && (
+        <div className="Header">
+          <p>
+            Telefon ile Randevu Alın :{" "}
+            <a
+              href={`tel:${Informations[0].informations_phone}`}
+            >{`${Informations[0].informations_phone}`}</a>
+          </p>
+          <p>
+            Sosyal medya : &nbsp;
+            <span>
               <a
-                href={`tel:${Informations[0].informations_phone}`}
-              >{`${Informations[0].informations_phone}`}</a>
-            </p>
-            <p>
-              Sosyal medya : &nbsp;
-              <span>
-                <a
-                  href={`https://www.instagram.com/${Informations[0].informations_instagram}/`}
-                  target="_blank"
-                >
-                  <i class="fa fa-instagram"></i>
-                </a>
-              </span>
-            </p>
-            
-          </div>
-          
-        )}
-        <div className="WebsiteOwnerName">
-          
-          <div className="WebsiteOwnerNameContent">
-            <Link to="/" onClick={()=>{    window.scrollTo(0, 0);
-}}>
-              {" "}
-              <img src={process.env.PUBLIC_URL + "Images/haticegursul.jpg"} />{" "}
-              <h1> Hatice Gürsul</h1>{" "}
-              
-            </Link>
-          </div>
-          
+                href={`https://www.instagram.com/${Informations[0].informations_instagram}/`}
+                target="_blank"
+              >
+                <i class="fa fa-instagram"></i>
+              </a>
+            </span>
+          </p>
         </div>
-        <button
-          className="MenuButton"
-          onClick={() => {
-            setShowMenu((prevShowmenu) => !prevShowmenu);
-          }}
-        >
-          <span>
-            <i class="fa fa-bars" aria-hidden="true"></i>
-          </span>
-        </button>
-        <div      className={ShowMenu ? "ShowNavigationList" : "CurrentNavigationList"} >
+      )}
+      <div className="WebsiteOwnerName">
+        <div className="WebsiteOwnerNameContent">
+          <Link
+            to="/"
+            onClick={() => {
+              window.scrollTo(0, 0);
+            }}
+          >
+            {" "}
+            <img
+              src={process.env.PUBLIC_URL + `Images/haticegursul.jpg`}
+            />{" "}
+            <h1> Hatice Gürsul</h1>{" "}
+          </Link>
+        </div>
+        {/* ${Informations[0].informations_image} */}
+      </div>
+      <button
+        className="MenuButton"
+        onClick={() => {
+          setShowMenu((prevShowmenu) => !prevShowmenu);
+        }}
+      >
+        <span>
+          <i class="fa fa-bars" aria-hidden="true"></i>
+        </span>
+      </button>
+      <div
+        className={ShowMenu ? "ShowNavigationList" : "CurrentNavigationList"}
+      >
         <hr></hr>
 
         <ul>
@@ -123,9 +128,8 @@ function NavigationBar() {
             </Link>
           </li>
         </ul>
-
       </div>
-      </div>
+    </div>
   );
 }
 

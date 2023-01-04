@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Axios from "axios";
-
+import { useContext } from "react";
+import { Logininfo } from "../App";
 function Appointment() {
   const [name, setName] = useState("");
   const [emailadress, setEmailadress] = useState("");
   const [subject, setSubject] = useState("");
   const [message, setMessage] = useState("");
-  const URL = "https://www.diyetisyenhaticegursul.com.tr";
+  const { URL } = useContext(Logininfo);
 
   const sendData = () => {
     Axios.post(`${URL}/PostSendmessage`, {

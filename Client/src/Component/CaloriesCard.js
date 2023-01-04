@@ -2,10 +2,9 @@ import Axios from "axios";
 import React from "react";
 import { useContext } from "react";
 import { Logininfo } from "../App";
-
 function CaloriesCard(props) {
   const { Islogin, setIslogin } = useContext(Logininfo);
-  const URL = "https://www.diyetisyenhaticegursul.com.tr";
+  const { URL } = useContext(Logininfo);
 
   const foodid = props.besindegerleri.calories_id;
 
@@ -111,7 +110,10 @@ function CaloriesCard(props) {
       </div>
       <div className="BesinDegerleriResim">
         <img
-        src={process.env.PUBLIC_URL +`/Images/${props.besindegerleri.calories_image}`}
+          src={
+            process.env.PUBLIC_URL +
+            `/Images/${props.besindegerleri.calories_image}`
+          }
         ></img>
       </div>
     </div>

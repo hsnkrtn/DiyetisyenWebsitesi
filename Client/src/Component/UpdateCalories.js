@@ -2,7 +2,8 @@ import React from "react";
 import { useState } from "react";
 import Axios from "axios";
 import axios from "axios";
-
+import { useContext } from "react";
+import { Logininfo } from "../App";
 function UpdateCalories() {
   const [ad, setAd] = useState("");
   const [kalori, setKalori] = useState("");
@@ -12,7 +13,7 @@ function UpdateCalories() {
   const [protein, setProtein] = useState("");
   const [biradet, setBiradet] = useState("");
   const [fotograf, setFotograf] = useState("");
-  const URL = "https://www.diyetisyenhaticegursul.com.tr";
+  const { URL } = useContext(Logininfo);
 
   const caloriImageupload = () => {
     const caloriImageform = document.getElementById("CaloriImageUploadForm");

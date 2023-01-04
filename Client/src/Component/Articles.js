@@ -3,9 +3,11 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Axios from "axios";
 import ArticleCard from "./ArticleCard";
+import { useContext } from "react";
+import { Logininfo } from "../App";
 function Articles() {
   const [Makaleler, setMakaleler] = useState([]);
-  const URL = "https://www.diyetisyenhaticegursul.com.tr";
+  const { URL } = useContext(Logininfo);
 
   useEffect(() => {
     Axios.get(`${URL}/GetMakaleler`).then((reponse) =>
@@ -29,7 +31,7 @@ function Articles() {
                     articledetail={val.article_detail}
                     articleimage={val.article_image}
                     articleabstract={val.article_abstract}
-                    ></ArticleCard>{" "}
+                  ></ArticleCard>{" "}
                 </li>
               );
             })}

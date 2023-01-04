@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import Axios from "axios";
-
+import { useContext } from "react";
+import { Logininfo } from "../App";
 function UpdateHeader() {
   const [carouselheader, setCarouselheader] = useState("");
-  const URL = "https://www.diyetisyenhaticegursul.com.tr";
+  const { URL } = useContext(Logininfo);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -16,8 +17,6 @@ function UpdateHeader() {
       carouselheader: carouselheader,
     }).then((res) => {
       alert(res.data);
-
-
     });
   };
 
@@ -26,7 +25,7 @@ function UpdateHeader() {
   };
 
   return (
-    <div className="UpdateComponent" >
+    <div className="UpdateComponent">
       <div>
         <br></br>
         <br></br>
@@ -35,7 +34,11 @@ function UpdateHeader() {
         <hr></hr>
       </div>
       {/*  Carousel basligi icin */}
-      <form  className=" UpdateForm" id="Carouselheaderid" onSubmit={handleSubmit}>
+      <form
+        className=" UpdateForm"
+        id="Carouselheaderid"
+        onSubmit={handleSubmit}
+      >
         <label for="Carouselheader">Yeni Başlık </label>
         <input
           type="inputtext"

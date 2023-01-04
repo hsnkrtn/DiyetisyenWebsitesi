@@ -6,7 +6,7 @@ import Axios from "axios";
 
 function DiyetMarketCard(props) {
   const { Islogin, setIslogin } = useContext(Logininfo);
-  const URL = "https://www.diyetisyenhaticegursul.com.tr";
+  const { URL } = useContext(Logininfo);
 
   const handleDelete = () => {
     Axios.delete(`${URL}/DeleteDiyet`, {
@@ -29,7 +29,9 @@ function DiyetMarketCard(props) {
         </div>
       )}
       <div className="DiyetCardImage">
-        <img src={process.env.PUBLIC_URL +`/Images/${props.DiyetMarketCartImage}`}></img>
+        <img
+          src={process.env.PUBLIC_URL + `/Images/${props.DiyetMarketCartImage}`}
+        ></img>
       </div>
 
       <div className="DiyetCardDetail">
@@ -49,7 +51,7 @@ function DiyetMarketCard(props) {
         <div className="DiyetCardButton">
           <Link
             to={{
-              pathname: `/DiyetDetayi/${props.DiyetMarketCartId}`,
+              pathname: `/DiyetDetayi/${props.DiyetMarketCartHeader}`,
               state: { props },
             }}
           >

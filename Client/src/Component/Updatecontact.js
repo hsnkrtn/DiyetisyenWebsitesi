@@ -1,7 +1,8 @@
 import React from "react";
 import Axios from "axios";
 import { useState } from "react";
-
+import { useContext } from "react";
+import { Logininfo } from "../App";
 function Updatecontact() {
   const [adress, setAdress] = useState("");
   const [linkadress, setLinkdress] = useState("");
@@ -9,7 +10,7 @@ function Updatecontact() {
   const [whatsapp, setWhatsapp] = useState("");
   const [email, setEmail] = useState("");
   const [instagram, setInstagram] = useState("");
-  const URL = "https://www.diyetisyenhaticegursul.com.tr";
+  const { URL } = useContext(Logininfo);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -22,7 +23,7 @@ function Updatecontact() {
         adress: adress,
         phone: phone,
         whatsapp: whatsapp,
-        linkadress:linkadress,
+        linkadress: linkadress,
         email: email,
         instagram: instagram,
       }).then((res) => {
@@ -41,7 +42,7 @@ function Updatecontact() {
         <br></br>
         <br></br>
         İletişim Bilgilerini Güncelleme
-        <hr></hr> 
+        <hr></hr>
       </div>{" "}
       <form
         className=" UpdateForm"
@@ -56,7 +57,7 @@ function Updatecontact() {
           placeholder="Adresi Güncelle"
           required
         ></input>
-      
+
         <label for="Carouselheader">Link Adresini Güncelle</label>
         <input
           id="forminput1"
