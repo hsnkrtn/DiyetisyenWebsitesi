@@ -5,11 +5,13 @@ import { Logininfo } from "../App";
 function UpdateHeader() {
   const [carouselheader, setCarouselheader] = useState("");
   const { URL } = useContext(Logininfo);
+  const [isDisabled, setIsDisabled] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     updateHeader();
     CleanData();
+
   };
 
   const updateHeader = () => {
@@ -17,6 +19,8 @@ function UpdateHeader() {
       carouselheader: carouselheader,
     }).then((res) => {
       alert(res.data);
+      setIsDisabled(true);
+
     });
   };
 
@@ -47,7 +51,7 @@ function UpdateHeader() {
           placeholder=" Yeni Başlık"
           required
         ></input>
-        <input className="SubmitButton" type="submit" value="Güncelle"></input>
+        <input className="SubmitButton" type="submit" value="Güncelle" disabled={isDisabled}></input>
       </form>
     </div>
   );

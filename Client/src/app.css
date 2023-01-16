@@ -2,8 +2,35 @@ html {
     scroll-behavior: smooth;
 }
 
-.NavigationBar {
+@keyframes cardanimation {
+    0% {
+        transform: translateY(100px);
+        opacity: 0;
+    }
 
+    100% {
+        transform: translateY(0px);
+        opacity: 1;
+    }
+
+}
+
+@keyframes Navbaranimation {
+    0% {
+        transform: translateY(-100px);
+    }
+
+    100% {
+        transform: translateY(0px);
+        opacity: 1;
+    }
+
+}
+
+
+.NavigationBar {
+animation: Navbaranimation;
+animation-duration: 2s;
     display: flex;
     flex-direction: column;
     position: fixed;
@@ -13,7 +40,6 @@ html {
     background-color: #FFFFFd;
     box-shadow: 0px 10px 10px 4px rgba(0, 0, 0, 0.15);
 
-
 }
 
 hr {
@@ -21,6 +47,22 @@ hr {
     height: 1px;
     background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgb(34, 139, 34, 0.80), rgba(0, 0, 0, 0));
 }
+
+@keyframes listanimation {
+    0% {
+        transform: translateY(-80px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0px);
+
+        opacity: 1;
+    }
+
+
+}
+
 
 
 .CurrentNavigationList ul {
@@ -175,6 +217,8 @@ hr {
     justify-content: center;
     width: 100%;
     height: 100%;
+    animation: cardanimation;
+    animation-duration: 2s;
 }
 
 .CarouselImages img {
@@ -316,6 +360,8 @@ hr {
     box-shadow: 0px 10px 10px 4px rgba(0, 0, 0, 0.25);
     border-radius: 15px;
     transition: all 500ms cubic-bezier(0.77, 0, 0.175, 1);
+    animation: cardanimation;
+    animation-duration: 2s;
 
 }
 
@@ -366,7 +412,7 @@ hr {
 }
 
 .Article-card-detail p {
-    font-size: 16px;
+    font-size: 12px;
     padding: 0px 10px 0px 10px;
     color: black;
 }
@@ -1167,7 +1213,8 @@ input[type=password] {
     background-color: white;
     border-radius: 10px;
     box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.25);
-
+    animation: cardanimation;
+    animation-duration: 2s;
 }
 
 
@@ -1361,7 +1408,8 @@ input[type=password] {
     background-color: white;
     flex-direction: column;
     box-shadow: 0px 10px 4px rgba(0, 0, 0, 0.25);
-
+    animation: cardanimation;
+    animation-duration: 2s;
 
 }
 
@@ -1899,13 +1947,13 @@ th {
 
 @media only screen and (max-width: 600px) {
     .NavigationBar {
-
+   
         display: flex;
         justify-content: center;
         flex-direction: column;
         height: fit-content;
         transition: all 500ms cubic-bezier(0.77, 0, 0.175, 1);
-
+        z-index: 5;
     }
 
 
@@ -1939,7 +1987,8 @@ th {
         display: flex;
         flex-direction: column;
         list-style-type: none;
-
+        animation: listanimation;
+        animation-duration: 2s;
 
     }
 
@@ -1950,10 +1999,11 @@ th {
 
 
     .Header {
+
         display: flex;
         flex-direction: row;
         justify-content: space-around;
-        background-color: transparent;
+        /* background-color: transparent; */
         height: fit-content;
 
     }
@@ -1969,7 +2019,7 @@ th {
 
 
     .Header a {
-        font-size: 12px;
+        font-size: 14px;
         text-decoration: none;
     }
 

@@ -11,8 +11,11 @@ function Updatecontact() {
   const [email, setEmail] = useState("");
   const [instagram, setInstagram] = useState("");
   const { URL } = useContext(Logininfo);
+  const [isDisabled, setIsDisabled] = useState(false);
 
   const handleSubmit = (e) => {
+    setIsDisabled(true);
+
     e.preventDefault();
     postData();
   };
@@ -27,6 +30,7 @@ function Updatecontact() {
         email: email,
         instagram: instagram,
       }).then((res) => {
+        setIsDisabled(true);
         alert(res.data);
         document.getElementById("UpdateContactForm").reset();
       });
@@ -103,7 +107,9 @@ function Updatecontact() {
           placeholder="E-Posta Adresini Güncelle"
           required
         ></input>
-        <button type="submit">Bilgileri Güncelle</button>
+        <button type="submit" disabled={isDisabled}>
+          Bilgileri Güncelle
+        </button>
       </form>{" "}
     </div>
   );

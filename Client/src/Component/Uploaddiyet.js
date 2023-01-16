@@ -9,11 +9,14 @@ function Uploaddiyet() {
   const [diyetozet, setDiyetozet] = useState("");
   const [diyetfiyat, setDiyetfiyat] = useState("");
   const { URL } = useContext(Logininfo);
+  const [isDisabled, setIsDisabled] = useState(false);
 
   const diyetimageupload = () => {
     const diyetimageform = document.getElementById("DiyetImageUploadForm");
     if (diyetimageform) {
       diyetimageform.addEventListener("submit", (e) => {
+        setIsDisabled(true);
+
         e.preventDefault();
         const formData = new FormData();
         const fileInput = document.getElementById("diyetfileinput");
@@ -114,7 +117,9 @@ function Uploaddiyet() {
             setDiyetfotograf(e.target.files[0].name);
           }}
         ></input>
-        <button onClick={diyetimageupload}>Diyeti Ekle</button>
+        <button onClick={diyetimageupload} disabled={isDisabled}>
+          Diyeti Ekle
+        </button>
       </form>
     </div>
   );

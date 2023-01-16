@@ -11,12 +11,15 @@ function Uploadrecipe() {
   const [tarif, setTarif] = useState("");
   const [sure, setSure] = useState("");
   const { URL } = useContext(Logininfo);
+  const [isDisabled, setIsDisabled] = useState(false);
 
   const recipeimageupload = () => {
     const recipeimageform = document.getElementById("RecipeImageUploadForm");
+
     if (recipeimageform) {
       recipeimageform.addEventListener("submit", (e) => {
         e.preventDefault();
+        setIsDisabled(true);
 
         const formData = new FormData();
         const fileInput = document.getElementById("recipefileinput");
@@ -125,7 +128,9 @@ function Uploadrecipe() {
             setTariffotograf(e.target.files[0].name);
           }}
         ></input>
-        <button onClick={recipeimageupload}>Tarifi Ekle</button>
+        <button onClick={recipeimageupload} disabled={isDisabled}>
+          Tarifi Ekle
+        </button>
       </form>
     </div>
   );

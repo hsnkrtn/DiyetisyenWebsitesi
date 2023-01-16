@@ -8,13 +8,17 @@ function Uploadarticle() {
   const [articledetay, setarticledetay] = useState("");
   const [articlefotograf, setarticlefotograf] = useState("");
   const [articleozet, setarticleozet] = useState("");
+  const [isDisabled, setIsDisabled] = useState(false);
 
   const { URL } = useContext(Logininfo);
 
   const articleimageupload = () => {
+
     const articleimageform = document.getElementById("ArticleImageUploadForm");
     if (articleimageform) {
       articleimageform.addEventListener("submit", (e) => {
+        setIsDisabled(true);
+
         e.preventDefault();
 
         const formData = new FormData();
@@ -108,7 +112,9 @@ function Uploadarticle() {
             setarticlefotograf(e.target.files[0].name);
           }}
         ></input>
-        <button onClick={articleimageupload}>Makaleyi Ekle</button>
+        <button onClick={articleimageupload} disabled={isDisabled}>
+          Makaleyi Ekle
+        </button>
       </form>
     </div>
   );

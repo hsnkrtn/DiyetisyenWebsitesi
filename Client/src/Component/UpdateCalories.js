@@ -14,11 +14,14 @@ function UpdateCalories() {
   const [biradet, setBiradet] = useState("");
   const [fotograf, setFotograf] = useState("");
   const { URL } = useContext(Logininfo);
+  const [isDisabled, setIsDisabled] = useState(false);
 
   const caloriImageupload = () => {
     const caloriImageform = document.getElementById("CaloriImageUploadForm");
     if (caloriImageform) {
       caloriImageform.addEventListener("submit", (e) => {
+        setIsDisabled(true);
+
         e.preventDefault();
 
         const formData = new FormData();
@@ -145,7 +148,9 @@ function UpdateCalories() {
             setFotograf(e.target.files[0].name);
           }}
         ></input>
-        <button onClick={caloriImageupload}>Ekle</button>
+        <button onClick={caloriImageupload} disabled={isDisabled}>
+          Ekle
+        </button>
       </form>
     </div>
   );

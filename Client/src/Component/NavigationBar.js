@@ -27,7 +27,7 @@ function NavigationBar() {
       {Informations && (
         <div className="Header">
           <p>
-            Telefon ile Randevu Alın :{" "}
+            Randevu Numarası:{" "}
             <a
               href={`tel:${Informations[0].informations_phone}`}
             >{`${Informations[0].informations_phone}`}</a>
@@ -78,7 +78,11 @@ function NavigationBar() {
         <hr></hr>
 
         <ul>
-          <li>
+          <li
+            onClick={() => {
+              setShowMenu(false);
+            }}
+          >
             <Link to="/">
               <span>
                 <i class="fa fa-home" aria-hidden="true"></i> &nbsp;
@@ -87,7 +91,12 @@ function NavigationBar() {
             </Link>
           </li>
 
-          <li>
+          <li
+            onClick={() => {
+              setShowMenu(false);
+            }}
+          >
+            {" "}
             <Link to="/Hakkimizda">
               <span>
                 <i class="fa fa-newspaper-o" aria-hidden="true"></i>&nbsp;
@@ -95,7 +104,11 @@ function NavigationBar() {
               Hakkımızda
             </Link>
           </li>
-          <li>
+          <li
+            onClick={() => {
+              setShowMenu(false);
+            }}
+          >
             <Link to="/Makaleler">
               <span>
                 <i class="fa fa-book" aria-hidden="true"></i>&nbsp;
@@ -103,7 +116,11 @@ function NavigationBar() {
               Makaleler
             </Link>
           </li>
-          <li>
+          <li
+            onClick={() => {
+              setShowMenu(false);
+            }}
+          >
             <Link to="/Yediklerimizvekaloriler">
               <span>
                 <i class="fa fa-heartbeat" aria-hidden="true"></i>&nbsp;
@@ -111,7 +128,11 @@ function NavigationBar() {
               Tarifler
             </Link>
           </li>
-          <li>
+          <li
+            onClick={() => {
+              setShowMenu(false);
+            }}
+          >
             <Link to="/Diyetmarket">
               <span>
                 <i class="fa fa-shopping-cart" aria-hidden="true"></i>&nbsp;
@@ -119,7 +140,11 @@ function NavigationBar() {
               Diyet Market
             </Link>
           </li>
-          <li>
+          <li
+            onClick={() => {
+              setShowMenu(false);
+            }}
+          >
             <Link to="/Iletisim">
               <span>
                 <i class="fa fa-phone" aria-hidden="true"></i>&nbsp;
